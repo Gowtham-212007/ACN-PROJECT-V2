@@ -1,0 +1,42 @@
+============================================================
+k-Nearest Neighbors (k=5) | test size=0.6 | Kernel PCA rbf, nComp=5
+============================================================
+Training samples: 400   Testing samples: 600
+
+CONFUSION MATRIX:
+[[403   1  10   0   5   0   0   7   2   0   3]
+ [  7   2   1   0   0   0   0   0   0   0   0]
+ [ 10   2  88   0   0   0   0   0   0   0   0]
+ [  2   0   0   6   0   0   0   0   0   0   0]
+ [  5   0   1   0   2   0   0   0   0   0   0]
+ [  5   0   0   0   0   4   0   0   0   0   0]
+ [  2   0   0   0   0   0   4   0   0   0   0]
+ [  2   0   0   0   0   0   0   7   0   0   0]
+ [  0   0   0   0   0   0   0   3   1   0   3]
+ [  4   0   0   0   0   0   0   2   0   0   0]
+ [  0   0   0   0   0   0   0   0   2   0   4]]
+
+Accuracy  : 0.8683
+Precision : 0.8653
+Recall    : 0.8683
+F1        : 0.8625
+
+CLASSIFICATION REPORT:
+                            precision    recall  f1-score   support
+
+                    BENIGN       0.92      0.94      0.93       431
+             DoS GoldenEye       0.40      0.20      0.27        10
+                  DoS Hulk       0.88      0.88      0.88       100
+          DoS Slowhttptest       1.00      0.75      0.86         8
+             DoS slowloris       0.29      0.25      0.27         8
+               FTP-Patator       1.00      0.44      0.62         9
+                Heartbleed       1.00      0.67      0.80         6
+               SSH-Patator       0.37      0.78      0.50         9
+  Web Attack - Brute Force       0.20      0.14      0.17         7
+Web Attack - Sql Injection       0.00      0.00      0.00         6
+          Web Attack - XSS       0.40      0.67      0.50         6
+
+                  accuracy                           0.87       600
+                 macro avg       0.59      0.52      0.53       600
+              weighted avg       0.87      0.87      0.86       600
+

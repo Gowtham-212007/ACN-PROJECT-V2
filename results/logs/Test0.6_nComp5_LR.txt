@@ -1,0 +1,42 @@
+============================================================
+Logistic Regression | test size=0.6 | Kernel PCA rbf, nComp=5
+============================================================
+Training samples: 400   Testing samples: 600
+
+CONFUSION MATRIX:
+[[430   0   1   0   0   0   0   0   0   0   0]
+ [ 10   0   0   0   0   0   0   0   0   0   0]
+ [ 41   0  59   0   0   0   0   0   0   0   0]
+ [  8   0   0   0   0   0   0   0   0   0   0]
+ [  8   0   0   0   0   0   0   0   0   0   0]
+ [  9   0   0   0   0   0   0   0   0   0   0]
+ [  6   0   0   0   0   0   0   0   0   0   0]
+ [  9   0   0   0   0   0   0   0   0   0   0]
+ [  7   0   0   0   0   0   0   0   0   0   0]
+ [  6   0   0   0   0   0   0   0   0   0   0]
+ [  6   0   0   0   0   0   0   0   0   0   0]]
+
+Accuracy  : 0.8150
+Precision : 0.7359
+Recall    : 0.8150
+F1        : 0.7591
+
+CLASSIFICATION REPORT:
+                            precision    recall  f1-score   support
+
+                    BENIGN       0.80      1.00      0.89       431
+             DoS GoldenEye       0.00      0.00      0.00        10
+                  DoS Hulk       0.98      0.59      0.74       100
+          DoS Slowhttptest       0.00      0.00      0.00         8
+             DoS slowloris       0.00      0.00      0.00         8
+               FTP-Patator       0.00      0.00      0.00         9
+                Heartbleed       0.00      0.00      0.00         6
+               SSH-Patator       0.00      0.00      0.00         9
+  Web Attack - Brute Force       0.00      0.00      0.00         7
+Web Attack - Sql Injection       0.00      0.00      0.00         6
+          Web Attack - XSS       0.00      0.00      0.00         6
+
+                  accuracy                           0.81       600
+                 macro avg       0.16      0.14      0.15       600
+              weighted avg       0.74      0.81      0.76       600
+
