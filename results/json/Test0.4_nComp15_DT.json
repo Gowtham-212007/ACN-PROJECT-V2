@@ -1,0 +1,1 @@
+{"test_size": 0.4, "kernel": "cosine", "n_components": 15, "algorithm": "DT", "model": "Decision Tree (Entropy)", "n_train": 600, "n_test": 400, "accuracy": 0.8925, "precision": 0.9023374146466019, "recall": 0.8925, "f1": 0.8918446597262387}
