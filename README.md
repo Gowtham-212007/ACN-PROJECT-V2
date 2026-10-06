@@ -1,5 +1,7 @@
 # ACN PROJECT V2 - Kernel PCA + Classifiers for Network Intrusion Detection (CIC-IDS2017)
 
+> **Research branch:** a leakage-free re-evaluation and IEEE manuscript live in `papers/ieee/`, `reports/` and `src/acn/`. See `RUN_EXPERIMENTS.md`. Headline: original features (RF) beat all PCA/KPCA variants on macro-F1; the status is draft, not submission-ready.
+
 A controlled comparison of five classifiers on CIC-IDS2017 flow data after **Kernel PCA** dimensionality reduction.
 Grid: **3 test sizes x 3 Kernel-PCA settings x 5 algorithms = 45 experiments**, one script and one result image per experiment.
 

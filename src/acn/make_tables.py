@@ -70,6 +70,11 @@ def main():
     rt = pd.read_csv(newest("runtime_*.csv"))
     t9 = rt.assign(Space=rt.space.map(SN), Classifier=rt.classifier.map(CLF_NAMES))[["Space", "Classifier", "train_time_s", "inference_time_s", "peak_mem_mb"]]
     t9.columns = ["Space", "Classifier", "Train (s)", "Inference (s)", "Peak mem (MB)"]; save(t9, "T9_runtime", colfmt="llrrr")
+    g = rt.groupby("space"); comp = pd.DataFrame({"Space": [SN[k] for k in S10]})
+    comp["Reducer fit (s)"] = [rt[rt.space == k].reducer_fit_s.mean() for k in S10]
+    for c, nm in [("DT", "DT train (s)"), ("RF", "RF train (s)"), ("RF", "RF infer. (s)")]:
+        col = "inference_time_s" if "infer" in nm else "train_time_s"; comp[nm] = [rt[(rt.space == k) & (rt.classifier == c)][col].iloc[0] for k in S10]
+    comp["Peak mem (MB)"] = [rt[rt.space == k].peak_mem_mb.mean() for k in S10]; save(comp, "T9c_runtime_compact", colfmt="lrrrrr")
     sc = pd.read_csv(newest("kpca_scaling_*.csv")); save(sc, "T9b_kpca_scaling")
     # Table X statistics (Holm-adjusted)
     w = pd.read_csv(f"{TABLE_DIR}/stat_wilcoxon.csv")
