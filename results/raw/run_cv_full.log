@@ -1,0 +1,37 @@
+15 folds x 21 spaces; classifiers=['LR', 'KNN', 'SVM', 'DT', 'RF']; n=1000, d=78, classes=11
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done  14 tasks      | elapsed:    7.7s
+[Parallel(n_jobs=2)]: Done  68 tasks      | elapsed:   26.6s
+[Parallel(n_jobs=2)]: Done 158 tasks      | elapsed:  1.0min
+[Parallel(n_jobs=2)]: Done 284 tasks      | elapsed:  1.8min
+[Parallel(n_jobs=2)]: Done 315 out of 315 | elapsed:  2.0min finished
+done in 120s -> /home/claude/ACN-PROJECT-V2/results/raw/cv_results_20261006_174848.csv  (2850 rows)
+dimensionality_method  classifier  class_weight
+kpca                   DT          balanced        0.609
+                                   none            0.605
+                       KNN         none            0.595
+                       LR          balanced        0.429
+                                   none            0.291
+                       RF          balanced        0.612
+                                   none            0.639
+                       SVM         balanced        0.483
+                                   none            0.338
+orig                   DT          balanced        0.702
+                                   none            0.713
+                       DUMMY       none            0.076
+                       KNN         none            0.620
+                       LR          balanced        0.630
+                                   none            0.612
+                       RF          balanced        0.687
+                                   none            0.722
+                       SVM         balanced        0.546
+                                   none            0.388
+pca                    DT          balanced        0.620
+                                   none            0.609
+                       KNN         none            0.593
+                       LR          balanced        0.504
+                                   none            0.415
+                       RF          balanced        0.634
+                                   none            0.661
+                       SVM         balanced        0.471
+                                   none            0.350

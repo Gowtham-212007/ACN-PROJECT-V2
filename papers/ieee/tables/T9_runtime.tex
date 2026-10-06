@@ -1,0 +1,31 @@
+\begin{tabular}{llrrr}
+\toprule
+Space & Classifier & Train (s) & Inference (s) & Peak mem (MB) \\
+\midrule
+Original (78) & Logistic Regression & 0.046 & 0.001 & 1.687 \\
+Original (78) & k-NN (k=5) & 0.004 & 0.004 & 1.687 \\
+Original (78) & SVM (RBF) & 0.024 & 0.006 & 1.687 \\
+Original (78) & Decision Tree & 0.018 & 0.001 & 1.686 \\
+Original (78) & Random Forest & 0.190 & 0.007 & 1.686 \\
+PCA-10 & Logistic Regression & 0.174 & 0.001 & 1.687 \\
+PCA-10 & k-NN (k=5) & 0.010 & 0.005 & 1.687 \\
+PCA-10 & SVM (RBF) & 0.016 & 0.003 & 1.686 \\
+PCA-10 & Decision Tree & 0.016 & 0.001 & 1.686 \\
+PCA-10 & Random Forest & 0.208 & 0.007 & 1.686 \\
+KPCA-lin-10 & Logistic Regression & 0.263 & 0.011 & 11.750 \\
+KPCA-lin-10 & k-NN (k=5) & 0.103 & 0.026 & 11.750 \\
+KPCA-lin-10 & SVM (RBF) & 0.121 & 0.014 & 11.750 \\
+KPCA-lin-10 & Decision Tree & 0.085 & 0.022 & 11.749 \\
+KPCA-lin-10 & Random Forest & 0.370 & 0.014 & 11.750 \\
+KPCA-RBF-10 & Logistic Regression & 0.118 & 0.008 & 11.750 \\
+KPCA-RBF-10 & k-NN (k=5) & 0.149 & 0.026 & 11.750 \\
+KPCA-RBF-10 & SVM (RBF) & 0.160 & 0.024 & 11.750 \\
+KPCA-RBF-10 & Decision Tree & 0.100 & 0.024 & 11.750 \\
+KPCA-RBF-10 & Random Forest & 0.359 & 0.015 & 11.750 \\
+KPCA-cos-10 & Logistic Regression & 0.158 & 0.020 & 11.749 \\
+KPCA-cos-10 & k-NN (k=5) & 0.080 & 0.014 & 11.750 \\
+KPCA-cos-10 & SVM (RBF) & 0.172 & 0.012 & 11.749 \\
+KPCA-cos-10 & Decision Tree & 0.098 & 0.007 & 11.749 \\
+KPCA-cos-10 & Random Forest & 0.375 & 0.016 & 11.750 \\
+\bottomrule
+\end{tabular}
