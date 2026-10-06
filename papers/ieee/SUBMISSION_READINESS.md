@@ -6,7 +6,7 @@
 1. **Residual leakage.** Download CIC-IDS2017, run `prepare_raw.py` (train-only imputation, sampling after splitting where needed), rerun `run_cv.py --data`, `run_nested.py`, `stats_tests.py`, `analyze_nested.py`, `make_tables.py`, `make_figures.py`; update the paper numbers and re-run `check_claims.py` until 0 failures. (Not possible in the sandbox: raw data not downloadable.)
 2. **Sample size.** Use more records (several thousand; with approximate/Nystroem KPCA if needed) so rare classes have enough test records. At 10-17 records per attack class the per-class claims are fragile.
 3. **External validation.** Run at least one temporal split (`run_temporal.py`, unexecuted on real data) and ideally a second dataset. Without this the paper must keep "random splits of one sample only".
-4. **Authors and template.** Fill in the author block; compile with the real `IEEEtran.cls` (the repo preview used a layout shim); fix any resulting overfull boxes; confirm page limit and abstract length (current abstract is long, ~270 words).
+4. **Authors and template.** Fill in the author block; compile with the real `IEEEtran.cls` (the repo preview used a layout shim); fix any resulting overfull boxes; confirm page limit and abstract length (abstract is ~250 words, check the venue limit).
 5. **Re-read the unverified sources** listed in CLAIM_AUDIT.md section B (Arp et al., Ring et al., Kuang et al. abstract, classic-reference page numbers) and confirm each sentence that cites them.
 
 ## Strongly recommended

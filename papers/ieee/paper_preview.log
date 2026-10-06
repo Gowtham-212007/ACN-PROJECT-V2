@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  6 OCT 2026 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  6 OCT 2026 18:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -288,7 +288,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Underfull \vbox (badness 3058) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/base/8r.enc}
@@ -333,21 +333,20 @@ File: ../../results/figures/fig4_macro_f1.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../../results/figures/fig4_macro_f1.pdf  used on input
  line 99.
 (pdftex.def)             Requested size: 523.23412pt x 208.59735pt.
+
+Underfull \vbox (badness 1052) has occurred while \output is active []
+
  [3 <../../results/figures/fig1_pipeline.pdf>]
+Underfull \vbox (badness 2277) has occurred while \output is active []
+
+
 (./tables/T7_cv_summary_n10.tex) (./tables/T10b_stats_best_reduced.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 118--118
 []\T1/ptm/b/n/12 Selection op-ti-mism: nested cross-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 2277) has occurred while \output is active []
-
- [4 <../../results/figures/fig3_accuracy.pdf> <../../results/figures/fig4_macro
-_f1.pdf>]
-(./tables/T11_nested.tex)
+[4 <../../results/figures/fig3_accuracy.pdf> <../../results/figures/fig4_macro_
+f1.pdf>] (./tables/T11_nested.tex)
 <../../results/figures/fig6_components_vs_f1.pdf, id=80, 438.7656pt x 176.85425
 pt>
 File: ../../results/figures/fig6_components_vs_f1.pdf Graphic file (type pdf)
@@ -355,23 +354,20 @@ File: ../../results/figures/fig6_components_vs_f1.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../../results/figures/fig6_components_vs_f1.pdf  used 
 on input line 131.
 (pdftex.def)             Requested size: 523.23412pt x 210.90712pt.
- (./tables/T9c_runtime_compact.tex)
-<../../results/figures/fig9_training_size.pdf, id=81, 441.15735pt x 176.85916pt
+ (./tables/T9c_runtime_compact.tex) [5]
+<../../results/figures/fig9_training_size.pdf, id=88, 441.15735pt x 176.85916pt
 >
 File: ../../results/figures/fig9_training_size.pdf Graphic file (type pdf)
 <use ../../results/figures/fig9_training_size.pdf>
 Package pdftex.def Info: ../../results/figures/fig9_training_size.pdf  used on 
 input line 151.
 (pdftex.def)             Requested size: 523.23412pt x 209.77684pt.
- [5]
+
 Underfull \hbox (badness 1052) in paragraph at lines 162--162
 []\T1/ptm/b/n/14.4 Threats to Va-lid-ity and Lim-i-ta-
  []
 
 [6 <../../results/figures/fig6_components_vs_f1.pdf>]
-Underfull \vbox (badness 2318) has occurred while \output is active []
-
-
 Underfull \hbox (badness 1067) in paragraph at lines 177--178
 []\T1/ptm/b/n/10 7. Cost mea-sure-ments. \T1/ptm/m/n/10 Tim-ings and mem-ory co
 me
@@ -412,11 +408,11 @@ L3 programming layer <2024-01-22>
 Here is how much of TeX's memory you used:
  3792 strings out of 476106
  60038 string characters out of 5793933
- 1954975 words of memory out of 5000000
+ 1951975 words of memory out of 5000000
  25719 multiletter control sequences out of 15000+600000
  589111 words of font info for 71 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,11n,79p,2148b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,79p,1787b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -429,7 +425,7 @@ ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on paper_preview.pdf (8 pages, 308552 bytes).
+Output written on paper_preview.pdf (8 pages, 308246 bytes).
 PDF statistics:
  216 PDF objects out of 1000 (max. 8388607)
  97 compressed objects within 1 object stream
