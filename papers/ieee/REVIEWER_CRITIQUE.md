@@ -10,3 +10,11 @@
 8. **Literature coverage is thin** (17 refs, no systematic survey; some sources only partly re-read). (Moderate)
 9. No modern/deep baselines; no comparison with published pipelines on equal splits. (Minor)
 Verdict: not ready for a strong venue; plausible for a workshop/student-track venue after fixing items 1-3 where possible.
+
+
+---
+## v2 status vs. earlier objections
+- Residual leakage / tiny sample: addressed (raw data, de-dup, 6,000 records); rare classes still tiny.
+- No temporal check: partly addressed (within-file chronological and blocked; no timestamps; row order assumed).
+- Untuned SVM: addressed with nested small grid; advantage shrinks, not eliminated.
+- Remaining likely reviewer points: one dataset, sample of 0.2% of flows, no corrected-release check, exact KPCA only at n<=6,000, optimistic CV p-values, preview template.

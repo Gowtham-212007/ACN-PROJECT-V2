@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  6 OCT 2026 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  6 OCT 2026 21:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -301,79 +301,94 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 54
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-(./tables/T2_class_distribution.tex)
-<../../results/figures/fig1_pipeline.pdf, id=13, 406.51875pt x 100.70825pt>
-File: ../../results/figures/fig1_pipeline.pdf Graphic file (type pdf)
-<use ../../results/figures/fig1_pipeline.pdf>
-Package pdftex.def Info: ../../results/figures/fig1_pipeline.pdf  used on input
- line 68.
-(pdftex.def)             Requested size: 523.23412pt x 129.6268pt.
-
-Underfull \hbox (badness 1142) in paragraph at lines 72--73
-\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 = 5$ \T1/ptm/m/n/10 [12], an SVM with RBF ke
-r-nel, $\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 = 1$ \T1/ptm/m/n/10 and
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+\T1/ptm/b/n/10 Data. \T1/ptm/m/n/10 We use the eight daily CIC-IDS2017
  []
 
-[2]
-Underfull \hbox (badness 1221) in paragraph at lines 78--79
+(./tables_v2/T2_class_distribution.tex)
+<../../results/v2/figures/fig1_pipeline.pdf, id=13, 406.51875pt x 100.70825pt>
+File: ../../results/v2/figures/fig1_pipeline.pdf Graphic file (type pdf)
+<use ../../results/v2/figures/fig1_pipeline.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig1_pipeline.pdf  used on in
+put line 70.
+(pdftex.def)             Requested size: 523.23412pt x 129.6268pt.
+ [2]
+Underfull \hbox (badness 1221) in paragraph at lines 84--85
 []\T1/ptm/b/n/10 Metrics. \T1/ptm/m/n/10 Ac-cu-racy; macro-precision, macro-rec
 all and
  []
 
-(./tables/T8_per_class_best.tex)
-<../../results/figures/fig3_accuracy.pdf, id=18, 437.0547pt x 174.21968pt>
-File: ../../results/figures/fig3_accuracy.pdf Graphic file (type pdf)
-<use ../../results/figures/fig3_accuracy.pdf>
-Package pdftex.def Info: ../../results/figures/fig3_accuracy.pdf  used on input
- line 98.
+[3 <../../results/v2/figures/fig1_pipeline.pdf>]
+(./tables_v2/T8_per_class_best.tex)
+<../../results/v2/figures/fig8_confusion_best.pdf, id=50, 263.05641pt x 269.990
+4pt>
+File: ../../results/v2/figures/fig8_confusion_best.pdf Graphic file (type pdf)
+<use ../../results/v2/figures/fig8_confusion_best.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig8_confusion_best.pdf  used
+ on input line 104.
+(pdftex.def)             Requested size: 214.69736pt x 220.36362pt.
+<../../results/v2/figures/fig3_accuracy.pdf, id=51, 437.0547pt x 174.21968pt>
+File: ../../results/v2/figures/fig3_accuracy.pdf Graphic file (type pdf)
+<use ../../results/v2/figures/fig3_accuracy.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig3_accuracy.pdf  used on in
+put line 109.
 (pdftex.def)             Requested size: 523.23412pt x 208.59735pt.
-<../../results/figures/fig4_macro_f1.pdf, id=19, 437.0547pt x 174.21968pt>
-File: ../../results/figures/fig4_macro_f1.pdf Graphic file (type pdf)
-<use ../../results/figures/fig4_macro_f1.pdf>
-Package pdftex.def Info: ../../results/figures/fig4_macro_f1.pdf  used on input
- line 99.
+<../../results/v2/figures/fig4_macro_f1.pdf, id=52, 437.0547pt x 174.21968pt>
+File: ../../results/v2/figures/fig4_macro_f1.pdf Graphic file (type pdf)
+<use ../../results/v2/figures/fig4_macro_f1.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig4_macro_f1.pdf  used on in
+put line 110.
 (pdftex.def)             Requested size: 523.23412pt x 208.59735pt.
-
-Underfull \vbox (badness 1052) has occurred while \output is active []
-
- [3 <../../results/figures/fig1_pipeline.pdf>]
-Underfull \vbox (badness 2277) has occurred while \output is active []
-
-
-(./tables/T7_cv_summary_n10.tex) (./tables/T10b_stats_best_reduced.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 118--118
+ (./tables_v2/T7_cv_summary_n10.tex)
+(./tables_v2/T10b_stats_best_reduced.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []\T1/ptm/b/n/12 Selection op-ti-mism: nested cross-
  []
 
-[4 <../../results/figures/fig3_accuracy.pdf> <../../results/figures/fig4_macro_
-f1.pdf>] (./tables/T11_nested.tex)
-<../../results/figures/fig6_components_vs_f1.pdf, id=80, 438.7656pt x 176.85425
-pt>
-File: ../../results/figures/fig6_components_vs_f1.pdf Graphic file (type pdf)
-<use ../../results/figures/fig6_components_vs_f1.pdf>
-Package pdftex.def Info: ../../results/figures/fig6_components_vs_f1.pdf  used 
-on input line 131.
+[4 <../../results/v2/figures/fig8_confusion_best.pdf>]
+(./tables_v2/T11_nested.tex) [5 <../../results/v2/figures/fig3_accuracy.pdf> <.
+./../results/v2/figures/fig4_macro_f1.pdf>] (./tables_v2/T12_tuning.tex)
+(./tables_v2/T13_temporal.tex) (./tables_v2/T14_blocked.tex)
+<../../results/v2/figures/fig6_components_vs_f1.pdf, id=105, 438.7656pt x 176.8
+5425pt>
+File: ../../results/v2/figures/fig6_components_vs_f1.pdf Graphic file (type pdf
+)
+<use ../../results/v2/figures/fig6_components_vs_f1.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig6_components_vs_f1.pdf  us
+ed on input line 166.
 (pdftex.def)             Requested size: 523.23412pt x 210.90712pt.
- (./tables/T9c_runtime_compact.tex) [5]
-<../../results/figures/fig9_training_size.pdf, id=88, 441.15735pt x 176.85916pt
->
-File: ../../results/figures/fig9_training_size.pdf Graphic file (type pdf)
-<use ../../results/figures/fig9_training_size.pdf>
-Package pdftex.def Info: ../../results/figures/fig9_training_size.pdf  used on 
-input line 151.
-(pdftex.def)             Requested size: 523.23412pt x 209.77684pt.
+ [6]
+Underfull \vbox (badness 1342) has occurred while \output is active []
 
-Underfull \hbox (badness 1052) in paragraph at lines 162--162
+
+(./tables_v2/T9c_runtime_compact.tex)
+<../../results/v2/figures/fig9_training_size.pdf, id=109, 441.6357pt x 175.3535
+3pt>
+File: ../../results/v2/figures/fig9_training_size.pdf Graphic file (type pdf)
+<use ../../results/v2/figures/fig9_training_size.pdf>
+Package pdftex.def Info: ../../results/v2/figures/fig9_training_size.pdf  used 
+on input line 186.
+(pdftex.def)             Requested size: 523.23412pt x 207.75551pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <../../results/v2/figures/fig6_components_vs_f1.pdf>]
+Underfull \hbox (badness 1052) in paragraph at lines 197--197
 []\T1/ptm/b/n/14.4 Threats to Va-lid-ity and Lim-i-ta-
  []
 
-[6 <../../results/figures/fig6_components_vs_f1.pdf>]
-Underfull \hbox (badness 1067) in paragraph at lines 177--178
+[8 <../../results/v2/figures/fig9_training_size.pdf>]
+Underfull \hbox (badness 1067) in paragraph at lines 212--213
 []\T1/ptm/b/n/10 7. Cost mea-sure-ments. \T1/ptm/m/n/10 Tim-ings and mem-ory co
 me
  []
 
-[7 <../../results/figures/fig9_training_size.pdf>] (./refs_generated.tex
+
+Underfull \hbox (badness 2173) in paragraph at lines 212--213
+\T1/ptm/m/n/10 from one 2-vCPU vir-tual ma-chine, mem-ory is a traced
+ []
+
+(./refs_generated.tex
 Underfull \hbox (badness 5077) in paragraph at lines 6--7
 []\T1/ptm/m/n/10 G. En-ge-len, V. Rim-mer, and W. Joosen, ``Trou-
  []
@@ -394,25 +409,27 @@ Underfull \hbox (badness 7869) in paragraph at lines 6--7
 \T1/ptm/m/it/10 and Pri-vacy Work-shops (SPW)\T1/ptm/m/n/10 , 2021, pp. 7--12,
  []
 
-
+[9]
 Underfull \hbox (badness 1735) in paragraph at lines 30--31
 []\T1/ptm/m/n/10 D. Chicco and G. Ju-r-man, ``The ad-van-tages of the
  []
 
-) [8] (./paper_preview.aux)
+) [10
+
+] (./paper_preview.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3792 strings out of 476106
- 60038 string characters out of 5793933
- 1951975 words of memory out of 5000000
- 25719 multiletter control sequences out of 15000+600000
- 589111 words of font info for 71 fonts, out of 8000000 for 9000
+ 3825 strings out of 476106
+ 61262 string characters out of 5793933
+ 1958975 words of memory out of 5000000
+ 25743 multiletter control sequences out of 15000+600000
+ 592399 words of font info for 73 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 72i,11n,79p,1787b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,79p,2237b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -425,10 +442,10 @@ ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on paper_preview.pdf (8 pages, 308246 bytes).
+Output written on paper_preview.pdf (10 pages, 338938 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 241 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

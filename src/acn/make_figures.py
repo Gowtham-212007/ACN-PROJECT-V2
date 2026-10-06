@@ -22,7 +22,7 @@ def save(fig, name):
 
 def fig1():
     fig, ax = plt.subplots(figsize=(7.0, 1.55)); ax.axis("off"); ax.set_xlim(0, 100); ax.set_ylim(0, 22)
-    boxes = ["CIC-IDS2017\nflows (1000-row\nstratified\nsample)", "Stratified\n5-fold split\nx 3 repeats", "TRAIN fold:\nmean-impute +\nstandardise (fit)",
+    boxes = ["CIC-IDS2017\nflows (stratified\nsample from\nraw CSVs)", "Stratified\n5-fold split\nx 3 repeats", "TRAIN fold:\nmean-impute +\nstandardise (fit)",
              "TRAIN fold:\nreducer fit\nOrig | PCA |\nKPCA (3 kernels)", "Classifier\nLR, kNN, SVM,\nDT, RF", "TEST fold:\ntransform\nonly + predict", "Metrics:\nAcc, macro-F1,\nbal.Acc, MCC,\nper-class, time"]
     w, g = 12.0, 2.15
     for i, t in enumerate(boxes):
@@ -78,7 +78,7 @@ def fig7(a):
     for _, r in rt.iterrows():
         f = std[(std.space == r.space) & (std.classifier == r.classifier)].f1_macro_mean.iloc[0]; j = S10.index(r.space)
         ax.scatter(r.train_time_s, f, c=COL[j], marker=mk[r.classifier], s=22, edgecolor="k", lw=0.3)
-    ax.set_xscale("log"); ax.set_xlabel("Training time per fold (s, log)"); ax.set_ylabel("Macro-F1 (CV mean)"); ax.set_ylim(0, 0.85); ax.grid(lw=0.3)
+    ax.set_xscale("log"); ax.set_xlabel("Training time per fold (s, log)"); ax.set_ylabel("Macro-F1 (CV mean)"); ax.set_ylim(0, 1.0); ax.grid(lw=0.3); ax.tick_params(axis="x", labelsize=6)
     h1 = [plt.Line2D([], [], marker="o", ls="", color=COL[i], label=SN[s]) for i, s in enumerate(S10)]
     h2 = [plt.Line2D([], [], marker=m, ls="", color="gray", mec="k", label=c) for c, m in mk.items()]
     ax.legend(handles=h1 + h2, ncol=5, fontsize=5.6, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.2), columnspacing=0.8, handletextpad=0.2); save(fig, "fig7_perf_vs_cost")
@@ -91,25 +91,25 @@ def fig8(classes):
     ax.set_xticks(range(len(C))); ax.set_yticks(range(len(C))); ax.set_xticklabels(short, rotation=60, ha="right", fontsize=5.8); ax.set_yticklabels(short, fontsize=5.8)
     for i in range(len(C)):
         for j in range(len(C)):
-            if C[i, j]: ax.text(j, i, C[i, j], ha="center", va="center", fontsize=5.5, color="w" if C[i, j] > C.max() * 0.4 else "k")
+            if C[i, j]: ax.text(j, i, C[i, j], ha="center", va="center", fontsize=(4.2 if C[i, j] >= 1000 else 5.5), color="w" if C[i, j] > C.max() * 0.4 else "k")
     ax.set_xlabel("Predicted"); ax.set_ylabel("True"); ax.set_title(f"{sel['classifier']} on {sel['space']} (pooled out-of-fold, repeat 0)", fontsize=6.5); save(fig, "fig8_confusion_best")
 
 
-def fig9():
+def fig9(n_total=1000):
     df = pd.read_csv(newest("size_results_*.csv")); df["space"] = np.where(df.dimensionality_method == "orig", "orig", np.where(df.dimensionality_method == "pca", "pca-10", "kpca-" + df.kernel + "-10"))
     fig, axs = plt.subplots(1, 5, figsize=(7.0, 1.9), sharey=True)
     for ax, c in zip(axs, CLASSIFIERS):
         for j, sp in enumerate(S10):
             g = df[(df.classifier == c) & (df.space == sp)].groupby("test_size").f1_macro.agg(["mean", "std"])
-            ax.errorbar(1000 * (1 - g.index.values), g["mean"], yerr=g["std"], color=COL[j], marker="o", ms=2.5, lw=1, capsize=1.5, elinewidth=0.5, label=SN[sp])
-        ax.set_title(c); ax.set_xlabel("Training records"); ax.set_xticks([400, 600, 800]); ax.set_ylim(0, 0.85); ax.grid(lw=0.3)
+            ax.errorbar(n_total * (1 - g.index.values), g["mean"], yerr=g["std"], color=COL[j], marker="o", ms=2.5, lw=1, capsize=1.5, elinewidth=0.5, label=SN[sp])
+        ax.set_title(c); ax.set_xlabel("Training records"); ax.set_xticks([int(n_total * (1 - t)) for t in sorted(df.test_size.unique(), reverse=True)]); ax.set_ylim(0, 1.0); ax.grid(lw=0.3); ax.tick_params(axis="x", labelsize=6)
     axs[0].set_ylabel("Macro-F1"); axs[2].legend(ncol=5, loc="upper center", bbox_to_anchor=(0.5, 1.32), frameon=False); save(fig, "fig9_training_size")
 
 
 def main():
     os.makedirs(FIG_DIR, exist_ok=True); X, y, classes, _ = load_sample(); df = load_cv(); a = agg(df, ["space", "classifier", "class_weight"])
     fig1(); fig2(y, classes); bars(a, "accuracy", "Accuracy", "fig3_accuracy"); bars(a, "f1_macro", "Macro-F1", "fig4_macro_f1")
-    fig5(a); fig6(a); fig7(a); fig8(classes); fig9(); print(sorted(os.listdir(FIG_DIR)))
+    fig5(a); fig6(a); fig7(a); fig8(classes); fig9(len(y)); print(sorted(os.listdir(FIG_DIR)))
 
 
 if __name__ == "__main__":

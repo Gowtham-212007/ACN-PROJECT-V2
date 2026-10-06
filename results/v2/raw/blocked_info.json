@@ -1,0 +1,71 @@
+[
+ {
+  "fold": 0,
+  "scored": [
+   "BENIGN",
+   "DDoS",
+   "DoS Slowhttptest",
+   "FTP-Patator",
+   "PortScan",
+   "Web Attack - Brute Force"
+  ],
+  "n_test": 1203
+ },
+ {
+  "fold": 1,
+  "scored": [
+   "BENIGN",
+   "Bot",
+   "DDoS",
+   "DoS Hulk",
+   "DoS Slowhttptest",
+   "FTP-Patator",
+   "Infiltration",
+   "PortScan",
+   "Web Attack - Brute Force"
+  ],
+  "n_test": 1200
+ },
+ {
+  "fold": 2,
+  "scored": [
+   "BENIGN",
+   "Bot",
+   "DDoS",
+   "DoS GoldenEye",
+   "DoS Hulk",
+   "Infiltration",
+   "PortScan",
+   "SSH-Patator",
+   "Web Attack - Brute Force",
+   "Web Attack - XSS"
+  ],
+  "n_test": 1201
+ },
+ {
+  "fold": 3,
+  "scored": [
+   "BENIGN",
+   "Bot",
+   "DDoS",
+   "DoS GoldenEye",
+   "Infiltration",
+   "PortScan",
+   "SSH-Patator",
+   "Web Attack - XSS"
+  ],
+  "n_test": 1200
+ },
+ {
+  "fold": 4,
+  "scored": [
+   "BENIGN",
+   "Bot",
+   "DDoS",
+   "DoS GoldenEye",
+   "PortScan",
+   "SSH-Patator"
+  ],
+  "n_test": 1196
+ }
+]

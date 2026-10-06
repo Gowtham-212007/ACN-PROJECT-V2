@@ -1,0 +1,11 @@
+{
+ "naive_same_cv_best": 0.9008963460947367,
+ "nested_estimate": 0.9003355251017511,
+ "nested_sd": 0.02198567442746949,
+ "optimism": 0.0005608209929856001,
+ "selection_frequency": {
+  "orig|RF|std": 11,
+  "orig|DT|std": 3,
+  "orig|DT|cw": 1
+ }
+}

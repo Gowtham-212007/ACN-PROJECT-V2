@@ -48,15 +48,15 @@ for name, d in res.items():
                         nested_bacc=d.balanced_accuracy.mean(), nested_mcc=d.mcc.mean(), reference=ref, reference_macroF1=r.mean(),
                         diff_vs_reference=diff.mean(), wilcoxon_p_unadjusted=p, frac_selected_orig=np.mean([s.startswith("orig") for s in d.selected]),
                         n_distinct_selected=d.selected.nunique()))
-S = pd.DataFrame(sumrows); S.to_csv("results/tables/nested_summary.csv", index=False)
+S = pd.DataFrame(sumrows); S.to_csv(str(TABLE_DIR) + "/nested_summary.csv", index=False)
 cnt = res["A. nested: any (space, classifier, weighting)"].selected.value_counts().rename_axis("selected_config").reset_index(name="outer_folds_selected")
-cnt.to_csv("results/tables/nested_selection_counts.csv", index=False)
+cnt.to_csv(str(TABLE_DIR) + "/nested_selection_counts.csv", index=False)
 # naive (same-CV) vs nested
 main = pd.read_csv(newest("cv_results_2*.csv")); main = main[main.classifier != "DUMMY"]
 naive = main.groupby("experiment_id").f1_macro.mean().max()
 A = S.iloc[0]
 json.dump(dict(naive_same_cv_best=naive, nested_estimate=A.nested_macroF1, nested_sd=A.sd, optimism=naive - A.nested_macroF1,
-               selection_frequency=cnt.set_index("selected_config").outer_folds_selected.to_dict()), open("results/tables/nested_naive_vs_nested.json", "w"), indent=1)
+               selection_frequency=cnt.set_index("selected_config").outer_folds_selected.to_dict()), open(str(TABLE_DIR) + "/nested_naive_vs_nested.json", "w"), indent=1)
 pd.set_option("display.width", 250); pd.set_option("display.max_colwidth", 70)
 print(S.round(3).to_string()); print(cnt.head(8).to_string()); print("naive", naive, "nested", A.nested_macroF1)
 
@@ -69,5 +69,5 @@ for c in CLASSIFIERS:
     p = wilcoxon(d, cc).pvalue if np.any(d != cc) else 1.0
     lines.append(f"{CLF_NAMES[c] if c in CLF_NAMES else c} & {D.nested_macroF1:.3f}$\\pm${D.sd:.3f} & {C.nested_macroF1:.3f}$\\pm${C.sd:.3f} & {(D.nested_macroF1 - C.nested_macroF1):+.3f} & {('$<$0.001' if p < 0.001 else format(p, '.3f'))} \\\\".replace("+-", "$-$").replace(" -0", " $-$0"))
 lines += [r"\hline", r"\end{tabular}"]
-import os; os.makedirs("papers/ieee/tables", exist_ok=True); open("papers/ieee/tables/T11_nested.tex", "w").write("\n".join(lines) + "\n")
-S.to_csv("results/tables/nested_summary.csv", index=False)
+import os; os.makedirs(str(TEX_DIR), exist_ok=True); open(str(TEX_DIR) + "/T11_nested.tex", "w").write("\n".join(lines) + "\n")
+S.to_csv(str(TABLE_DIR) + "/nested_summary.csv", index=False)

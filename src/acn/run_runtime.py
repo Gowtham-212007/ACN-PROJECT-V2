@@ -37,7 +37,7 @@ def main():
     # Kernel-PCA fit-time scaling in n (quadratic memory/time) vs PCA, on random sub-samples of the standardised data
     from .features import make_reducer
     Z, _, _, _ = fit_preprocess(X, X[:5]); sc = []
-    for n in [100, 200, 400, 600, 800, 1000]:
+    for n in ([400, 800, 1600, 3200, 4800] if RUN == "v2" else [100, 200, 400, 600, 800, 1000]):
         idx = np.random.RandomState(0).choice(len(Z), n, replace=False)
         for sp in [Space("pca", n=10), Space("kpca", "rbf", 10)]:
             ts_ = []

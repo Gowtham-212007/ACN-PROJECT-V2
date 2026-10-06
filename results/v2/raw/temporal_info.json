@@ -1,0 +1,53 @@
+{
+ "n_train": 4199,
+ "n_test_scored": 1769,
+ "n_test_dropped_unseen_class": 32,
+ "classes_scored": [
+  "BENIGN",
+  "Bot",
+  "DDoS",
+  "DoS GoldenEye",
+  "Infiltration",
+  "PortScan",
+  "SSH-Patator"
+ ],
+ "classes_not_scored": [
+  "DoS Hulk",
+  "DoS Slowhttptest",
+  "DoS slowloris",
+  "FTP-Patator",
+  "Heartbleed",
+  "Web Attack - Brute Force",
+  "Web Attack - Sql Injection",
+  "Web Attack - XSS"
+ ],
+ "test_class_counts": {
+  "BENIGN": 1431,
+  "Bot": 31,
+  "DDoS": 75,
+  "DoS GoldenEye": 109,
+  "Infiltration": 4,
+  "PortScan": 83,
+  "SSH-Patator": 36
+ },
+ "train_class_counts": {
+  "BENIGN": 2603,
+  "Bot": 73,
+  "DDoS": 265,
+  "DoS GoldenEye": 10,
+  "Infiltration": 32,
+  "PortScan": 187,
+  "SSH-Patator": 70
+ },
+ "files": [
+  "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+  "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+  "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+  "Monday-WorkingHours.pcap_ISCX.csv",
+  "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+  "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+  "Tuesday-WorkingHours.pcap_ISCX.csv",
+  "Wednesday-workingHours.pcap_ISCX.csv"
+ ],
+ "rule": "first 70% of rows (by original order) of each file = train, last 30% = test"
+}

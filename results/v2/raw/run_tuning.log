@@ -1,0 +1,18 @@
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done  14 tasks      | elapsed: 11.2min
+[Parallel(n_jobs=2)]: Done  20 out of  20 | elapsed: 16.5min finished
+done 990s
+                           default_f1_macro  tuned_f1_macro
+classifier space                                           
+KNN        kpca-cosine-30             0.801           0.810
+           kpca-rbf-30                0.774           0.789
+           orig                       0.801           0.808
+           pca-30                     0.798           0.810
+RF         kpca-cosine-30             0.840           0.839
+           kpca-rbf-30                0.802           0.799
+           orig                       0.901           0.899
+           pca-30                     0.842           0.839
+SVM        kpca-cosine-30             0.745           0.812
+           kpca-rbf-30                0.579           0.674
+           orig                       0.668           0.791
+           pca-30                     0.666           0.780

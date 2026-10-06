@@ -20,3 +20,18 @@ python -m src.acn.make_tables && python -m src.acn.make_figures
 4. Re-run stats/tables/figures, then update numbers in `papers/ieee/paper.tex` (check against `CLAIM_AUDIT.md`).
 
 Paper: copy `papers/ieee/` to Overleaf (real IEEEtran), fill in author block, compile `paper.tex`.
+
+
+## v2 (raw data) commands
+```
+export ACN_RUN=v2
+python -m src.acn.profile_raw <RAW_DIR>
+python -m src.acn.prepare_raw <RAW_DIR> --n 6000 --min-per-class 100 --out data/sample_raw6000.npz
+python -m src.acn.run_cv --data data/sample_raw6000.npz
+python -m src.acn.run_nested; python -m src.acn.stats_tests; python -m src.acn.analyze_nested
+python -m src.acn.run_tuning; python -m src.acn.run_temporal; python -m src.acn.run_blocked
+python -m src.acn.run_runtime; python -m src.acn.run_sizes
+python -m src.acn.analyze_extra; python -m src.acn.make_tables; python -m src.acn.make_figures
+python -m src.acn.check_claims
+```
+v1 (1,000-row) outputs are preserved under the default (unset ACN_RUN) paths and `papers/ieee/archive/`.

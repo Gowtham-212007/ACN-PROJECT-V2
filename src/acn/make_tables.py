@@ -5,7 +5,7 @@ from .common import *
 from .data import class_table, load_sample
 from .evaluation import per_class
 
-TEX = ROOT / "papers" / "ieee" / "tables"; os.makedirs(TEX, exist_ok=True)
+TEX = TEX_DIR
 S10 = ["orig", "pca-10", "kpca-linear-10", "kpca-rbf-10", "kpca-cosine-10"]
 SN = {"orig": "Original (78)", "pca-10": "PCA-10", "kpca-linear-10": "KPCA-lin-10", "kpca-rbf-10": "KPCA-RBF-10", "kpca-cosine-10": "KPCA-cos-10"}
 
@@ -19,7 +19,13 @@ def main():
     X, y, classes, _ = load_sample(); df = load_cv(); a = agg(df, ["space", "classifier", "class_weight"])
     # Table I / II
     ct = class_table(y, classes)
-    save(pd.DataFrame([("Source files (as stated in repo README)", "Tue + Wed + Thu-morning CSVs"), ("Source flows (README; not recomputed here)", "1,308,978"),
+    import json as _j, os as _o
+    _mf = str(SAMPLE_NPZ).replace(".npz", ".manifest.json")
+    if _o.path.exists(_mf):
+        _m = _j.load(open(_mf)); _src = [("Source files", f"{len(_m['files'])} daily CIC-IDS2017 CSVs (Mon--Fri)"), ("Source flows (computed from raw files)", f"{_m['n_raw_rows']:,}"), ("Exact duplicates removed before sampling", f"{_m['n_duplicates_removed']:,}")]
+    else:
+        _src = [("Source files (as stated in repo README)", "Tue + Wed + Thu-morning CSVs"), ("Source flows (README; not recomputed here)", "1,308,978")]
+    save(pd.DataFrame(_src + [
                        ("Records used in all experiments", len(y)), ("Features", X.shape[1]), ("Constant (zero-variance) features", int((X.std(0) == 0).sum())),
                        ("Classes", len(classes)), ("Majority-class share", f"{100*max(c[1] for c in ct)/len(y):.1f}\\%"),
                        ("Smallest class (records)", min(c[1] for c in ct))], columns=["Property", "Value"]), "T1_dataset", colfmt="lr")

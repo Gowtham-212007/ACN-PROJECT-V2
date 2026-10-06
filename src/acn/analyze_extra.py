@@ -1,0 +1,53 @@
+"""Tables from the tuning, temporal and blocked-CV runs.  Writes CSV + LaTeX fragments (TEX_DIR).
+  ACN_RUN=v2 python -m src.acn.analyze_extra"""
+import json, numpy as np, pandas as pd
+from .common import newest
+from .config import *
+
+SN = {"orig": "Original (78)", "pca-10": "PCA-10", "pca-30": "PCA-30", "kpca-linear-10": "KPCA-lin-10", "kpca-rbf-10": "KPCA-RBF-10", "kpca-cosine-10": "KPCA-cos-10",
+      "kpca-cosine-30": "KPCA-cos-30", "kpca-rbf-30": "KPCA-RBF-30"}
+def tex(df, name, colfmt):
+    df.to_csv(f"{TABLE_DIR}/{name}.csv", index=False)
+    open(TEX_DIR / f"{name}.tex", "w").write(df.to_latex(index=False, escape=False, column_format=colfmt, float_format=lambda x: f"{x:.3f}"))
+
+# ---- tuning
+t = pd.read_csv(newest("tuning_*.csv")); rows = []
+for (c, s), g in t.groupby(["classifier", "space"]):
+    rows.append(dict(Classifier=c, Space=SN[s], Default=g.default_f1_macro.mean(), Tuned=g.tuned_f1_macro.mean(), Tuned_sd=g.tuned_f1_macro.std(), folds_tuned_better=int((g.tuned_f1_macro > g.default_f1_macro).sum())))
+T12 = pd.DataFrame(rows); T12.to_csv(f"{TABLE_DIR}/T12_tuning_full.csv", index=False)
+piv = T12.pivot(index="Classifier", columns="Space", values="Tuned")
+best = []
+for c in ["KNN", "SVM", "RF"]:
+    g = T12[T12.Classifier == c].set_index("Space"); red = g.drop("Original (78)")
+    best.append(dict(Classifier=c, Orig_default=g.loc["Original (78)", "Default"], Orig_tuned=g.loc["Original (78)", "Tuned"], BestReduced=red.Tuned.idxmax(), Reduced_default=red.loc[red.Tuned.idxmax(), "Default"], Reduced_tuned=red.Tuned.max(),
+                     Gap_default=g.loc["Original (78)", "Default"] - red.Default.max(), Gap_tuned=g.loc["Original (78)", "Tuned"] - red.Tuned.max()))
+tex(pd.DataFrame(best).rename(columns={"Orig_default": "Orig. def.", "Orig_tuned": "Orig. tuned", "BestReduced": "Best reduced (tuned)", "Reduced_default": "Red. def.", "Reduced_tuned": "Red. tuned", "Gap_default": "$\\Delta$ def.", "Gap_tuned": "$\\Delta$ tuned"}), "T12_tuning", "lcccccrr")
+# ---- temporal + blocked
+def sp_table(df, split_names, name):
+    out = []
+    for sp in ["orig", "pca-10", "pca-30", "kpca-linear-10", "kpca-rbf-10", "kpca-cosine-10", "kpca-cosine-30"]:
+        r = {"Space": SN[sp]}
+        for lab, sn in split_names:
+            for c in ["LR", "KNN", "SVM", "DT", "RF"]:
+                r[f"{lab} {c}"] = df[(df.split == sn) & (df.space == sp) & (df.classifier == c)].f1_macro_present.mean()
+        out.append(r)
+    return pd.DataFrame(out)
+d = pd.read_csv(f"{RAW_DIR}/temporal_results.csv")
+T13 = sp_table(d, [("Chrono", "chronological_within_file_70_30"), ("Random", "random_stratified_70_30_same_classes")], "T13")
+T13.to_csv(f"{TABLE_DIR}/T13_temporal_full.csv", index=False)
+comp = []
+for c in ["LR", "KNN", "SVM", "DT", "RF"]:
+    for sp in ["orig", "pca-10", "kpca-cosine-30"]:
+        comp.append(dict(Classifier=c, Space=SN[sp], Random=T13.set_index("Space").loc[SN[sp], f"Random {c}"], Chronological=T13.set_index("Space").loc[SN[sp], f"Chrono {c}"]))
+C = pd.DataFrame(comp); C["Penalty"] = C.Random - C.Chronological; tex(C, "T13_temporal", "llrrr")
+try:
+    b = pd.read_csv(f"{RAW_DIR}/blocked_results.csv")
+    B = sp_table(b, [("Blocked", "blocked_contiguous_5"), ("Random", "random_stratified_5fold_same_classes")], "T14"); B.to_csv(f"{TABLE_DIR}/T14_blocked_full.csv", index=False)
+    comp = []
+    for c in ["LR", "KNN", "SVM", "DT", "RF"]:
+        for sp in ["orig", "pca-10", "kpca-cosine-30"]:
+            comp.append(dict(Classifier=c, Space=SN[sp], Random=B.set_index("Space").loc[SN[sp], f"Random {c}"], Blocked=B.set_index("Space").loc[SN[sp], f"Blocked {c}"]))
+    C2 = pd.DataFrame(comp); C2["Penalty"] = C2.Random - C2.Blocked; tex(C2, "T14_blocked", "llrrr")
+except FileNotFoundError:
+    print("blocked results not available yet")
+print(pd.DataFrame(best).round(3).to_string()); print(C.round(3).to_string())
