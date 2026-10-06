@@ -7,6 +7,9 @@ python -m src.acn.run_cv --smoke                # ~1 min pipeline check
 python -m src.acn.run_cv --n-jobs 4             # full grid on data/sample.npz
 python -m src.acn.run_sizes && python -m src.acn.run_runtime
 python -m src.acn.stats_tests
+python -m src.acn.run_nested --repeats 3 --n-jobs 2   # nested CV (~6.5 min on 2 cores)
+python -m src.acn.analyze_nested                       # nested tables + T11
+python -m src.acn.check_claims                         # recompute every paper number from raw files
 python -m src.acn.make_tables && python -m src.acn.make_figures
 ```
 

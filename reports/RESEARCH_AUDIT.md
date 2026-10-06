@@ -11,7 +11,7 @@ Scope: the repository as received (README, `prepare_data.py`, `make_scripts.py`,
 | 5 | **Imputation on the full data before sampling** (mean imputer fitted on all 1.3M rows) | Medium (mild leakage) | `prepare_data.py` L25 | Cannot be undone from cached sample; imputer re-fitted per training fold, residual documented as a limitation; `prepare_raw.py` provides a leakage-free path |
 | 6 | **Weighted metrics only**; accuracy dominated by BENIGN (71.8%) | High | `average="weighted"` | Added macro-F1, balanced accuracy, MCC, per-class report, majority baseline |
 | 7 | **Only 1000-row sample**; 10-row minority classes; test sets of 200-600 | High | `N_SAMPLES=1000` | Kept (KPCA is O(n^2)); disclosed; training-size sensitivity added |
-| 8 | **No hyper-parameter justification**, no class weighting | Medium | fixed constructors | Fixed, documented defaults; balanced class-weight variant evaluated; tuning deliberately omitted (nested CV impossible at 10 rows/class) |
+| 8 | **No hyper-parameter justification**, no class weighting | Medium | fixed constructors | Fixed, documented defaults; balanced class-weight variant evaluated; tuning deliberately omitted; nested CV for *configuration selection* later proved feasible (3-fold inner on 800 records) and was added (`run_nested.py`), though inner folds are very small |
 | 9 | **No statistics** | High | none | Friedman, Wilcoxon + Holm, rank-biserial effect size |
 | 10 | **No cost analysis** | Medium | none | fit/train/inference time, tracemalloc peak, KPCA scaling |
 | 11 | **Random split, no temporal/cross-dataset test** | High | all scripts | Not fixable with the cached sample (no timestamps); `run_temporal.py` written, **unexecuted on real data** |

@@ -1,0 +1,12 @@
+15 outer folds, 945 inner + 315 outer tasks
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done   14 out of 1260 | elapsed:    5.3s
+[Parallel(n_jobs=2)]: Done   68 out of 1260 | elapsed:   20.2s
+[Parallel(n_jobs=2)]: Done  158 out of 1260 | elapsed:   45.7s
+[Parallel(n_jobs=2)]: Done  284 out of 1260 | elapsed:  1.3min
+[Parallel(n_jobs=2)]: Done  446 out of 1260 | elapsed:  2.1min
+[Parallel(n_jobs=2)]: Done  644 out of 1260 | elapsed:  3.1min
+[Parallel(n_jobs=2)]: Done  878 out of 1260 | elapsed:  4.3min
+[Parallel(n_jobs=2)]: Done 1148 out of 1260 | elapsed:  5.7min
+[Parallel(n_jobs=2)]: Done 1260 out of 1260 | elapsed:  6.4min finished
+done in 382s ts=20261006_181756

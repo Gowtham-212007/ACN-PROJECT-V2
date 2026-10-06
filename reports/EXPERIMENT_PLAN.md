@@ -9,6 +9,8 @@ Research questions: RQ1 does reduction help vs original features? RQ2 does KPCA 
 | 3 | Training-size sensitivity (`run_sizes.py`) | done |
 | 3 | Runtime / memory / KPCA scaling (`run_runtime.py`) | done |
 | 3 | Statistics (`stats_tests.py`) | done |
+| 3 | Nested CV for configuration selection (`run_nested.py`, `analyze_nested.py`; 189 candidates, 3x5 outer, 3 inner) | done |
+| 4 | Claim re-computation (`check_claims.py`, 104 checks) | done |
 | 4 | Tables, figures, paper | done (`make_tables.py`, `make_figures.py`, `papers/ieee`) |
 | B | Full-data / leakage-free sample (`prepare_raw.py`, `run_cv.py --data`) | **not run - raw data unavailable in sandbox** |
 | C | Temporal (day-wise) split (`run_temporal.py`) | **not run on real data** |

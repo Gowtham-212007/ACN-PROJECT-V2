@@ -1,7 +1,7 @@
-# Literature Gap (only verified, real references; see `references.bib`)
+# Literature Gap (only references that exist; see CLAIM_AUDIT.md section B for what was verified)
 
-- Kernel PCA for intrusion detection is widely reported with accuracy gains, but most studies (a) evaluate a single random split, (b) omit an original-feature baseline, (c) report accuracy/weighted metrics on imbalanced data, (d) do not test significance.
-- CIC-IDS2017 has documented labelling and construction problems (Engelen et al.), so high numbers on random splits are not evidence of deployability.
-- Gap addressed here: a controlled, leakage-free comparison (original vs PCA vs KPCA, same classifiers and folds, cost and statistics) on a small stratified sample.
-- Gap NOT addressed: temporal/cross-dataset generalisation, full-data scale, hyper-parameter tuning, deep models.
-- Novelty is modest and honest: a rigorous negative/qualified result, not a new algorithm.
+- Cited work on dimensionality reduction for CIC-IDS2017 / intrusion detection (Abdulhammed et al.; Kuang et al.) reports PCA/auto-encoder or KPCA+SVM pipelines. We did **not** survey the field, so we make **no claim** about how common single splits, missing baselines or accuracy-only reporting are across the literature.
+- Cited evaluation-practice work (Arp et al.; Apruzzese et al.; Engelen et al.; Panigrahi and Borah) motivates why random-split accuracy on CIC-IDS2017 should be treated with caution.
+- Gap addressed: a controlled comparison of original features vs PCA vs KPCA (three kernels, five component counts) with identical folds, class-aware metrics, cost and a nested-CV check of selection optimism, on a small sample.
+- Gap NOT addressed: temporal/cross-dataset generalisation, full-data scale, hyper-parameter tuning, deep or approximate-kernel models, systematic survey of prior KPCA-IDS results.
+- Contribution is a rigorous qualified/negative result, not a new algorithm.
