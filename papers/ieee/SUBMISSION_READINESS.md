@@ -1,6 +1,6 @@
-# Submission Readiness (v2, raw-data evidence)
+# Submission Readiness (v2.1, after final-fixes pass)
 
-**Status: NOT publication-ready; stronger than v1.** Suitable target after the items below: workshop / student-track / regional conference. Not a claim of acceptance likelihood.
+**Status: technically ready for a student/research conference or workshop once the author block is filled in (the one remaining blocker below); not a claim of acceptance.** Earlier "not publication-ready" verdicts referred to the items now resolved. Suitable target after the items below: workshop / student-track / regional conference. Not a claim of acceptance likelihood.
 
 ## Resolved by the v2 run (raw CIC-IDS2017, 2,830,743 flows, 8 files)
 - Pre-sampling imputation leakage removed (no imputation before sampling; fold-wise fitting). De-duplicated 308,381 exact duplicates first.
@@ -22,3 +22,13 @@
 - Original >= PCA/KPCA for DT, RF (0.06-0.09 nested), ~equal LR/KNN; SVM exception shrinks under tuning (0.076 -> 0.021).
 - Chronological split lowers macro-F1 0.07-0.24, ranking kept.
 - KPCA cost: fit 5.5 s vs 0.02 s, ~37x traced memory at n=4,800; 64 TB full-data figure is theoretical arithmetic.
+
+
+## Final-fixes pass (reviewer checklist)
+1. *Wording*: "chronological/time-aware" replaced by "row-order robustness / proxy chronology" (head/tail and blocked splits) in paper, tables, captions; limitations state no true temporal drift is tested. Internal CSV identifiers keep the old split names for reproducibility.
+2. *Sample*: stated explicitly (abstract, Sample paragraph, limitation 1) as class-stratified, floor of 100/class, NOT prevalence-preserving (benign 67.2% sample vs 83% pool).
+3. *Bibliography*: all 17 entries re-checked against Crossref/publisher/arXiv pages; Ring (vol. 86, pp. 147-167, DOI) and Apruzzese (vol. 19, no. 4, pp. 5152-5169) completed; citing sentences checked. Unsupported/over-attributed statements fixed: "Fwd Header Length duplicate" no longer cited to Engelen; "99.6% with classifiers including random forest"; cross-dataset cite split; "78 features" attributed to the MachineLearningCVE files, not to Sharafaldin. Still unverifiable: Kuang et al. abstract (paywalled; only the title is relied on), per-classifier results of Abdulhammed et al.
+4. *Authors*: **NOT done** - the real names/affiliations/emails were not supplied; the block still holds `[Author One]` placeholders and must be filled by the authors.
+5. *Template*: compiled with the real IEEEtran.cls v1.8b (CTAN), 9 pages, no undefined references, no overfull boxes. Output: `paper_ieeetran.pdf`. (Needs `TEXINPUTS` pointing to IEEEtran if not installed; Overleaf has it.) Check the target venue's own template/page limit; abstract is 263 words (many venues cap at 200-250).
+6. *Numerical consistency*: 232 automated checks, 0 failing; abstract numbers (accuracy, macro-F1, nested, penalties, runtime, memory) each matched to a checked value.
+7. *Limitations*: kept as candid; only clarified (sample not prevalence-preserving; no true temporal drift).

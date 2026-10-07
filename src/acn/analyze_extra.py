@@ -38,8 +38,8 @@ T13.to_csv(f"{TABLE_DIR}/T13_temporal_full.csv", index=False)
 comp = []
 for c in ["LR", "KNN", "SVM", "DT", "RF"]:
     for sp in ["orig", "pca-10", "kpca-cosine-30"]:
-        comp.append(dict(Classifier=c, Space=SN[sp], Random=T13.set_index("Space").loc[SN[sp], f"Random {c}"], Chronological=T13.set_index("Space").loc[SN[sp], f"Chrono {c}"]))
-C = pd.DataFrame(comp); C["Penalty"] = C.Random - C.Chronological; tex(C, "T13_temporal", "llrrr")
+        comp.append(dict(Classifier=c, Space=SN[sp], Random=T13.set_index("Space").loc[SN[sp], f"Random {c}"], Head_tail=T13.set_index("Space").loc[SN[sp], f"Chrono {c}"]))
+C = pd.DataFrame(comp); C["Penalty"] = C.Random - C.Head_tail; C = C.rename(columns={"Head_tail": "Head/tail"}); tex(C, "T13_temporal", "llrrr")
 try:
     b = pd.read_csv(f"{RAW_DIR}/blocked_results.csv")
     B = sp_table(b, [("Blocked", "blocked_contiguous_5"), ("Random", "random_stratified_5fold_same_classes")], "T14"); B.to_csv(f"{TABLE_DIR}/T14_blocked_full.csv", index=False)

@@ -47,3 +47,8 @@ Generalisation to other days/datasets; full-data results; state-of-the-art, real
 ---
 ## v2 addendum (raw-data run)
 `ACN_RUN=v2 python -m src.acn.check_claims` recomputes 232 numeric claims from `results/v2`; **0 failing**. Fixes made in this pass: Infiltration F1 text 0.88 -> 0.875; kernel-matrix size stated in decimal MB (4800^2*8/1e6 = 184). The v1 checks remain in `src/acn/check_claims_v1.py`. Sections A/B above (citation audit) were not re-verified in v2; unverified sources remain unverified. Not covered by the checker: prose interpretations and the row-order assumption.
+
+
+---
+## v2.1 citation re-verification (final-fixes pass)
+Re-checked all 17 references against Crossref, publisher, USENIX, JMLR and arXiv pages; metadata matches. Corrections applied (Ring, Apruzzese volume/pages/DOI) and four over-attributed statements reworded (see SUBMISSION_READINESS.md). Previous "unverified" items Arp et al., Ring et al. and the classic page numbers are now verified. Remaining unverifiable: Kuang et al. abstract (paywalled), Abdulhammed et al. per-classifier results, and the full text of Nadeau & Bengio (well-known result only).
