@@ -32,3 +32,9 @@
 5. *Template*: compiled with the real IEEEtran.cls v1.8b (CTAN), 9 pages, no undefined references, no overfull boxes. Output: `paper_ieeetran.pdf`. (Needs `TEXINPUTS` pointing to IEEEtran if not installed; Overleaf has it.) Check the target venue's own template/page limit; abstract is 263 words (many venues cap at 200-250).
 6. *Numerical consistency*: 232 automated checks, 0 failing; abstract numbers (accuracy, macro-F1, nested, penalties, runtime, memory) each matched to a checked value.
 7. *Limitations*: kept as candid; only clarified (sample not prevalence-preserving; no true temporal drift).
+
+## Venue (pending author decision) - checked 2026-10-07
+Candidate found by search: IEEE ICMI 2027 (Computing and Machine Intelligence), Central Michigan University, 24-25 Apr 2027; submission deadline 15 Dec 2026; standard length 5 pages (extra pages $25/page); official IEEE conference template via Microsoft CMT; topics include "Intrusion, Malware, and Anomaly Detection"; accepted papers submitted for possible inclusion in IEEE Xplore; at least one author must register and present (source: https://www.icmiconf.com/author.html). Unverified: blind/non-blind review, current CFP changes. The current manuscript is 9 pages, so a 5-page version needs cuts (keep headline tables, nested/tuning, row-order, limitations; move rest to supplementary repo). Do not cut until the venue is chosen.
+
+## Number audit (final)
+232 recomputed claims, 0 failing; all 116 decimal numbers in the prose were additionally matched to values in the result CSVs, except 4 that come from elsewhere: 0.2% NaN share (raw profile), 2.5 M pool size, Python 3.13, and the cited 99.6% (Abdulhammed et al.).
