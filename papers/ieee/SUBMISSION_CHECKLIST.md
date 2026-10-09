@@ -17,3 +17,6 @@ Authors must do:
 - [ ] Re-download the template on the day of submission if IEEE has updated it (version used: 20260513).
 - [ ] Create IEEE author-portal account and ORCID; upload .tex + figures/tables + PDF (source and PDF must match); pay APC or confirm institutional account.
 - [ ] Deposit code/results (e.g., Zenodo) and put the URL/DOI in the Data and Code Availability section.
+
+## Alternative layout supplied by the user (sample paper from a 2024 IEEE conference)
+`ACN_PAPER_IEEE_CONFERENCE_A4.tex/.pdf`: same content and numbers as IEEE_ACCESS_FINAL, re-typeset in the IEEEtran conference layout on A4 (title, numbered author blocks, "Abstract-", "Index Terms-", Roman-numbered headings), compiled with `ieeetran/IEEEtran.cls` (CTAN v1.8b). The conference-specific footer/ISBN/DOI line of the sample is NOT reproduced; the organisers' own template and page limit must be checked for the actual target conference. Author fields are placeholders. Only the layout of the sample was used; none of its text.
