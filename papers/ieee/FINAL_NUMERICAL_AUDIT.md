@@ -1,0 +1,9 @@
+# Final Numerical Audit (IEEE_ACCESS_FINAL.tex)
+Date: 2026-10-09.
+
+1. `ACN_RUN=v2 python -m src.acn.check_claims` -> **232 checks, 0 failing** (log: results/v2/tables/claim_check.csv). The checker recomputes values from raw per-fold results and compares them with the values stated in the paper (stated values are encoded in the script).
+2. Independent text-to-data match for the *final* tex: all 115 decimal numbers in abstract/prose/discussion/conclusion were searched in the claim table and in every numeric column of results/v2/**.csv (rounded to 1-4 decimals). **113 matched; 2 not from result files:** `3.13` (Python version) and `99.6` (accuracy quoted from Abdulhammed et al.). Large integers cited (2,830,743 raw; 308,381 duplicates; 2,522,362 pool; 6,000 sample; 4,199/1,769 head-tail split; 2,850 fits; 4,800/1,200 benchmark sizes) agree with `data/sample_raw6000.manifest.json` and the result files. Limitation of this method: a number can match a CSV cell without referring to the right quantity; the 232 checker rows are the semantic check.
+3. Tables T1-T14 and Figures 1-9 are generated from the result files by make_tables/make_figures/analyze_extra; they were not hand-edited. Figures are images: the underlying data is covered by (1); pixels were inspected visually only.
+4. Expected headline values: **verified** RF original macro-F1 0.901 +- 0.020, accuracy 0.972 +- 0.004, MCC 0.948 +- 0.008; nested 0.900 +- 0.022; SVM cosine-KPCA advantage 0.076 (default) -> 0.021 (tuned); web brute force / XSS F1 0.53 / 0.59; KPCA fit 5.5 s vs 0.02 s, 363 vs 9.8 MB (about 37x).
+5. Known unexplained inconsistencies: none. Rounding notes: "more than 200 times" = 5.5/0.02 = 275x; "about 37 times" = 363/9.8. Head/tail penalties 0.07-0.24 (orig. features, by classifier) vs 0.06-0.25 (all spaces, both checks) are different scopes and both are stated as such.
+6. Not re-run: experiments (not needed; no error found). Numbers in this version are unchanged from v2.1.

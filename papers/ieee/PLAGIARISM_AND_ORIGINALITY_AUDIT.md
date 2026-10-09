@@ -1,0 +1,10 @@
+# Plagiarism and Originality Audit
+**No certified similarity score was obtained.** Turnitin/iThenticate/Crossref Similarity Check were not available to me. IEEE Access states no screening tool on its submission-guidelines page, but IEEE routinely screens; run an authorised checker before submission.
+
+What was done (manual and web-based, 2026-10-07 and 2026-10-09):
+- Exact-phrase web searches of ~6 distinctive sentences from the Introduction/Related Work/Methodology: no matching third-party document found (search engines do not index all text; this is not proof).
+- Sentence-level comparison of every paraphrase of a cited work with that work's abstract/full text (Ring, Engelen, Arp, Abdulhammed, Panigrahi, Nadeau & Bengio). Two sentences that followed their source's wording too closely (Ring: "suitability for evaluation scenarios"; Engelen: "largely consist of flows without forward data transfer") were re-expressed; no wording was changed merely to evade detection.
+- Attribution check: every statement about prior work carries a citation; no claim of algorithmic novelty is made ("We do not propose a new algorithm"); the contribution is an empirical comparison with a leakage-controlled protocol. The word "novel" is not used for our work.
+- Reused material: no figure or table from another paper. All tables/figures are generated from our own results. Text from earlier reports: the manuscript was written new; one comparison with an earlier unpublished 1,000-record experiment was rephrased as "a preliminary experiment not reported here" (the authors must confirm there is no prior publication/thesis of that experiment; IEEE Access allows thesis reuse if cited).
+- Code: pipeline built on scikit-learn/NumPy/pandas (cited: scikit-learn). Dataset: CIC-IDS2017 cited.
+Not done / residual risk: Related Work is short and says it is not a survey; claims about Kuang et al. are limited to what the title and a secondary survey support; the full texts of Kuang, Abdulhammed (results) and Nadeau & Bengio (journal) were not read. Some methodological sentences are standard phrasing (e.g. "stratified 5-fold cross-validation") and may show generic overlap.

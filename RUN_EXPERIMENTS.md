@@ -17,9 +17,9 @@ python -m src.acn.make_tables && python -m src.acn.make_figures
 1. Download CIC-IDS2017 *MachineLearningCVE* CSVs from the University of New Brunswick CIC website.
 2. `python -m src.acn.prepare_raw <csv_dir>` builds a sample with train-only imputation.
 3. `python -m src.acn.run_cv --data <new_npz>` repeats the grid; `python -m src.acn.run_temporal <csv_dir>` runs the day-wise split.
-4. Re-run stats/tables/figures, then update numbers in `papers/ieee/paper.tex` (check against `CLAIM_AUDIT.md`).
+4. Re-run stats/tables/figures, then update numbers in `papers/ieee/IEEE_ACCESS_FINAL.tex` (check with `python -m src.acn.check_claims` and `papers/ieee/FINAL_NUMERICAL_AUDIT.md`).
 
-Paper: copy `papers/ieee/` to Overleaf (real IEEEtran), fill in author block, compile `paper.tex`.
+Paper: `papers/ieee/build_access.sh` compiles `IEEE_ACCESS_FINAL.tex` with the official IEEE Access template (files in `papers/ieee/ieeeaccess/`); fill the `TO BE FILLED` fields first.
 
 
 ## v2 (raw data) commands
