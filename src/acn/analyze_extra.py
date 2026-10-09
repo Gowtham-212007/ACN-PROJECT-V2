@@ -19,9 +19,18 @@ piv = T12.pivot(index="Classifier", columns="Space", values="Tuned")
 best = []
 for c in ["KNN", "SVM", "RF"]:
     g = T12[T12.Classifier == c].set_index("Space"); red = g.drop("Original (78)")
-    best.append(dict(Classifier=c, Orig_default=g.loc["Original (78)", "Default"], Orig_tuned=g.loc["Original (78)", "Tuned"], BestReduced=red.Tuned.idxmax(), Reduced_default=red.loc[red.Tuned.idxmax(), "Default"], Reduced_tuned=red.Tuned.max(),
-                     Gap_default=g.loc["Original (78)", "Default"] - red.Default.max(), Gap_tuned=g.loc["Original (78)", "Tuned"] - red.Tuned.max()))
-tex(pd.DataFrame(best).rename(columns={"Orig_default": "Orig. def.", "Orig_tuned": "Orig. tuned", "BestReduced": "Best reduced (tuned)", "Reduced_default": "Red. def.", "Reduced_tuned": "Red. tuned", "Gap_default": "$\\Delta$ def.", "Gap_tuned": "$\\Delta$ tuned"}), "T12_tuning", "lcccccrr")
+    s_t = red.Tuned.idxmax(); s_d = red.Default.idxmax()   # best reduced space by tuned / by default score
+    best.append(dict(Classifier=c, Orig_default=g.loc["Original (78)", "Default"], Orig_tuned=g.loc["Original (78)", "Tuned"],
+                     Space_d=s_d, Reduced_default=red.Default.max(), Gap_default=g.loc["Original (78)", "Default"] - red.Default.max(),
+                     Space_t=s_t, Reduced_tuned=red.Tuned.max(), Gap_tuned=g.loc["Original (78)", "Tuned"] - red.Tuned.max(),
+                     Gap_default_at_tuned_space=g.loc["Original (78)", "Default"] - red.loc[s_t, "Default"]))
+B = pd.DataFrame(best); B.to_csv(f"{TABLE_DIR}/T12_tuning_both.csv", index=False)
+# Table: each block uses its own best reduced space (default-best for default, tuned-best for tuned); same-space default gap in a separate column
+B2 = B.rename(columns={"Orig_default": "Orig.", "Space_d": "Best red. space", "Reduced_default": "Red.", "Gap_default": "$\\Delta$",
+                       "Orig_tuned": "Orig. ", "Space_t": "Best red. space ", "Reduced_tuned": "Red. ", "Gap_tuned": "$\\Delta$ ", "Gap_default_at_tuned_space": "$\\Delta$ def. at tuned-best space"})
+B2 = B2[["Classifier", "Orig.", "Best red. space", "Red.", "$\\Delta$", "Orig. ", "Best red. space ", "Red. ", "$\\Delta$ ", "$\\Delta$ def. at tuned-best space"]]
+tex(B2, "T12_tuning", "lccrrccrrr")
+_f = TEX_DIR / "T12_tuning.tex"; _t = _f.read_text().replace("\\toprule\n", "\\toprule\n & \\multicolumn{4}{c}{Default settings} & \\multicolumn{4}{c}{Tuned (nested search)} & \\\\\n\\cmidrule(lr){2-5}\\cmidrule(lr){6-9}\n", 1); _f.write_text(_t)
 # ---- temporal + blocked
 def sp_table(df, split_names, name):
     out = []

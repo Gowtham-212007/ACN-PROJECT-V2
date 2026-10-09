@@ -92,7 +92,7 @@ def fig8(classes):
     for i in range(len(C)):
         for j in range(len(C)):
             if C[i, j]: ax.text(j, i, C[i, j], ha="center", va="center", fontsize=(4.2 if C[i, j] >= 1000 else 5.5), color="w" if C[i, j] > C.max() * 0.4 else "k")
-    ax.set_xlabel("Predicted"); ax.set_ylabel("True"); ax.set_title(f"{sel['classifier']} on {sel['space']} (pooled out-of-fold, repeat 0)", fontsize=6.5); save(fig, "fig8_confusion_best")
+    ax.set_xlabel("Predicted"); ax.set_ylabel("True"); ax.set_title(f"{sel['classifier']} on {sel['space']} (pooled out-of-fold, first repeat)", fontsize=6.5); save(fig, "fig8_confusion_best")
 
 
 def fig9(n_total=1000):

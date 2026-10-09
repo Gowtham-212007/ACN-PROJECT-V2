@@ -84,10 +84,11 @@ def main():
     sc = pd.read_csv(newest("kpca_scaling_*.csv")); save(sc, "T9b_kpca_scaling")
     # Table X statistics (Holm-adjusted)
     w = pd.read_csv(f"{TABLE_DIR}/stat_wilcoxon.csv")
-    t10 = w[["classifier", "method_a", "method_b", "mean_diff", "p_holm", "effect_r"]].copy()
+    def _p(x): return "$<$0.001" if x < 0.001 else f"{x:.3f}"
+    t10 = w[["classifier", "method_a", "method_b", "mean_diff", "p_holm", "effect_r"]].copy(); t10["p_holm"] = t10.p_holm.map(_p)
     t10.columns = ["Clf", "A", "B", "$\\Delta$F1 (A-B)", "$p_{Holm}$", "$r$"]; save(t10, "T10_stats", colfmt="lllrrr")
     w2 = pd.read_csv(f"{TABLE_DIR}/stat_best_reduced.csv")
-    t10b = w2[["classifier", "method_b", "mean_f1_a", "mean_f1_b", "mean_diff", "p_holm", "effect_r"]].copy()
+    t10b = w2[["classifier", "method_b", "mean_f1_a", "mean_f1_b", "mean_diff", "p_holm", "effect_r"]].copy(); t10b["p_holm"] = t10b.p_holm.map(_p)
     t10b.columns = ["Clf", "Best reduced space", "F1 orig", "F1 reduced", "$\\Delta$F1 (orig-red.)", "$p_{Holm}$", "$r$"]; save(t10b, "T10b_stats_best_reduced", colfmt="llrrrrr")
     print("selected:", sp, c, w if isinstance(w, str) else "", round(f1, 4)); print(pc.round(3).to_string())
 
