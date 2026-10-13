@@ -16,3 +16,10 @@ Authoritative sources: `../results/v2/tables/*.csv`, `../results/v2/raw/*`, `../
 | Page count / template | 15 pages, A4, llncs.cls v2.26 | Verified by compilation; conference template choice (LNCS vs LNNS) unconfirmed |
 | References | Abdulhammed, Engelen, Panigrahi, Waghmode, Abdel-Rahman abstracts checked this session; 2025 values for Patil, Abdelaziz, Xu&Liu, Emirmahmutoglu&Atay checked earlier from fetched pages; classic references not re-fetched | Partly verified |
 | Originality / AI score | Not measured by an accredited tool | Unverified. No plagiarism-free or detector claim is made. |
+
+## Added items
+| Claim | Evidence | Status |
+|---|---|---|
+| For LR, k-NN, DT, RF none of 20 reduced configs exceeds original accuracy; closest k-NN cosine-30 0.9339 vs 0.9341 | results/v2 cv_results aggregated (standard class weights), recomputed by make_per_algo_fig | Verified |
+| SVM: original 0.906; cosine KPCA at 15, 20, 30 comps above it; best 0.924 | same | Verified |
+| Descriptions of the ten papers | Abdulhammed, Engelen, Panigrahi, Abdel-Rahman abstracts fetched this session; Ring, Sharafaldin, Arp, Apruzzese, Kuang, Chavan described from titles/abstracts previously checked or from title only (Kuang: KPCA+SVM+GA from the title; predates CIC-IDS2017 by dates) | Partly verified; Kuang's dataset and Ring/Sharafaldin/Arp/Apruzzese details not re-fetched |

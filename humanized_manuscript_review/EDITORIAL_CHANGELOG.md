@@ -26,3 +26,8 @@ Base: `../springer_cicps_submission/main.tex` (15 pages, A4, official LNCS class
 
 ## Not changed
 Methods, equations (KPCA projection uses 1/sqrt(lambda), numerically checked against scikit-learn), tables, figures, bibliography, AI disclosure, placeholders.
+
+## Additions requested after the first revision (apply_additions.py)
+- Related work now has one short entry for each of the ten non-table papers (Ring; Sharafaldin; Engelen; Panigrahi and Borah; Abdulhammed; Kuang; Abdel-Rahman; Chavan and Alone; Arp; Apruzzese), grouped as dataset quality, dimensionality reduction, evaluation methodology. Each entry says what the paper contributes and how it relates to this study. The five 2025 studies stay in Table 1.
+- New subsection "Accuracy of each algorithm across feature spaces" with Fig. 3 (`fig12_per_algorithm_accuracy`, built by `src/acn/make_per_algo_fig.py`): one panel per classifier, accuracy for PCA and three KPCA kernels at 5-30 components, dashed line = original features. The combined macro-F1 chart (Fig. 2) and the cross-study accuracy chart (now Fig. 4) remain.
+- Result: 16 pages (one over the 15-page base limit). The call for papers allows up to two extra pages at INR 500 each.

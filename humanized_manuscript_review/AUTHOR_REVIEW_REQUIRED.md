@@ -12,3 +12,6 @@ Substantive decisions that need human input:
 - Add your own reasoning to Introduction, Discussion and Limitations (why KPCA, what the web-attack confusion means operationally). Not invented here.
 - Decide whether to test the three explanations listed in the Discussion; they are currently hypotheses.
 - Certified similarity (<16 %) and AI-content (<20 %) reports must come from the institution's tool; none is claimed here.
+
+7. Page count is now 16. Decide whether to pay for the extra page (INR 500 per the call for papers) or trim; confirm the fee rule with the organisers.
+8. The IEEE Xplore 2025-26 papers your faculty asked for could not be retrieved from this environment; the table and ten paragraphs use open publisher/preprint sources. Replace or add IEEE Xplore papers if the faculty requires them.
