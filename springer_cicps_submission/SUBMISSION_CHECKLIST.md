@@ -26,3 +26,9 @@ Official source checked 2026-10-13: https://cicps27.gcect.ac.in/call-for-paper.p
 8. IEEE Xplore papers (faculty note) — none could be retrieved; add if required.
 
 Readiness: **provisionally formatted; not ready to submit until items 1–5 are done.**
+
+## Similarity check log (2026-10-13)
+- Free checker (HireQuotient): 343-word excerpt, 0.00 % (open web only).
+- Exact-phrase web searches of 8 more distinctive sentences from the new Springer sections (related work, algorithm/formulas text, limitations, discussion): no verbatim match found. Combined with earlier searches, about 15 distinct sentences have been searched in total.
+- No tool in this session produces a full-document similarity percentage; browser-based checkers were not connected. Search engines do not index everything, so this is not proof of low similarity.
+- Self-overlap warning: this manuscript shares most text with the IEEE Access / COMPSAC / A4 versions in this repository. If any of those is submitted or posted anywhere, a checker will flag this paper against it. Submit only one.
