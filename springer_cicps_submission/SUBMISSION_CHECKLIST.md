@@ -32,3 +32,9 @@ Readiness: **provisionally formatted; not ready to submit until items 1–5 are 
 - Exact-phrase web searches of 8 more distinctive sentences from the new Springer sections (related work, algorithm/formulas text, limitations, discussion): no verbatim match found. Combined with earlier searches, about 15 distinct sentences have been searched in total.
 - No tool in this session produces a full-document similarity percentage; browser-based checkers were not connected. Search engines do not index everything, so this is not proof of low similarity.
 - Self-overlap warning: this manuscript shares most text with the IEEE Access / COMPSAC / A4 versions in this repository. If any of those is submitted or posted anywhere, a checker will flag this paper against it. Submit only one.
+
+## Local n-gram similarity check (2026-10-13, `src/acn/simcheck_local.py`)
+Manuscript text (6,466 words, references excluded) compared with the downloaded full texts of 14 sources: Xu & Liu (arXiv), Waghmode et al., Patil et al., Abdel-Rahman et al., Abdelaziz et al., Emirmahmutoğlu & Atay, Chavan & Alone, Sharafaldin et al., and the scikit-learn (decomposition, cross-validation, metrics) and Wikipedia (PCA, KPCA) pages.
+- Word 8-gram matches: **0** (0.00 % of the text).
+- Word 5-gram matches: 42 words (**0.65 %**), all generic phrases ("decision tree and random forest", "network intrusion detection systems", "the authors declare no competing interests").
+- Not compared (download failed or paywalled): Engelen et al., Abdulhammed et al., Kuang et al., Ring et al., Arp et al., Apruzzese et al., Nadeau–Bengio. This is NOT a database check like Turnitin/iThenticate and says nothing about unindexed or unseen sources.
