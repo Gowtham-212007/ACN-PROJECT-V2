@@ -50,3 +50,8 @@ Manuscript text (6,466 words, references excluded) compared with the downloaded 
 - 37-38 ~110-word chunks of main.pdf (references excluded): mean "machine" probability 0.153 -> 0.149 after rewording four prose passages; 16 % of chunks >0.5 before and after. Flagged chunks include equation text (artefact), the "Evaluation practice" paragraph, nested-CV method text, a limitation sentence and the conclusion.
 - User-supplied external scan (tool not identified): 79.55 % human / 20.45 % AI. Faculty target <20 %. Not reproduced here.
 - Minor prose rewrites made; numbers unchanged; AI-assistance disclosure unchanged. Figures 2-3 slightly narrower to keep 15 pages.
+
+## Plain-language edit pass (2026-10-13, later)
+- Rewrote Introduction, research questions, contributions, related-work lead-in, Discussion (RQ answers, accuracy), limitations intro/closing and Conclusion in simpler, more direct wording. No numbers or claims changed (all numeric tokens identical before/after, checked by script). AI-assistance disclosure unchanged.
+- Local screen (GPT-2 + RoBERTa detector, not commercial): mean machine probability 0.149 -> 0.134; chunks >0.5: 16 % -> 13 %. Still no certified score.
+- Remaining sections (methods, results, tables, per-claim sentences) are mostly dense technical statements and were left as written to protect accuracy.
