@@ -38,3 +38,9 @@ Manuscript text (6,466 words, references excluded) compared with the downloaded 
 - Word 8-gram matches: **0** (0.00 % of the text).
 - Word 5-gram matches: 42 words (**0.65 %**), all generic phrases ("decision tree and random forest", "network intrusion detection systems", "the authors declare no competing interests").
 - Not compared (download failed or paywalled): Engelen et al., Abdulhammed et al., Kuang et al., Ring et al., Arp et al., Apruzzese et al., Nadeau–Bengio. This is NOT a database check like Turnitin/iThenticate and says nothing about unindexed or unseen sources.
+
+## Similarity sweep, Europe PMC full-text phrase search (2026-10-13)
+- 150 sentences (>=14 words) from main.pdf, 288 exact-phrase queries (words 2-10 and last 9 of each sentence), 0 errors.
+- 6 phrases returned hits, all generic wording matching unrelated biomedical papers: "feature vectors with the same or with different" (3), "we report means and standard deviations over the" (4), "and use the tests for screening not as" (26), "which may explain why they are hard to" (3), "reviewed the content and remain fully responsible for" (1), "no competing interests TO BE CONFIRMED BY THE" (37).
+- No hit from an IDS/CIC-IDS2017 paper. Coverage limit: Europe PMC indexes mostly biomedical/open-access text, so this is weak evidence for computer-science sources.
+- This is NOT a certified score. Only institutional Turnitin/iThenticate (or Crossref Similarity Check) can certify <16 %.
