@@ -14,3 +14,5 @@ Before the 15 October 2026 deadline, may we confirm the following for our submis
 Thank you,
 [AUTHOR NAME — TO BE FILLED]
 [AFFILIATION — TO BE FILLED]
+
+P.S. Please also confirm whether the PDF should be A4 or US Letter (the LNCS class fixes only the 12.2 x 19.3 cm text block).
