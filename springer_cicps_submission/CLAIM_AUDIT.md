@@ -20,3 +20,12 @@ Sources: `claim_check_results.csv` (232 automated checks of text numbers against
 | Earlier-work claims (Ring, Sharafaldin, Engelen, Panigrahi, Abdulhammed, Kuang, Arp, Apruzzese) | papers/ieee/FINAL_REFERENCE_AUDIT.md | prior audit | partly read: Kuang full text, Abdulhammed results, Nadeau–Bengio journal version NOT read |
 
 Not verified: any IEEE Xplore paper (IEEE pages were not retrievable from this environment). No cross-paper accuracy comparison is presented as a ranking.
+
+## Re-audit 2026-10-13 (reviewer points)
+- KPCA projection: manuscript already used 1/sqrt(lambda). Verified numerically (RBF kernel, random data) against sklearn KernelPCA.transform: max abs diff 7e-16 with 1/sqrt(lambda); 0.22 with 1/lambda. Text now defines 1_n (entries 1/n), unit-norm alpha_k and the new-sample kernel. Code: src/acn/features.py uses sklearn KernelPCA unchanged.
+- Wilcoxon/Holm: stat_wilcoxon.csv, 23 of 30 with p_holm<0.05 (matches). Friedman: stat_friedman.csv, statistics 46.77-57.64 (spaces), 51.89-58.08 (classifiers), max p_holm 2.63e-9 (text: <=2.7e-9). Best-reduced: LR p_holm 0.0205, DT/RF/SVM 0.000305 (text 0.021, 0.0003). Wording changed from "significant" to "Holm-adjusted p<0.05 (screening only)".
+- Nested: nested_summary.csv/json: 0.9003+-0.0220, same-CV max 0.9009, optimism 0.0006 (text "about 0.001"); selection RF 11, DT 4; deltas DT +0.093, RF +0.062, LR +0.004 (p 0.010), kNN +0.002, SVM -0.060 all match.
+- Runtime: T9c RF pipeline, n=4,800: KPCA reducer fit 5.47 s vs PCA-10 0.0247 s = 221x (text ">200x"); peak traced memory 363.4 vs 9.8 MB (original) = 37x (the 37x is vs the original-feature pipeline; vs PCA-10 9.75 MB it is the same). A separate scaling run (T9b, reducer alone) gives larger ratios (770x time, 116x memory) because it excludes the classifier/pipeline baseline; the text uses the T9c definition.
+- Some balanced-accuracy numbers were removed from the prose to meet the 15-page limit; they remain in the repository tables.
+- Reference results (2025 studies): numbers checked against the fetched pages earlier (Waghmode 99.5 %, Patil 99.98 %, Xu&Liu MLP 0.9775, Emirmahmutoglu&Atay 0.999965, Abdelaziz weighted-F1 99.8 %/macro-F1 93.31 %). Abdel-Rahman 2026 and Chavan & Alone are cited qualitatively only (no number). Not re-fetched in this pass.
+- Template/rules: official llncs.cls v2.26 and call-for-papers page checked 2026-10 (15 pages + up to 2 extra); the organisers have not confirmed LNCS vs LNNS or Springer approval; ask them (ORGANIZER_EMAIL.txt).
