@@ -25,12 +25,13 @@ for c in ["KNN", "SVM", "RF"]:
                      Space_t=s_t, Reduced_tuned=red.Tuned.max(), Gap_tuned=g.loc["Original (78)", "Tuned"] - red.Tuned.max(),
                      Gap_default_at_tuned_space=g.loc["Original (78)", "Default"] - red.loc[s_t, "Default"]))
 B = pd.DataFrame(best); B.to_csv(f"{TABLE_DIR}/T12_tuning_both.csv", index=False)
-# Table: each block uses its own best reduced space (default-best for default, tuned-best for tuned); same-space default gap in a separate column
-B2 = B.rename(columns={"Orig_default": "Orig.", "Space_d": "Best red. space", "Reduced_default": "Red.", "Gap_default": "$\\Delta$",
-                       "Orig_tuned": "Orig. ", "Space_t": "Best red. space ", "Reduced_tuned": "Red. ", "Gap_tuned": "$\\Delta$ ", "Gap_default_at_tuned_space": "$\\Delta$ def. at tuned-best space"})
-B2 = B2[["Classifier", "Orig.", "Best red. space", "Red.", "$\\Delta$", "Orig. ", "Best red. space ", "Red. ", "$\\Delta$ ", "$\\Delta$ def. at tuned-best space"]]
-tex(B2, "T12_tuning", "lccrrccrrr")
-_f = TEX_DIR / "T12_tuning.tex"; _t = _f.read_text().replace("\\toprule\n", "\\toprule\n & \\multicolumn{4}{c}{Default settings} & \\multicolumn{4}{c}{Tuned (nested search)} & \\\\\n\\cmidrule(lr){2-5}\\cmidrule(lr){6-9}\n", 1); _f.write_text(_t)
+# Table: each block uses its own best reduced space (default-best for default, tuned-best for tuned); same-space default gap in the last column
+def _c(v, sp): return f"{v:.3f} ({sp.replace('KPCA-', 'K-')})"
+B2 = pd.DataFrame({"Clf": B.Classifier, "Orig.": B.Orig_default.map("{:.3f}".format), "Best reduced": [_c(v, sp) for v, sp in zip(B.Reduced_default, B.Space_d)], "$\\Delta$": B.Gap_default.map("{:+.3f}".format),
+                   "Orig. ": B.Orig_tuned.map("{:.3f}".format), "Best reduced ": [_c(v, sp) for v, sp in zip(B.Reduced_tuned, B.Space_t)], "$\\Delta$ ": B.Gap_tuned.map("{:+.3f}".format),
+                   "$\\Delta$ def., tuned-best space": B.Gap_default_at_tuned_space.map("{:+.3f}".format)})
+tex(B2, "T12_tuning", "lccrccrr")
+_f = TEX_DIR / "T12_tuning.tex"; _t = _f.read_text().replace("\\toprule\n", "\\toprule\n & \\multicolumn{3}{c}{Default settings} & \\multicolumn{3}{c}{Tuned (nested search)} & \\\\\n\\cmidrule(lr){2-4}\\cmidrule(lr){5-7}\n", 1); _f.write_text(_t)
 # ---- temporal + blocked
 def sp_table(df, split_names, name):
     out = []

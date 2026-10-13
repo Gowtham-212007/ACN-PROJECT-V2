@@ -1,11 +1,11 @@
-\begin{tabular}{lccrrccrrr}
+\begin{tabular}{lccrccrr}
 \toprule
- & \multicolumn{4}{c}{Default settings} & \multicolumn{4}{c}{Tuned (nested search)} & \\
-\cmidrule(lr){2-5}\cmidrule(lr){6-9}
-Classifier & Orig. & Best red. space & Red. & $\Delta$ & Orig.  & Best red. space  & Red.  & $\Delta$  & $\Delta$ def. at tuned-best space \\
+ & \multicolumn{3}{c}{Default settings} & \multicolumn{3}{c}{Tuned (nested search)} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Clf & Orig. & Best reduced & $\Delta$ & Orig.  & Best reduced  & $\Delta$  & $\Delta$ def., tuned-best space \\
 \midrule
-KNN & 0.801 & KPCA-cos-30 & 0.801 & 0.000 & 0.808 & PCA-30 & 0.810 & -0.002 & 0.003 \\
-SVM & 0.668 & KPCA-cos-30 & 0.745 & -0.076 & 0.791 & KPCA-cos-30 & 0.812 & -0.021 & -0.076 \\
-RF & 0.901 & PCA-30 & 0.842 & 0.059 & 0.899 & PCA-30 & 0.839 & 0.060 & 0.059 \\
+KNN & 0.801 & 0.801 (K-cos-30) & +0.000 & 0.808 & 0.810 (PCA-30) & -0.002 & +0.003 \\
+SVM & 0.668 & 0.745 (K-cos-30) & -0.076 & 0.791 & 0.812 (K-cos-30) & -0.021 & -0.076 \\
+RF & 0.901 & 0.842 (PCA-30) & +0.059 & 0.899 & 0.839 (PCA-30) & +0.060 & +0.059 \\
 \bottomrule
 \end{tabular}

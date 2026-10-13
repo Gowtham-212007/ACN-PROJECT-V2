@@ -1,0 +1,16 @@
+Subject: CICPS 2027 — clarification before final submission
+
+Dear CICPS 2027 organizers,
+
+Before the 15 October 2026 deadline, may we confirm the following for our submission to the Security and Privacy track?
+
+1. Is the Springer "Lecture Notes in Networks and Systems" proceedings arrangement approved, or still pending?
+2. Which template do you require: Springer LNCS (as linked on the call-for-papers page) or the LNNS template?
+3. Is review single-blind or double-blind, i.e. should author names appear in the submitted PDF?
+4. Does the 15-page limit include references, and are the 2 optional extra pages (INR 500 each) still available?
+5. Registration fee and presentation mode (hybrid) for a student first author; any plagiarism-similarity or AI-content threshold applied at submission?
+6. Is the Microsoft CMT submission link on the website the final one?
+
+Thank you,
+[AUTHOR NAME — TO BE FILLED]
+[AFFILIATION — TO BE FILLED]
