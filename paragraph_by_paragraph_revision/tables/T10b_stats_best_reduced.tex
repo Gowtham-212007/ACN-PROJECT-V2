@@ -1,0 +1,11 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Clf & Best reduced space & F1 orig & F1 reduced & $\Delta$F1 (orig-red.) & $p_{Holm}$ & $r$ \\
+\midrule
+LR & pca-30 & 0.736 & 0.731 & 0.004 & 0.021 & 0.733 \\
+KNN & kpca-linear-10 & 0.800 & 0.802 & -0.001 & 1.000 & 0.000 \\
+SVM & kpca-cosine-30 & 0.675 & 0.746 & -0.070 & $<$0.001 & -1.000 \\
+DT & pca-15 & 0.881 & 0.811 & 0.070 & $<$0.001 & 1.000 \\
+RF & pca-30 & 0.901 & 0.845 & 0.056 & $<$0.001 & 1.000 \\
+\bottomrule
+\end{tabular}
