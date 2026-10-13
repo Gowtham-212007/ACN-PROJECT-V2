@@ -12,3 +12,4 @@
 | Kuang | Crossref metadata only; abstract unreadable | metadata-level only |
 | Table 1 values (Patil, Abdelaziz, Xu & Liu, Emirmahmutoglu, Waghmode) | publisher/arXiv pages earlier | verified earlier; not re-fetched this round |
 Not checked this round: full bibliography formatting, plagiarism/AI-detector scores (none certified).
+| Emirmahmutoglu FPA+RF accuracy | Springer page fetched: abstract only (0.99987 labelled F1), results/conclusion not reached; reviewer reports 99.987 % vs 99.9965 % | UNRESOLVED - both shown in table, lower plotted |

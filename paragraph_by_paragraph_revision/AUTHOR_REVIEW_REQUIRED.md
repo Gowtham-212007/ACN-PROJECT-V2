@@ -8,3 +8,6 @@
 7. Whether faculty requires IEEE Xplore 2025-26 papers (candidates in ../humanized_manuscript_review/IEEE_XPLORE_CANDIDATES.md).
 8. Kuang entry: abstract not read; keep the description metadata-level.
 9. Plagiarism (<16%) and AI (<20%) must be certified by the institution's tool; none was run here.
+10. Emirmahmutoglu & Atay accuracy: open the paper's results table and state one value (99.987 % vs 99.9965 %; abstract shows 0.99987 as F1).
+11. Patil et al. PCA label: "PCA-based feature selection" vs "PCA (20 components)" - check against the paper.
+12. If ChatGPT or any other assistant contributed suggestions that were incorporated, add it to the AI-assistance disclosure.

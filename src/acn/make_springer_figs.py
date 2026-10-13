@@ -25,10 +25,10 @@ def fig10(a):
 def fig11(acc_ours):
     # reported accuracy (%), as stated by each source; datasets differ, see Table in the paper
     rows = [("Waghmode et al. 2025\n(LS-SVM, CIC-IDS2017)", 99.5), ("Patil et al. 2025\n(Extra Trees+IG, CIC-IDS2017)", 99.98),
-            ("Xu & Liu 2025\n(MLP, CICIDS2017)", 97.75), ("Emirmahmutoglu & Atay 2025\n(FPA+RF, CSE-CIC-IDS2018)", 99.9965), ("This work\n(RF, 6,000-record sample)", acc_ours * 100)]
+            ("Xu & Liu 2025\n(MLP, CICIDS2017)", 97.75), ("Emirmahmutoglu & Atay 2025\n(FPA+RF, CSE-CIC-IDS2018)", 99.987), ("This work\n(RF, 6,000-record sample)", acc_ours * 100)]
     fig, ax = plt.subplots(figsize=(6.2, 2.3)); y = np.arange(len(rows))[::-1]
     ax.barh(y, [r[1] for r in rows], color=["#777777"] * 4 + ["#009E73"], height=.6)
-    for yy, r in zip(y, rows): ax.text(r[1] + .3, yy, (f"{r[1]:.4f}" if r[1] > 99.99 else f"{r[1]:.2f}"), va="center", fontsize=6.5)
+    for yy, r in zip(y, rows): ax.text(r[1] + .3, yy, (f"{r[1]:.3f}" if r[1] > 99.9 else f"{r[1]:.2f}"), va="center", fontsize=6.5)
     ax.set_yticks(y); ax.set_yticklabels([r[0] for r in rows], fontsize=6.5); ax.set_xlim(0, 112); ax.set_xlabel("Reported accuracy (%) -- different datasets, splits and sampling; not directly comparable"); ax.grid(axis="x", lw=.3)
     save(fig, "fig11_accuracy_comparison")
 

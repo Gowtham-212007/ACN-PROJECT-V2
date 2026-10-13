@@ -9,3 +9,9 @@ Base: humanized_manuscript_review/main.tex (16 pages). Edits are applied by `app
 7. Fig. 11 caption: states the bars are not a like-for-like ranking; figure retained (faculty checklist).
 8. Carried over from earlier rounds: Patil et al. "PCA-based feature selection", softened abstract claim on prior studies, IEEE Xplore access statement, Kuang wording.
 Not changed: equations, tables' numbers, figures, bibliography, experimental data.
+
+## 14 Oct 2026 (after external audit)
+- Emirmahmutoglu & Atay (FPA+RF, CSE-CIC-IDS2018): an external reviewer reports the source gives 99.987 % (results) and 99.9965 % (conclusion). My own fetch of the Springer page showed only the abstract (0.99987, labelled F1) and was truncated before the results/conclusion, so I could NOT confirm which is accuracy. Table now states "99.987--99.9965 % (source gives both)"; Fig. 11 plots the lower value (99.987) with 3-decimal label; running text says 97.75--99.99 %; caption notes the lower value is plotted. Authors should open the paper's results table and state one value.
+- Methods: "the nested analysis removes that bias" -> "addresses this bias by scoring the selection on unseen outer folds".
+- Kept "PCA-based feature selection" for Patil et al. (source's own label; checklist asked for it). Reviewer suggests "PCA (20 components)"; I could not confirm which is correct from the source, so the author should decide.
+- Trimmed three sentences and narrowed figs 10-12 to hold 16 pages.
