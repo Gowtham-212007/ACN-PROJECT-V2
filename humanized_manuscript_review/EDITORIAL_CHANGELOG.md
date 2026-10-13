@@ -31,3 +31,8 @@ Methods, equations (KPCA projection uses 1/sqrt(lambda), numerically checked aga
 - Related work now has one short entry for each of the ten non-table papers (Ring; Sharafaldin; Engelen; Panigrahi and Borah; Abdulhammed; Kuang; Abdel-Rahman; Chavan and Alone; Arp; Apruzzese), grouped as dataset quality, dimensionality reduction, evaluation methodology. Each entry says what the paper contributes and how it relates to this study. The five 2025 studies stay in Table 1.
 - New subsection "Accuracy of each algorithm across feature spaces" with Fig. 3 (`fig12_per_algorithm_accuracy`, built by `src/acn/make_per_algo_fig.py`): one panel per classifier, accuracy for PCA and three KPCA kernels at 5-30 components, dashed line = original features. The combined macro-F1 chart (Fig. 2) and the cross-study accuracy chart (now Fig. 4) remain.
 - Result: 16 pages (one over the 15-page base limit). The call for papers allows up to two extra pages at INR 500 each.
+
+## 13 Oct 2026 (late)
+- Related-work access statement reworded: "IEEE Xplore was not accessible during our search; we used publisher records, proceedings, repositories and preprints. The review is not exhaustive."
+- Kuang et al. reworded: "a related earlier KPCA--SVM approach ... predates CIC-IDS2017 and therefore could not have evaluated that dataset" (removed "closest earlier").
+- Rebuilt: 16 pages A4, 0 undefined references.

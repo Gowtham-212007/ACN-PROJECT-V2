@@ -1,0 +1,105 @@
+\relax 
+\citation{ring2019}
+\citation{sharafaldin2018}
+\citation{abdulhammed2019}
+\citation{scholkopf1998}
+\citation{kuang2014}
+\@writefile{toc}{\contentsline {title}{Does Dimensionality Reduction Help Classical Intrusion Detection? Original Features versus PCA and Kernel PCA on a Class-Stratified CIC-IDS2017 Sample}{1}{}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{[AUTHOR NAME 1 -- TO BE FILLED] \and [AUTHOR NAME 2 -- TO BE FILLED]}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{}\protected@file@percent }
+\citation{engelen2021,panigrahi2018}
+\citation{arp2022}
+\citation{ring2019}
+\citation{sharafaldin2018}
+\citation{engelen2021}
+\citation{panigrahi2018}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{}\protected@file@percent }
+\citation{abdulhammed2019}
+\citation{kuang2014}
+\citation{abdelrahman2026}
+\citation{chavan2025}
+\citation{arp2022}
+\citation{apruzzese2022}
+\citation{waghmode2025}
+\citation{patil2025}
+\citation{abdelaziz2025}
+\citation{xu2025}
+\citation{emirmahmutoglu2025}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Dataset and Preprocessing}{3}{}\protected@file@percent }
+\newlabel{sec:data}{{3}{3}{}{}{}}
+\citation{scholkopf1998}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Recent studies (2025) and this work. Results are quoted from each source and are not directly comparable (different datasets, sampling, splits and metrics).}}{4}{}\protected@file@percent }
+\newlabel{tab:lit}{{1}{4}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{4}{}\protected@file@percent }
+\newlabel{sec:method}{{4}{4}{}{}{}}
+\citation{cover1967}
+\citation{cortes1995}
+\citation{quinlan1986}
+\citation{breiman2001}
+\citation{pedregosa2011}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Experimental pipeline. All data-dependent preprocessing and reduction is fitted on the training fold only.}}{5}{}\protected@file@percent }
+\newlabel{fig:pipe}{{1}{5}{}{}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Fold-wise evaluation of one feature space $S$ and classifier $f$}}{6}{}\protected@file@percent }
+\newlabel{alg:cv}{{1}{6}{}{}{}}
+\citation{chicco2020}
+\citation{demsar2006}
+\citation{nadeau2003}
+\citation{engelen2021}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Original-feature baseline and the cost of reading accuracy alone}{7}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Per-class results of the selected model (RF, original features), pooled out-of-fold predictions, first repeat.}}{8}{}\protected@file@percent }
+\newlabel{tab:perclass}{{2}{8}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Original space versus PCA versus Kernel PCA}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Accuracy of each algorithm across feature spaces}{8}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Accuracy / macro-F1 ($\pm $ std over 15 folds) at 10 components (original = 78 features), standard class weights.}}{9}{}\protected@file@percent }
+\newlabel{tab:n10}{{3}{9}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Macro-F1 of all classifier $\times $ feature-space executions at 10 components (mean $\pm $ std over 15 folds; standard class weights; axis starts at zero).}}{9}{}\protected@file@percent }
+\newlabel{fig:all}{{2}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Selection optimism: nested cross-validation}{9}{}\protected@file@percent }
+\newlabel{sec:results-nested}{{5.4}{9}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Accuracy (mean $\pm $ std over 15 folds, standard class weights) of each classifier for PCA and KPCA at 5--30 components. Dashed line: original 78 features. The vertical axis starts at 0.5.}}{10}{}\protected@file@percent }
+\newlabel{fig:peralgo}{{3}{10}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Effect of hyper-parameter tuning}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Row-order robustness (proxy chronology)}{10}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Nested hyper-parameter search: mean macro-F1 over five outer folds. For each setting (default, tuned) the best reduced space among PCA-30, KPCA-cos-30 and KPCA-RBF-30 is chosen by that setting\textquoteright s own score; $\Delta $ = original $-$ reduced (negative: reduction better). K-cos-30 = KPCA, cosine kernel, 30 components. The last column gives the default-setting gap measured in the tuned-best reduced space.}}{11}{}\protected@file@percent }
+\newlabel{tab:tuning}{{4}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Kernel, component count and class weighting}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Computational cost}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Accuracy comparison with recent studies}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Accuracy reported by recent studies versus this work. Datasets, sampling, splits and metrics differ; the figure is not a performance ranking.}}{12}{}\protected@file@percent }
+\newlabel{fig:cmp}{{4}{12}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{12}{}\protected@file@percent }
+\citation{nadeau2003}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Threats to Validity and Limitations}{13}{}\protected@file@percent }
+\citation{engelen2021}
+\citation{engelen2021}
+\citation{sharafaldin2018}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{14}{}\protected@file@percent }
+\bibstyle{splncs04}
+\bibdata{references}
+\bibcite{abdelrahman2026}{1}
+\bibcite{abdelaziz2025}{2}
+\bibcite{abdulhammed2019}{3}
+\bibcite{apruzzese2022}{4}
+\bibcite{arp2022}{5}
+\bibcite{breiman2001}{6}
+\bibcite{chavan2025}{7}
+\bibcite{chicco2020}{8}
+\bibcite{cortes1995}{9}
+\bibcite{cover1967}{10}
+\bibcite{demsar2006}{11}
+\bibcite{emirmahmutoglu2025}{12}
+\bibcite{engelen2021}{13}
+\bibcite{kuang2014}{14}
+\bibcite{nadeau2003}{15}
+\bibcite{panigrahi2018}{16}
+\bibcite{patil2025}{17}
+\bibcite{pedregosa2011}{18}
+\bibcite{quinlan1986}{19}
+\bibcite{ring2019}{20}
+\bibcite{scholkopf1998}{21}
+\bibcite{sharafaldin2018}{22}
+\bibcite{waghmode2025}{23}
+\bibcite{xu2025}{24}
+\gdef \@abspage@last{16}
