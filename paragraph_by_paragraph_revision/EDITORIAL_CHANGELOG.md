@@ -15,3 +15,6 @@ Not changed: equations, tables' numbers, figures, bibliography, experimental dat
 - Methods: "the nested analysis removes that bias" -> "addresses this bias by scoring the selection on unseen outer folds".
 - Kept "PCA-based feature selection" for Patil et al. (source's own label; checklist asked for it). Reviewer suggests "PCA (20 components)"; I could not confirm which is correct from the source, so the author should decide.
 - Trimmed three sentences and narrowed figs 10-12 to hold 16 pages.
+
+## 14 Oct 2026 – voice pass
+Rephrased ~11 sentences (introduction opening and problem statement, per-class gap sentence, "why accuracy misleads", hypothesis (i), limitations lead-in, scope statement, conclusion opening/closing, two results phrasings) for natural flow. Numbers, citations, equations and limitations unchanged. Not a detector-evasion exercise; the AI-assistance disclosure is retained and no detector score is claimed. Remaining sentences were already rewritten in earlier plain-language passes.
