@@ -12,12 +12,12 @@ Base: `../springer_cicps_submission/main.tex` (15 pages, A4, official LNCS class
 ## Changes
 | Section | Change | Reason |
 |---|---|---|
-| Abstract | Rewritten: question, scope, sample caveat, headline results, SVM exception, cost, limits. "At best matched" for LR/k-NN. Cost ratios stated as "more than 200 times" / "about 37 times". | Precision and consistency with the 5-m results. |
+| Abstract | Rewritten: question, scope, sample caveat, headline results, SVM exception, cost, limits. "At best matched" for LR/k-NN. Cost ratios stated as "more than 200 times" / "about 37 times". | Precision and consistency with the results. |
 | Related work | Replaced the "most report accuracy on one split" claim with "among the studies we read, none pairs..."; added that our reading was not exhaustive and that the dataset papers bear on score trust, not on reduction. | Avoid an unsupported gap claim. |
 | 5.1 | Observation first (majority baseline, RF accuracy vs macro-F1, class groups); Engelen explanation marked as untested here. | Clarity; no new claims. |
 | 5.2 | Split into two paragraphs: (1) n=10 comparison, tests labelled screening evidence; (2) best-reduced-space comparison with its selection bias. | Separate observation, test, and caveat. |
 | 5.3 | Merged heading and text into one sentence plus Fig. 2. | Space. |
-| 5.4 (tuning) | Condensed k-NN/SVM detail; same numbers (0.668/0.791, 0.745/0.812, 0.076 to 0.021). | Readability. |
+| 5.5 (tuning) | Condensed k-NN/SVM detail; same numbers (0.668/0.791, 0.745/0.812, 0.076 to 0.021). | Readability. |
 | 5.6-5.8 | Shorter wording; computational ratios defined (reducer fit time vs PCA; whole-pipeline traced memory vs PCA or no reduction). 64 TB kept as arithmetic only in 5.8. | Preserve benchmark definitions. |
 | 5.9 | "These figures are not comparable"; only our own accuracy/F1 pair illustrates the accuracy issue. | Fix overreach. |
 | Discussion | "Why accuracy misleads" shortened; new "Possible explanations (untested)" with three explicit hypotheses (tree axis-aligned splits, variance vs separability of rare classes, default RBF-SVM mismatch). | Labels hypotheses as hypotheses. |
