@@ -36,3 +36,8 @@ Methods, equations (KPCA projection uses 1/sqrt(lambda), numerically checked aga
 - Related-work access statement reworded: "IEEE Xplore was not accessible during our search; we used publisher records, proceedings, repositories and preprints. The review is not exhaustive."
 - Kuang et al. reworded: "a related earlier KPCA--SVM approach ... predates CIC-IDS2017 and therefore could not have evaluated that dataset" (removed "closest earlier").
 - Rebuilt: 16 pages A4, 0 undefined references.
+
+## 13 Oct 2026 (night) – checklist items
+- Abstract: "gains are usually reported on a single split and without a no-reduction baseline" -> "sometimes reported on a single split or without a no-reduction baseline".
+- Table 1, Patil et al.: PCA entries renamed "PCA-based feature selection" (20 features).
+- 2,850 fit count: the manuscript text does not quote it; internal audit files do. It is 190 configurations x 15 folds, where the 190 include the majority-class (DUMMY) baseline (189 model configurations + 1 baseline). Say so if the number is ever quoted.

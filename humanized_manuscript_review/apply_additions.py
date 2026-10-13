@@ -18,6 +18,9 @@ Fig.~\ref{fig:peralgo} shows one panel per classifier: bars give mean accuracy f
 \end{figure}
 
 \subsection{Selection optimism: nested cross-validation}"""))
+R.append(("gains are usually reported on a single split and without a no-reduction baseline","gains are sometimes reported on a single split or without a no-reduction baseline"))
+R.append(("Bagging and boosting ensembles; information gain, chi-square, PCA (20 features)","Bagging and boosting ensembles; information gain, chi-square, PCA-based feature selection (20 features)"))
+R.append(("99.58--99.96\\,\\% with PCA","99.58--99.96\\,\\% with PCA-based selection"))
 for a, b in R:
     assert t.count(a) == 1, a[:60]
     t = t.replace(a, b)

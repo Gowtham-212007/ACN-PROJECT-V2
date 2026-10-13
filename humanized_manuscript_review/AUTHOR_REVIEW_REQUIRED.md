@@ -15,3 +15,10 @@ Substantive decisions that need human input:
 
 7. Page count is now 16. Decide whether to pay for the extra page (INR 500 per the call for papers) or trim; confirm the fee rule with the organisers.
 8. The IEEE Xplore 2025-26 papers your faculty asked for could not be retrieved from this environment; the table and ten paragraphs use open publisher/preprint sources. Replace or add IEEE Xplore papers if the faculty requires them.
+
+## Open decisions (13 Oct 2026 night)
+9. AI-disclosure bracket: confirm the disclosure is accurate/complete and add any other tool used, then delete the bracketed instruction (only authors can).
+10. Funding/acknowledgments and competing-interest declaration: placeholders remain; authors must fill/confirm.
+11. Cross-study accuracy chart (Fig. 11): kept for now because the faculty checklist asks for an accuracy-comparison bar graph; removing it would save space toward 15 pages but loses that item. Studies use different splits/protocols, so the caption must say the bars are not like-for-like.
+12. 16 pages: either pay INR 500 for the extra page or trim to 15.
+13. Author names, affiliation, e-mail and repository URL placeholders remain.
