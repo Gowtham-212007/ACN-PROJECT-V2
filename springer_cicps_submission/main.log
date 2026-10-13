@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  13 OCT 2026 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  13 OCT 2026 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,7 +406,7 @@ File: figures/fig10_all_executions.pdf Graphic file (type pdf)
 <use figures/fig10_all_executions.pdf>
 Package pdftex.def Info: figures/fig10_all_executions.pdf  used on input line 1
 61.
-(pdftex.def)             Requested size: 312.40906pt x 153.99693pt.
+(pdftex.def)             Requested size: 277.69987pt x 136.88518pt.
 
 [9 <./figures/fig10_all_executions.pdf>] (./tables/T12_tuning.tex) [10]
 <figures/fig11_accuracy_comparison.pdf, id=106, 473.3158pt x 168.54657pt>
@@ -414,15 +414,9 @@ File: figures/fig11_accuracy_comparison.pdf Graphic file (type pdf)
 <use figures/fig11_accuracy_comparison.pdf>
 Package pdftex.def Info: figures/fig11_accuracy_comparison.pdf  used on input l
 ine 203.
-(pdftex.def)             Requested size: 295.05711pt x 105.06873pt.
+(pdftex.def)             Requested size: 249.92937pt x 88.99748pt.
 
-[11]
-Overfull \hbox (0.76599pt too wide) in paragraph at lines 212--213
-\OT1/cmr/m/n/10 lead-ing com-po-nents may dis-card dis-crim-i-na-tive low-varia
-nce di-rec-tions; untested. 
- []
-
-[12 <./figures/fig11_accuracy_comparison.pdf>] [13] (./main.bbl
+[11 <./figures/fig11_accuracy_comparison.pdf>] [12] [13] (./main.bbl
 Underfull \hbox (badness 2334) in paragraph at lines 12--16
 []\OT1/cmr/m/n/9 Abdelaziz, M.T., Rad-wan, A., Mam-douh, H., et al.: En-hanc-in
 g net-work
@@ -493,7 +487,7 @@ pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmtt9.pfb>
-Output written on main.pdf (15 pages, 406037 bytes).
+Output written on main.pdf (15 pages, 406007 bytes).
 PDF statistics:
  230 PDF objects out of 1000 (max. 8388607)
  137 compressed objects within 2 object streams

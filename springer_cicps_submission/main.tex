@@ -41,7 +41,7 @@ We surveyed fifteen studies. Table~\ref{tab:lit} lists five recent (2025) studie
 
 \textit{Dimensionality reduction and feature selection.} Abdulhammed et al.\ apply an auto-encoder and PCA to CIC-IDS2017 (81 to 10 dimensions) and report about 99.6\,\% accuracy \cite{abdulhammed2019}; Kuang et al.\ combine KPCA, an SVM and a genetic algorithm \cite{kuang2014}. Abdel-Rahman et al.\ state that a feature-importance-guided autoencoder outperforms earlier dimensionality-reduction techniques on three datasets including CIC-IDS2017 \cite{abdelrahman2026}. Chavan and Alone report ``high accuracy'' for a random forest on CIC-IDS 2017 without a figure or split in the abstract \cite{chavan2025}, and Patil et al.\ include PCA among their reduction methods \cite{patil2025}. Most report accuracy on one split; none that we read pairs a no-reduction baseline, per-class analysis and fold-wise fitting across PCA and several KPCA kernels.
 
-\textit{Evaluation practice.} Arp et al.\ describe pitfalls in machine learning for security that can lead to unrealistic performance \cite{arp2022}, and Apruzzese et al.\ propose cross-evaluating ML-based NIDS across datasets \cite{apruzzese2022}. Following them we fit every data-dependent step on training folds only, report class-aware metrics beside accuracy, include trivial and no-reduction baselines, and state what our sample cannot show. This is not a systematic survey. IEEE Xplore pages could not be retrieved from our environment, so the studies above come from open publisher and preprint pages.
+\textit{Evaluation practice.} Arp et al.\ describe pitfalls in machine learning for security that can lead to unrealistic performance \cite{arp2022}, and Apruzzese et al.\ propose cross-evaluating ML-based NIDS across datasets \cite{apruzzese2022}. From them we took three practices: every data-dependent step is fitted on training folds only, accuracy is always reported next to class-aware metrics, and every reduction is compared with a trivial baseline and a no-reduction baseline. This is not a systematic survey. IEEE Xplore was unreachable, so all studies above come from open publisher or preprint pages.
 
 \begin{table}[htbp]
 \caption{Recent studies (2025) and this work. Results are quoted from each source and are not directly comparable (different datasets, sampling, splits and metrics).}\label{tab:lit}
@@ -115,7 +115,7 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 
 \textbf{Validation.} Repeated stratified 5-fold cross-validation, 3 repeats (15 folds), seed 42; every method sees identical folds, giving paired observations. Test folds hold about 2 Heartbleed and 4 SQL-injection records, so per-class estimates for these classes are noisy; we report means and standard deviations over the 15 folds.
 
-\textbf{Nested cross-validation for selection.} Choosing the best of 189 configurations (21 feature spaces $\times$ 9 classifier/weighting variants) on the scoring folds is optimistic. On the \emph{same} 15 outer folds, a stratified 3-fold inner cross-validation inside each outer training set (4{,}800 records) scores every configuration by macro-F1, the best is selected, and only it is scored on the untouched outer test fold. We apply this to (A) the global selection and, per classifier, to (C) the best \emph{reduced} space and weighting versus (D) the original space with weighting chosen the same way; all steps are refitted on every inner split.
+\textbf{Nested cross-validation for selection.} Picking the best of 189 configurations (21 feature spaces $\times$ 9 classifier and weighting variants) on the same folds that score it flatters the winner. To measure this, selection is nested: inside each of the 15 outer training sets (4{,}800 records) a stratified 3-fold inner cross-validation scores every configuration by macro-F1, the winner is chosen there, and only that winner is scored on the outer test fold it never saw. We run this for (A) the global choice and, for each classifier, for (C) the best \emph{reduced} space with weighting versus (D) the original space with weighting chosen the same way.
 
 \textbf{Nested hyper-parameter search.} For $k$-NN, SVM and random forest on four spaces (original, PCA-30, KPCA-cosine-30, KPCA-RBF-30), a 3-fold inner cross-validation inside each of the first five outer folds selects from small grids: $k\in\{3,5,7,11\}$; SVM $C\in\{0.1,1,10\}$, $\gamma\in\{\text{scale},0.01,0.1\}$, class weight none/balanced; random forest 100/200 trees, depth none/10/20, class weight none/balanced. The RBF width of the KPCA reducer itself is not tuned.
 
@@ -127,7 +127,7 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 
 \textbf{Cost.} A serial benchmark (no parallel workers) records training and inference time (median of 5 repetitions, one fold split) and peak memory from Python's \texttt{tracemalloc}, measured in a separate pass. Native allocations inside compiled code are not traced, so memory figures are lower bounds most reliable for comparing reducers.
 
-\textbf{Setup.} A 2-vCPU, 7\,GB VM (Python 3.13, scikit-learn 1.9) ran the main grid (2{,}850 fits, about 28 min), nested CV (about 64 min) and tuning (about 16 min); cost timings come from a separate serial benchmark (4{,}800 training, 1{,}200 test records).
+\textbf{Setup.} A 2-vCPU, 7\,GB VM (Python 3.13, scikit-learn 1.9) ran the main grid (2{,}850 fits, about 28 min), nested CV (about 64 min) and tuning (about 16 min).
 
 \section{Results}
 \subsection{Original-feature baseline and the cost of reading accuracy alone}
@@ -158,7 +158,7 @@ Table~\ref{tab:n10} and Fig.~\ref{fig:all} compare spaces at $n=10$. Of the 30 c
 Fig.~\ref{fig:all} places every classifier and feature space at 10 components in a single chart (25 executions, macro-F1, mean $\pm$ std over 15 folds). Within each classifier group the black bar is the original space; only for the SVM does a reduced space (cosine KPCA) exceed it, and the tree-based classifiers lead overall.
 
 \begin{figure}[htbp]\centering
-\includegraphics[width=0.9\textwidth]{figures/fig10_all_executions.pdf}
+\includegraphics[width=0.8\textwidth]{figures/fig10_all_executions.pdf}
 \caption{Macro-F1 of all classifier $\times$ feature-space executions at 10 components (mean $\pm$ std over 15 folds; standard class weights; axis starts at zero).}\label{fig:all}
 \end{figure}
 
@@ -196,11 +196,11 @@ The serial benchmark (table in the repository) at 4{,}800 training / 1{,}200 tes
 
 
 \subsection{Accuracy comparison with recent studies}
-Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} show reported accuracy side by side. The recent studies quote 97.75--99.9965\,\% on their own datasets and splits, whereas our random forest reaches 97.2\,\% accuracy but 0.901 macro-F1 on a sample that over-represents attacks. These numbers measure different things and only make the reporting gap visible: accuracy near 100\,\% on imbalanced flow data can coexist with weak minority-class detection, as our per-class results show.
+Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} show reported accuracy side by side. The recent studies quote 97.75--99.9965\,\% on their own datasets and splits, whereas our random forest reaches 97.2\,\% accuracy but 0.901 macro-F1 on a sample that over-represents attacks. These numbers measure different things; they show only that accuracy near 100\,\% on imbalanced flow data can coexist with weak minority-class detection, as our per-class results show.
 
 
 \begin{figure}[htbp]\centering
-\includegraphics[width=0.85\textwidth]{figures/fig11_accuracy_comparison.pdf}
+\includegraphics[width=0.72\textwidth]{figures/fig11_accuracy_comparison.pdf}
 \caption{Accuracy reported by recent studies versus this work. Datasets, sampling, splits and metrics differ; the figure is not a performance ranking.}\label{fig:cmp}
 \end{figure}
 
@@ -209,7 +209,7 @@ Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} show reported accuracy side by side. 
 
 \textbf{Why accuracy misleads.} The benign class is 67.2\,\% of records, so the trivial baseline already has accuracy 0.672. The best model's accuracy of 0.972 corresponds to macro-F1 0.901 and web-attack F1 values of 0.53 and 0.59: a systematic failure on two classes that accuracy cannot reveal, nor whether a one-point difference is noise (fold standard deviations of macro-F1 are 0.02).
 
-\textbf{Untested explanations.} Tree ensembles are scale-insensitive, and a few leading components may discard discriminative low-variance directions; untested.
+\textbf{Untested explanation.} A few leading components may discard discriminative low-variance directions.
 
 \section{Threats to Validity and Limitations}
 These limitations are real, and the conclusions should be read as conditional on them.
@@ -218,7 +218,7 @@ These limitations are real, and the conclusions should be read as conditional on
 
 \textbf{2. Leakage status.} Sampling was performed on the raw, un-imputed data, and imputation, scaling and reduction are fitted inside each training fold. Remaining possible leakage channels were \emph{not} eliminated: records from the same attack session or burst can still fall into both training and test folds in the random 5-fold design, and near-duplicate (not exact-duplicate) flows are not removed. The row-order checks reduce but do not remove this concern, and they rest on the unproven assumption that row order follows capture time.
 
-\textbf{3. Limited external validity.} All data come from one dataset captured in one testbed over one week. The row-order checks score only seven classes (head/tail split) or six to ten classes per fold (blocked) and use a single split or five folds; there is no cross-dataset evaluation. The conclusions apply to random and within-file row-ordered splits of CIC-IDS2017 only; they say nothing about true temporal drift.
+\textbf{3. Limited external validity.} All data come from one dataset captured in one testbed over one week. The row-order checks score only seven classes (head/tail split) or six to ten classes per fold (blocked) and use a single split or five folds; there is no cross-dataset evaluation. These conclusions hold only for random and within-file row-ordered splits of CIC-IDS2017, not for drift over real time.
 
 \textbf{4. Selection and inference.} The headline configuration (RF, original features) was the best of 189 on the same cross-validation that produced its score. The nested analysis shows the optimism is about 0.001 macro-F1 here, but the nested estimate itself is conditioned on the same sample. Repeated-CV significance tests violate independence \cite{nadeau2003}; $p$-values are screening evidence, and unadjusted values are reported for the nested comparisons.
 
@@ -231,7 +231,7 @@ These limitations are real, and the conclusions should be read as conditional on
 This study proposes no new algorithm, and we make no claim of state-of-the-art, real-time, production-ready or generalizable performance. The supported finding is narrower: on this sample, original features were at least as good as PCA or KPCA for four of five classifiers, the one exception largely vanished with tuning, and accuracy hid a systematic failure on web attacks.
 
 \section{Conclusion}
-On a 6{,}000-record sample drawn after exact same-label duplicate removal from all eight CIC-IDS2017 files, with fold-wise fitting of imputation, scaling and reduction, a random forest on the original 78 features had the highest observed macro-F1 (0.901 $\pm$ 0.020; accuracy 0.972 $\pm$ 0.004; 0.900 $\pm$ 0.022 with nested selection). PCA and KPCA with 5--30 components generally did not improve on the original features: they were clearly worse for decision tree and random forest, practically equal for logistic regression (30 components) and $k$-NN, and helped mainly the RBF-SVM (cosine KPCA), an advantage that shrank from 0.076 to 0.021 after tuning. The ranking survived row-order checks that rest on an assumed row order. Linear KPCA coincided with PCA. KPCA cost more than 200 times more fit time and 37 times more traced memory at 4{,}800 records. Accuracy (0.972) concealed weak detection of web brute force and XSS (F1 0.53, 0.59). The results are limited to this sample and to CIC-IDS2017.
+On a 6{,}000-record sample drawn after exact same-label duplicate removal from all eight CIC-IDS2017 files, with fold-wise fitting of imputation, scaling and reduction, a random forest on the original 78 features had the highest observed macro-F1 (0.901 $\pm$ 0.020; accuracy 0.972 $\pm$ 0.004; 0.900 $\pm$ 0.022 with nested selection). PCA and KPCA with 5--30 components generally did not improve on the original features: they were clearly worse for decision tree and random forest, practically equal for logistic regression (30 components) and $k$-NN, and helped mainly the RBF-SVM (cosine KPCA), an advantage that shrank from 0.076 to 0.021 after tuning. The ranking also held in the two row-order checks, which depend on the unproven assumption that row order follows capture time. Linear KPCA coincided with PCA. KPCA cost more than 200 times more fit time and 37 times more traced memory at 4{,}800 records. Accuracy (0.972) concealed weak detection of web brute force and XSS (F1 0.53, 0.59). The results are limited to this sample and to CIC-IDS2017.
 
 \textbf{Future work.} Repeat the pipeline over several sampling seeds and larger samples with an approximate KPCA; add cross-dataset evaluation; widen the tuning grids and tune the KPCA kernel parameters; test the corrected CIC-IDS2017 release \cite{engelen2021}; and evaluate session-grouped splits.
 

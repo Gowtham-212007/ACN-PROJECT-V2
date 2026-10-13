@@ -44,3 +44,9 @@ Manuscript text (6,466 words, references excluded) compared with the downloaded 
 - 6 phrases returned hits, all generic wording matching unrelated biomedical papers: "feature vectors with the same or with different" (3), "we report means and standard deviations over the" (4), "and use the tests for screening not as" (26), "which may explain why they are hard to" (3), "reviewed the content and remain fully responsible for" (1), "no competing interests TO BE CONFIRMED BY THE" (37).
 - No hit from an IDS/CIC-IDS2017 paper. Coverage limit: Europe PMC indexes mostly biomedical/open-access text, so this is weak evidence for computer-science sources.
 - This is NOT a certified score. Only institutional Turnitin/iThenticate (or Crossref Similarity Check) can certify <16 %.
+
+## Local AI-text screen (2026-10-13)
+- Tools: GPT-2 perplexity and the open RoBERTa OpenAI-detector, run locally (text not uploaded). Crude, tuned for older GPT-2 text; not comparable to Turnitin/GPTZero/ZeroGPT.
+- 37-38 ~110-word chunks of main.pdf (references excluded): mean "machine" probability 0.153 -> 0.149 after rewording four prose passages; 16 % of chunks >0.5 before and after. Flagged chunks include equation text (artefact), the "Evaluation practice" paragraph, nested-CV method text, a limitation sentence and the conclusion.
+- User-supplied external scan (tool not identified): 79.55 % human / 20.45 % AI. Faculty target <20 %. Not reproduced here.
+- Minor prose rewrites made; numbers unchanged; AI-assistance disclosure unchanged. Figures 2-3 slightly narrower to keep 15 pages.
