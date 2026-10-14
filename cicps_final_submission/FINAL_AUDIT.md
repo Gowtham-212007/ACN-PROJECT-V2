@@ -22,3 +22,5 @@ Done by: smaller figures 2/3/4 (0.6/0.72/0.78 text width), tighter float spacing
 
 ## Emirmahmutoglu & Atay correction (14 Oct)
 Table 1: accuracy 99.9965 %; F1 99.987 %. Fig. 4 plots 99.9965. Caption no longer mentions a 'lower of two values'. Section 5.9 rewritten. Kuang DOI added. Rebuilt: authored and blind PDFs both 15 pages.
+
+14 Oct: Section 5.9 range sentence now refers to external studies only (Fig. 4); Fig. 4 caption no longer lists 'metrics' as differing (all bars are accuracy).

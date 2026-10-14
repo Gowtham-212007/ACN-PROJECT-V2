@@ -211,12 +211,12 @@ The serial benchmark (table in the repository) used 4{,}800 training and 1{,}200
 
 
 \subsection{Accuracy comparison with recent studies}
-Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side. The accuracy values in Table~\ref{tab:lit} and Fig.~\ref{fig:cmp} range from 97.75\,\% to 99.9965\,\%. For Emirmahmuto\u{g}lu and Atay, 99.9965\,\% is the accuracy of FPA with random forest on CSE-CIC-IDS2018; the same configuration has an F1 of 99.987\,\%. Our random forest reaches 97.2\,\% accuracy but 0.901 macro-F1 on a sample that over-represents attacks. These figures are not comparable.
+Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side. The external studies' accuracy values in Fig.~\ref{fig:cmp} range from 97.75\,\% to 99.9965\,\%. For Emirmahmuto\u{g}lu and Atay, 99.9965\,\% is the accuracy of FPA with random forest on CSE-CIC-IDS2018; the same configuration has an F1 of 99.987\,\%. Our random forest reaches 97.2\,\% accuracy and 0.901 macro-F1 on a sample that over-represents attack classes. These results are not directly comparable across datasets, sampling designs and evaluation splits.
 
 
 \begin{figure}[!htbp]\centering
 \includegraphics[width=0.78\textwidth]{figures/fig11_accuracy_comparison.pdf}
-\caption{Accuracy reported by recent studies versus this work. The horizontal axis starts at 95\,\%. Datasets, sample designs, splits and metrics differ, so the bars are not a like-for-like ranking.}\label{fig:cmp}
+\caption{Accuracy reported by recent studies versus this work. The horizontal axis starts at 95\,\%. Datasets, sampling designs and evaluation splits differ, so the bars are not a like-for-like ranking.}\label{fig:cmp}
 \end{figure}
 
 \section{Discussion}
