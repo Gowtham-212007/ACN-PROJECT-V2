@@ -5,3 +5,6 @@ Emirmahmutoglu & Atay: Springer page fetch showed only the abstract (0.99987, la
 Kuang: Crossref metadata only; abstract unreadable.
 Xu & Liu, Abdelaziz: values verified earlier; not re-fetched this pass.
 Not verified: page numbers/DOIs of every bib entry beyond Crossref-checked ones; IEEE Xplore pages (not accessible).
+
+## Update 14 Oct (external re-check, uploaded by the author)
+Waghmode 99.5 % (Sci Rep); Patil 99.98 % (IG+Extra Trees, 24 features) and 99.58-99.96 % PCA-based (full paper); Abdelaziz weighted-F1 99.8 %, macro-F1 93.31 % (26 features); Xu & Liu MLP 97.75 % on overall test set (Table II); Kuang abstract: KPCA + multilayer SVM + modified RBF kernel + GA, KDD Cup 99 -> DOI 10.1016/j.asoc.2014.01.028 added to the bib. Emirmahmutoglu & Atay: the two values are different metrics (accuracy 99.9965 % in Section 5.4; F1 99.987 % in Table 4/abstract) - NOT conflicting accuracies; manuscript corrected (Table 1, Fig. 4 plots 99.9965, Section 5.9, caption). Status of these claims: reported by an external reviewer, abstract-level F1 label confirmed by me; full-text Section 5.4 not independently fetched.

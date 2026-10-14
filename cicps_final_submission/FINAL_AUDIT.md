@@ -19,3 +19,6 @@ Update 14 Oct: author block, institute and running header removed from the defau
 
 ## 15-page trim (14 Oct)
 Done by: smaller figures 2/3/4 (0.6/0.72/0.78 text width), tighter float spacing, bibliography in the template's small size unchanged, shorter Discussion RQ paragraph (same content), dropped the middle memory values (3.1 ... 359.1 MB kept as endpoints), removed three duplicated sentences (cross-study prose, external-validity sentence, imbalance-treatment sentence), shortened disclosure/availability wording, removed the anonymous institution line from the blind variant. No empirical number, table or caveat changed. Sentence splits (8 sentences) also applied. Whether the organisers count references within 15 pages is not stated; the PDF is 15 pages in total.
+
+## Emirmahmutoglu & Atay correction (14 Oct)
+Table 1: accuracy 99.9965 %; F1 99.987 %. Fig. 4 plots 99.9965. Caption no longer mentions a 'lower of two values'. Section 5.9 rewritten. Kuang DOI added. Rebuilt: authored and blind PDFs both 15 pages.

@@ -62,7 +62,7 @@ Waghmode et al.\ \cite{waghmode2025} (2025) & Intrusion detection system based o
 Patil et al.\ \cite{patil2025} (2025) & Optimizing network intrusion detection systems through ensemble learning and feature selection using the CIC-IDS2017 dataset & Bagging and boosting ensembles; information gain, chi-square, PCA-based feature selection (20 features) & CIC-IDS2017, stratified 70/30 split & Accuracy 99.98\,\% (Extra Trees, 24 features); 99.58--99.96\,\% with PCA-based selection \\
 Abdelaziz et al.\ \cite{abdelaziz2025} (2025) & Enhancing network threat detection with random forest-based NIDS and permutation feature importance & Random forest, permutation importance, undersampling; repeated stratified 5-fold CV & CIC-IDS2017 & Weighted-F1 99.8\,\%, macro-F1 93.31\,\% (26 features) \\
 Xu and Liu \cite{xu2025} (2025) & Robust anomaly detection in network traffic: evaluating machine learning models on CICIDS2017 & MLP, 1D-CNN, one-class SVM, LOF & CICIDS2017 & Accuracy 97.75\,\% (MLP, overall test set) \\
-Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selection-driven machine learning framework for anomaly-based intrusion detection systems & PSO/FPA/DE feature selection; LR, DT, RF, k-NN and others & KDD CUP 99, NSL-KDD, UNSW-NB15, CSE-CIC-IDS2018 & 99.987\,\% (results) / 99.9965\,\% (conclusion); source inconsistent (FPA, RF) \\
+Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selection-driven machine learning framework for anomaly-based intrusion detection systems & PSO/FPA/DE feature selection; LR, DT, RF, k-NN and others & KDD CUP 99, NSL-KDD, UNSW-NB15, CSE-CIC-IDS2018 & Accuracy 99.9965\,\%; F1 99.987\,\% (FPA, RF) \\
 \midrule
 \textbf{This work} (2026) & (this paper) & Original features vs PCA vs linear/RBF/cosine KPCA; LR, k-NN, SVM, DT, RF & CIC-IDS2017, 6,000-record class-stratified sample & RF (original): accuracy 97.2\,\%, macro-F1 90.1\,\% \\
 \bottomrule
@@ -211,12 +211,12 @@ The serial benchmark (table in the repository) used 4{,}800 training and 1{,}200
 
 
 \subsection{Accuracy comparison with recent studies}
-Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side. The values in Table~\ref{tab:lit} range from 97.75\,\% to 99.9965\,\%, and Fig.~\ref{fig:cmp} plots 99.987\,\% for Emirmahmuto\u{g}lu and Atay, the lower of their two stated values; our random forest reaches 97.2\,\% accuracy but 0.901 macro-F1 on a sample that over-represents attacks. These figures are not comparable.
+Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side. The accuracy values in Table~\ref{tab:lit} and Fig.~\ref{fig:cmp} range from 97.75\,\% to 99.9965\,\%. For Emirmahmuto\u{g}lu and Atay, 99.9965\,\% is the accuracy of FPA with random forest on CSE-CIC-IDS2018; the same configuration has an F1 of 99.987\,\%. Our random forest reaches 97.2\,\% accuracy but 0.901 macro-F1 on a sample that over-represents attacks. These figures are not comparable.
 
 
 \begin{figure}[!htbp]\centering
 \includegraphics[width=0.78\textwidth]{figures/fig11_accuracy_comparison.pdf}
-\caption{Accuracy reported by recent studies versus this work (lower of the two values given by Emirmahmuto\u{g}lu and Atay is plotted). The horizontal axis starts at 95\,\%. Datasets, sample designs, splits and metrics differ, so the bars are not a like-for-like ranking.}\label{fig:cmp}
+\caption{Accuracy reported by recent studies versus this work. The horizontal axis starts at 95\,\%. Datasets, sample designs, splits and metrics differ, so the bars are not a like-for-like ranking.}\label{fig:cmp}
 \end{figure}
 
 \section{Discussion}
@@ -256,7 +256,7 @@ The raw CIC-IDS2017 MachineLearningCVE files are distributed by the dataset prov
 
 
 \section*{Acknowledgments and AI-assistance disclosure}
-Generative AI was used in this work. Claude (Anthropic; Claude Code, model Claude Sonnet 5.5) helped (i) write and revise the Python pipeline (data preparation, validation, statistics, benchmarks, tables, figures and a claim checker); (ii) draft and edit the text of all sections, including the abstract, captions and limitations; and (iii) look up and cross-check bibliographic metadata and statements attributed to cited sources. ChatGPT (OpenAI) was used for editorial suggestions and for additional checks of cited sources. All reported numbers were produced by code run on the data described and re-checked by script. The authors reviewed the content and remain fully responsible for it. The authors received no specific funding for this work and declare no competing interests.
+Generative AI was used in this work. Claude (Anthropic; Claude Code, model Claude Sonnet 5.5) helped (i) write and revise the Python pipeline (data preparation, validation, statistics, benchmarks, tables, figures and a claim checker); (ii) draft and edit the text of all sections, including the abstract, captions and limitations; and (iii) check bibliographic metadata and statements attributed to cited sources. ChatGPT (OpenAI) gave editorial suggestions and extra source checks. All reported numbers were produced by code run on the data described and re-checked by script. The authors reviewed the content and remain fully responsible for it. The authors received no specific funding for this work and declare no competing interests.
 
 \bibliographystyle{splncs04}
 {\let\small\footnotesize\bibliography{references}}
