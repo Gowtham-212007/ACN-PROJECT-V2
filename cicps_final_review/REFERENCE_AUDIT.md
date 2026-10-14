@@ -1,10 +1,15 @@
-# REFERENCE AUDIT
-Verified at abstract/metadata level earlier in the session (Crossref, arXiv, Europe PMC, Semantic Scholar): Ring (arXiv 1903.02460), Arp (2010.09470), Apruzzese (2203.04686), Sharafaldin (PDF abstract), Engelen, Panigrahi, Abdulhammed, Waghmode (Sci Rep abstract), Abdel-Rahman.
-This pass: Patil et al. (Informatica, abstract fetched): 99.98 % Extra Trees with information gain (24 features); abstract lists "PCA, 20 features" as a feature-selection method, no PCA accuracy range in the abstract. The 99.58-99.96 % range was verified earlier / by an external reviewer from the full text, not re-fetched now.
-Emirmahmutoglu & Atay: Springer page fetch showed only the abstract (0.99987, labelled F1) and was truncated; the 99.987 % (results) / 99.9965 % (conclusion) locations come from an external reviewer and are UNCONFIRMED by me.
-Kuang: Crossref metadata only; abstract unreadable.
-Xu & Liu, Abdelaziz: values verified earlier; not re-fetched this pass.
-Not verified: page numbers/DOIs of every bib entry beyond Crossref-checked ones; IEEE Xplore pages (not accessible).
+# REFERENCE AUDIT (final pass, 14 Oct 2026)
+Method: all 24 bib entries checked against Crossref (DOI lookup, or bibliographic search where no DOI exists), comparing title, year, volume and pages; key literature claims checked against abstracts/publisher pages/full text as listed.
 
-## Update 14 Oct (external re-check, uploaded by the author)
-Waghmode 99.5 % (Sci Rep); Patil 99.98 % (IG+Extra Trees, 24 features) and 99.58-99.96 % PCA-based (full paper); Abdelaziz weighted-F1 99.8 %, macro-F1 93.31 % (26 features); Xu & Liu MLP 97.75 % on overall test set (Table II); Kuang abstract: KPCA + multilayer SVM + modified RBF kernel + GA, KDD Cup 99 -> DOI 10.1016/j.asoc.2014.01.028 added to the bib. Emirmahmutoglu & Atay: the two values are different metrics (accuracy 99.9965 % in Section 5.4; F1 99.987 % in Table 4/abstract) - NOT conflicting accuracies; manuscript corrected (Table 1, Fig. 4 plots 99.9965, Section 5.9, caption). Status of these claims: reported by an external reviewer, abstract-level F1 label confirmed by me; full-text Section 5.4 not independently fetched.
+| Key | Metadata check | Claim check |
+|---|---|---|
+| ring2019, engelen2021, apruzzese2022, kuang2014, waghmode2025, emirmahmutoglu2025, abdelrahman2026, scholkopf1998, cortes1995, cover1967, quinlan1986, chicco2020, nadeau2003, abdulhammed2019 | Crossref match: title 1.0, year/volume/pages agree | Abstract/publisher level (earlier rounds) |
+| sharafaldin2018 | Crossref (search): title, year, pp 108-116 agree; no DOI in bib | Abstract |
+| patil2025 | DOI matches; Informatica 49(4), Dec 2025; issue number added this pass | 99.98 % ET+IG (24 features) from publisher abstract; 99.58-99.96 % PCA range from full paper (author-supplied re-check) |
+| abdelaziz2025 | DOI matches; J. Netw. Syst. Manage. 33(1), art. 2; online 22 Oct 2024, volume year 2025 (bib uses 2025) | 99.8 % weighted-F1, 93.31 % macro-F1 (source abstract) |
+| chavan2025 | DOI matches; IJCA 187(3), pp 17-22 (pages added this pass) | Table 4 RF 97.20 % in publisher PDF (read in full this session); 80/20 split |
+| xu2025 | arXiv:2506.19877v2 confirmed (title, authors, v2 dated 11 Aug 2025); not on Crossref as a journal | Table II MLP 0.9775 on overall test set confirmed this pass |
+| emirmahmutoglu2025 | DOI matches; P2P Netw. Appl. 18(3), art. 161 | Abstract: 0.99987 F1 confirmed; 99.9965 % accuracy location is from an external re-check, not independently re-read by me |
+| panigrahi2018, arp2022, pedregosa2011, breiman2001, demsar2006 | No DOI; Crossref search did not return the right record (venues without DOIs). Volume/pages match my knowledge of the publications but are NOT machine-verified | Panigrahi/Arp abstracts checked earlier; textbook references used only for method attribution |
+
+Unverified: IEEE Xplore pages (not accessible), Emirmahmutoglu full text, the five non-DOI entries' page numbers, and any sentence not listed above.

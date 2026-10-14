@@ -36,7 +36,8 @@ Breiman, L.: Random forests. Machine Learning  \textbf{45}(1),  5--32 (2001)
 \bibitem{chavan2025}
 Chavan, P.V., Alone, N.V.: Optimizing intrusion detection with random forest: A
   high-accuracy approach using {CIC-IDS} 2017. International Journal of
-  Computer Applications  \textbf{187}(3) (2025). \doi{10.5120/ijca2025924816}
+  Computer Applications  \textbf{187}(3),  17--22 (2025).
+  \doi{10.5120/ijca2025924816}
 
 \bibitem{chicco2020}
 Chicco, D., Jurman, G.: The advantages of the {Matthews} correlation
@@ -83,8 +84,8 @@ Panigrahi, R., Borah, S.: A detailed analysis of {CICIDS2017} dataset for
 \bibitem{patil2025}
 Patil, D.R., Pattewar, T.M., Shinde, T.S., Kumavat, K.S., Deshpande, S.N.:
   Optimizing network intrusion detection systems through ensemble learning and
-  feature selection using the {CIC-IDS2017} dataset. Informatica  \textbf{49},
-  641--670 (2025). \doi{10.31449/inf.v49i4.7678}
+  feature selection using the {CIC-IDS2017} dataset. Informatica
+  \textbf{49}(4),  641--670 (2025). \doi{10.31449/inf.v49i4.7678}
 
 \bibitem{pedregosa2011}
 Pedregosa, F., et~al.: Scikit-learn: Machine learning in {P}ython. Journal of
