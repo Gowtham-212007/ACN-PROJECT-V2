@@ -30,3 +30,9 @@ Rephrased ~11 sentences (introduction opening and problem statement, per-class g
 - Disclosure: confirmation instruction removed; ChatGPT (editorial suggestions, extra source checks) added alongside Claude.
 - Funding/competing interests: "received no specific funding ... declare no competing interests" (author's choice).
 - Still placeholders: author names, affiliation, e-mail, running header, repository URL (12 occurrences in PDF text).
+
+## 14 Oct 2026 – layout QA
+- Fig. 4 (cross-study chart) redrawn: axis 95-100 % (stated in caption), 8 pt labels, wider; values unchanged.
+- Table 3: column spacing widened so the row labels no longer touch the numbers.
+- Checked 16 rendered pages and text for number consistency (0.901/0.972/0.900, 0.076->0.021, >200x, ~37x, 189/190/2,850) - consistent; no ?? references.
+- Known cosmetic: blank space at the bottom of pp. 9 and 12 from float placement.
