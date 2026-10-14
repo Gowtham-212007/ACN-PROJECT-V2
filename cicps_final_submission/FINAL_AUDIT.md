@@ -14,3 +14,5 @@ The conference site (cicps27.gcect.ac.in) names Microsoft CMT but does not state
 - Headline numbers consistent with earlier claim checks (see CLAIM_AUDIT.md).
 ## Not resolved
 Author names/affiliation/e-mail, repository URL, declarations confirmation, certified plagiarism/AI reports. See AUTHOR_ACTIONS.md. Status: NOT ready for submission until those are done; ready for submission after author confirmation only for the blind variant if the repository link can stay withheld.
+
+Update 14 Oct: author block, institute and running header removed from the default build at the author's request (no author fields; only the repository line remains a placeholder). Add names before camera-ready.
