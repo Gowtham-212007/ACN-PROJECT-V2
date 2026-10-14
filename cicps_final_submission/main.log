@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  14 OCT 2026 04:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.2)  14 OCT 2026 04:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -388,45 +388,46 @@ First, CIC-IDS2017
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Underfull \vbox (badness 2735) has occurred while \output is active []
 
- [3]
-[4]
+ [4]
 <figures/fig1_pipeline.pdf, id=31, 406.51875pt x 100.70825pt>
 File: figures/fig1_pipeline.pdf Graphic file (type pdf)
 <use figures/fig1_pipeline.pdf>
-Package pdftex.def Info: figures/fig1_pipeline.pdf  used on input line 99.
+Package pdftex.def Info: figures/fig1_pipeline.pdf  used on input line 120.
 (pdftex.def)             Requested size: 277.69987pt x 68.79724pt.
- [5 <./figures/fig1_pipeline.pdf>]
-Overfull \hbox (7.43262pt too wide) in paragraph at lines 132--133
+
+[5]
+Overfull \hbox (7.43262pt too wide) in paragraph at lines 136--137
 \OT1/cmr/m/n/10 F1; bal-anced ac-cu-racy; and the multi-class Matthews cor-re-l
 a-tion co-ef-fi-cient (MCC)
  []
 
-[6] (./tables/T8_per_class_best.tex) [7] (./tables/T7_cv_summary_n10.tex)
+[6 <./figures/fig1_pipeline.pdf>] (./tables/T8_per_class_best.tex) [7]
+(./tables/T7_cv_summary_n10.tex)
 <figures/fig10_all_executions.pdf, id=75, 392.74916pt x 193.58516pt>
 File: figures/fig10_all_executions.pdf Graphic file (type pdf)
 <use figures/fig10_all_executions.pdf>
 Package pdftex.def Info: figures/fig10_all_executions.pdf  used on input line 1
-70.
+74.
 (pdftex.def)             Requested size: 190.91899pt x 94.10431pt.
 <figures/fig12_per_algorithm_accuracy.pdf, id=76, 460.71812pt x 287.27327pt>
 File: figures/fig12_per_algorithm_accuracy.pdf Graphic file (type pdf)
 <use figures/fig12_per_algorithm_accuracy.pdf>
 Package pdftex.def Info: figures/fig12_per_algorithm_accuracy.pdf  used on inpu
-t line 177.
+t line 181.
 (pdftex.def)             Requested size: 222.15884pt x 138.52519pt.
-
-[8] [9 <./figures/fig10_all_executions.pdf> <./figures/fig12_per_algorithm_accu
-racy.pdf>] (./tables/T12_tuning.tex) [10]
+ [8] [9 <./figures/fig10_all_executions.pdf> <./figures/fig12_per_algorithm_acc
+uracy.pdf>] (./tables/T12_tuning.tex) [10]
 <figures/fig11_accuracy_comparison.pdf, id=113, 513.0775pt x 186.23979pt>
 File: figures/fig11_accuracy_comparison.pdf Graphic file (type pdf)
 <use figures/fig11_accuracy_comparison.pdf>
 Package pdftex.def Info: figures/fig11_accuracy_comparison.pdf  used on input l
-ine 219.
+ine 223.
 (pdftex.def)             Requested size: 242.98541pt x 88.20053pt.
- [11] [12 <./figures/fig11_accuracy_comparison.pdf>] [13] (./main.bbl
+
+[11] [12 <./figures/fig11_accuracy_comparison.pdf>] [13] (./main.bbl
 Underfull \hbox (badness 2334) in paragraph at lines 12--16
 []\OT1/cmr/m/n/9 Abdelaziz, M.T., Rad-wan, A., Mam-douh, H., et al.: En-hanc-in
 g net-work
@@ -495,7 +496,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
 onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (15 pages, 403576 bytes).
+Output written on main.pdf (15 pages, 403510 bytes).
 PDF statistics:
  222 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams
