@@ -25,3 +25,8 @@ Rephrased ~11 sentences (introduction opening and problem statement, per-class g
 - Emirmahmutoglu & Atay row: "99.987 % (results) / 99.9965 % (conclusion); source inconsistent" (as reported by the external reviewer; not independently confirmed).
 - Removed the mention of RUN_EXPERIMENTS.md and shortened the Setup sentence to hold 16 pages.
 - humanize.ai not used: it is a paraphraser aimed at detectors, and the unpublished manuscript was not uploaded to third parties.
+
+## 14 Oct 2026 – declarations (author-confirmed in chat)
+- Disclosure: confirmation instruction removed; ChatGPT (editorial suggestions, extra source checks) added alongside Claude.
+- Funding/competing interests: "received no specific funding ... declare no competing interests" (author's choice).
+- Still placeholders: author names, affiliation, e-mail, running header, repository URL (12 occurrences in PDF text).
