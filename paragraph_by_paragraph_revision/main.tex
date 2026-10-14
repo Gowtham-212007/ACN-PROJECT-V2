@@ -13,9 +13,9 @@
 \begin{document}
 \title{Does Dimensionality Reduction Help Classical Intrusion Detection? Original Features versus PCA and Kernel PCA on a Class-Stratified CIC-IDS2017 Sample}
 \titlerunning{Dimensionality Reduction for Classical Intrusion Detection}
-\author{[AUTHOR NAME 1 -- TO BE FILLED]\inst{1} \and [AUTHOR NAME 2 -- TO BE FILLED]\inst{1}}
-\authorrunning{[A. Author et al. -- TO BE FILLED]}
-\institute{[DEPARTMENT, INSTITUTION, CITY, COUNTRY -- TO BE FILLED]\\ \email{[EMAIL -- TO BE FILLED]}}
+\author{}
+\authorrunning{}
+\institute{}
 \maketitle
 \begin{abstract}
 Kernel principal component analysis (KPCA) is often paired with classical classifiers for network intrusion detection, but gains are sometimes reported on a single split or without a no-reduction baseline. We compare the 78 original CIC-IDS2017 flow features with PCA and KPCA (linear, RBF and cosine kernels; 5 to 30 components) across five classifiers: logistic regression, $k$-nearest neighbors, SVM, decision tree and random forest. The data are a class-stratified sample of 6,000 records (at least 100 per class) drawn after exact duplicate removal; the sample does not preserve natural traffic prevalence. Imputation, scaling and reduction are fitted on training folds only. Evaluation combines repeated stratified cross-validation, nested cross-validation, a small nested hyper-parameter search, two row-order checks that serve as an unverified proxy for chronology (the files contain no timestamps), and a runtime and memory benchmark. A random forest on the original features scored highest (macro-F1 $0.901\pm0.020$; accuracy $0.972\pm0.004$; nested estimate $0.900\pm0.022$), yet two web-attack classes had F1 of only 0.53 and 0.59. Reduction did not help the decision tree or random forest and at best matched the original features for logistic regression and $k$-NN. Only the SVM gained from reduction (cosine KPCA), and that gain fell from 0.076 to 0.021 after tuning. In our benchmark, KPCA fitting took more than 200 times longer than PCA and whole-pipeline traced memory was about 37 times higher. The results come from one sample of one dataset, and every significance test carries a fold-dependence caveat.

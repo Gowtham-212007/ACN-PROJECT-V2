@@ -36,3 +36,5 @@ Rephrased ~11 sentences (introduction opening and problem statement, per-class g
 - Table 3: column spacing widened so the row labels no longer touch the numbers.
 - Checked 16 rendered pages and text for number consistency (0.901/0.972/0.900, 0.076->0.021, >200x, ~37x, 189/190/2,850) - consistent; no ?? references.
 - Known cosmetic: blank space at the bottom of pp. 9 and 12 from float placement.
+
+## 14 Oct 2026 - author fields emptied (title page, institute, even-page running header) at the author's request; add real names/affiliations before final submission unless the conference requires anonymous review.
