@@ -28,7 +28,6 @@
 Kernel principal component analysis (KPCA) is often paired with classical classifiers for network intrusion detection, but gains are sometimes reported on a single split or without a no-reduction baseline. We compare the 78 original CIC-IDS2017 flow features with PCA and KPCA (linear, RBF and cosine kernels; 5 to 30 components) across five classifiers: logistic regression, $k$-nearest neighbors, SVM, decision tree and random forest. The data are a class-stratified sample of 6,000 records (at least 100 per class) drawn after exact duplicate removal; the sample does not preserve natural traffic prevalence. Imputation, scaling and reduction are fitted on training folds only. Evaluation combines repeated stratified cross-validation, nested cross-validation, a small nested hyper-parameter search, two row-order checks that serve as an unverified proxy for chronology (the files contain no timestamps), and a runtime and memory benchmark. A random forest on the original features scored highest (macro-F1 $0.901\pm0.020$; accuracy $0.972\pm0.004$; nested estimate $0.900\pm0.022$), yet two web-attack classes had F1 of only 0.53 and 0.59. Reduction did not help the decision tree or random forest and at best matched the original features for logistic regression and $k$-NN. Only the SVM gained from reduction (cosine KPCA), and that gain fell from 0.076 to 0.021 after tuning. In our benchmark, KPCA fitting took more than 200 times longer than PCA and whole-pipeline traced memory was about 37 times higher. The results come from one sample of one dataset, and every significance test carries a fold-dependence caveat.
 
 \keywords{Network intrusion detection \and CIC-IDS2017 \and Kernel PCA \and Dimensionality reduction \and Class imbalance \and Machine learning.}
-\vspace{2pt}\noindent\textit{Code and results:} \ifdefined\BLIND link withheld for anonymous review\else[REPOSITORY URL / ARCHIVE DOI -- TO BE FILLED BY THE AUTHORS]\fi
 \end{abstract}
 
 \section{Introduction}
@@ -44,13 +43,7 @@ Three problems make such comparisons hard to interpret. First, CIC-IDS2017 is im
 We surveyed fifteen studies. Table~\ref{tab:lit} lists five recent (2025) ones with algorithm, dataset and result \emph{as stated by their authors}; the other ten, on the dataset and its problems, dimensionality reduction and evaluation practice, are discussed below.
 
 
-\textit{Dataset and its quality.} \textbf{Ring et al.}~\cite{ring2019} survey public network-intrusion datasets and define 15 properties for judging which evaluation settings each dataset suits; we cite it for the criteria by which flow datasets are judged. \textbf{Sharafaldin et al.}~\cite{sharafaldin2018} introduced CIC-IDS2017 and describe its traffic and attack scenarios; we use the original flow files they distribute. \textbf{Engelen et al.}~\cite{engelen2021} report ``TCP appendix'' artefact flows (about a quarter of all flows), attack attempts labelled as attacks although they contain no malicious payload, and feature-extraction flaws that enable shortcut learning. They released a corrected version. These problems limit how far our absolute scores can be trusted. \textbf{Panigrahi and Borah}~\cite{panigrahi2018} likewise describe shortcomings of the dataset and propose a combined dataset, which we did not use. Together these four papers bear on how far CIC-IDS2017 scores can be trusted; none studies dimensionality reduction.
-
-\textit{Dimensionality reduction.} \textbf{Abdulhammed et al.}~\cite{abdulhammed2019} apply an auto-encoder and PCA to CIC-IDS2017, reducing 81 features to 10 and reporting about 99.6\,\% accuracy in multi-class and binary classification; they are our nearest CIC-IDS2017 reference for PCA. \textbf{Kuang et al.}~\cite{kuang2014} combine KPCA, an SVM and a genetic algorithm for intrusion detection; this is a related earlier KPCA--SVM approach, but it predates CIC-IDS2017 and therefore could not have evaluated that dataset. \textbf{Abdel-Rahman et al.}~\cite{abdelrahman2026} propose a feature-importance-guided autoencoder and state that, with a random forest, it outperformed earlier reduction techniques on NSL-KDD, UNSW-NB15 and CIC-IDS2017; we did not extract their numbers, and we study classical reducers rather than a learned one. \textbf{Chavan and Alone}~\cite{chavan2025} report ``high accuracy'' for a random forest on CIC-IDS 2017, with no figure or split in the abstract, so there is nothing to compare numerically with our random-forest result.
-
-\textit{Evaluation methodology.} \textbf{Arp et al.}~\cite{arp2022} describe pitfalls in machine learning for security that can produce unrealistic performance; in response we fit every data-dependent step on training folds only and report class-aware metrics beside accuracy. \textbf{Apruzzese et al.}~\cite{apruzzese2022} propose cross-evaluating ML-based network intrusion detection across datasets; we do not, so our conclusions stay within one dataset. Among the studies we read, none pairs a no-reduction baseline, per-class analysis and fold-wise fitting across PCA and several KPCA kernels. Our reading was not exhaustive, so we claim no gap in the literature. IEEE Xplore was not accessible during our search; we used publisher records, proceedings, repositories and preprints.
-
-\begin{table}[!htbp]
+\begin{table}[!t]
 \caption{Recent studies (2025) and this work. Results are quoted from each source and are not directly comparable (different datasets, sampling, splits and metrics).}\label{tab:lit}
 \centering\scriptsize
 \renewcommand{\arraystretch}{1.15}
@@ -59,7 +52,7 @@ We surveyed fifteen studies. Table~\ref{tab:lit} lists five recent (2025) ones w
 Author (year) & Title & Algorithm & Dataset & Reported result \\
 \midrule
 Waghmode et al.\ \cite{waghmode2025} (2025) & Intrusion detection system based on machine learning using least square support vector machine & Quantum-inspired LS-SVM with exhaustive feature selection & NSL-KDD, CIC-IDS-2017, UNSW-NB15 & Accuracy 99.5\,\% on CIC-IDS-2017 \\
-Patil et al.\ \cite{patil2025} (2025) & Optimizing network intrusion detection systems through ensemble learning and feature selection using the CIC-IDS2017 dataset & Bagging and boosting ensembles; information gain, chi-square, PCA-based feature selection (20 features) & CIC-IDS2017, stratified 70/30 split & Accuracy 99.98\,\% (Extra Trees, 24 features); 99.58--99.96\,\% with PCA-based selection \\
+Patil et al.\ \cite{patil2025} (2025) & Optimizing network intrusion detection systems through ensemble learning and feature selection using the CIC-IDS2017 dataset & Bagging and boosting ensembles; information gain, chi-square, PCA, 20 features (authors' label: feature selection) & CIC-IDS2017, stratified 70/30 split & Accuracy 99.98\,\% (Extra Trees, 24 features); 99.58--99.96\,\% with PCA \\
 Abdelaziz et al.\ \cite{abdelaziz2025} (2025) & Enhancing network threat detection with random forest-based NIDS and permutation feature importance & Random forest, permutation importance, undersampling; repeated stratified 5-fold CV & CIC-IDS2017 & Weighted-F1 99.8\,\%, macro-F1 93.31\,\% (26 features) \\
 Xu and Liu \cite{xu2025} (2025) & Robust anomaly detection in network traffic: evaluating machine learning models on CICIDS2017 & MLP, 1D-CNN, one-class SVM, LOF & CICIDS2017 & Accuracy 97.75\,\% (MLP, overall test set) \\
 Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selection-driven machine learning framework for anomaly-based intrusion detection systems & PSO/FPA/DE feature selection; LR, DT, RF, k-NN and others & KDD CUP 99, NSL-KDD, UNSW-NB15, CSE-CIC-IDS2018 & Accuracy 99.9965\,\%; F1 99.987\,\% (FPA, RF) \\
@@ -68,6 +61,13 @@ Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selecti
 \bottomrule
 \end{tabular}
 \end{table}
+
+\textit{Dataset and its quality.} \textbf{Ring et al.}~\cite{ring2019} survey public network-intrusion datasets and define 15 properties for judging which evaluation settings each dataset suits. \textbf{Sharafaldin et al.}~\cite{sharafaldin2018} introduced CIC-IDS2017 and describe its traffic and attack scenarios; we use the original flow files they distribute. \textbf{Engelen et al.}~\cite{engelen2021} report ``TCP appendix'' artefact flows (about a quarter of all flows), attack attempts labelled as attacks although they contain no malicious payload, and feature-extraction flaws that enable shortcut learning. They released a corrected version, so absolute scores here should be read cautiously. \textbf{Panigrahi and Borah}~\cite{panigrahi2018} likewise describe shortcomings of the dataset and propose a combined dataset, which we did not use.
+
+\textit{Dimensionality reduction.} \textbf{Abdulhammed et al.}~\cite{abdulhammed2019} apply an auto-encoder and PCA to CIC-IDS2017, reducing 81 features to 10 and reporting about 99.6\,\% accuracy in multi-class and binary classification; they are our nearest CIC-IDS2017 reference for PCA. \textbf{Kuang et al.}~\cite{kuang2014} combine KPCA, an SVM and a genetic algorithm for intrusion detection; a related earlier KPCA--SVM approach that predates CIC-IDS2017. \textbf{Abdel-Rahman et al.}~\cite{abdelrahman2026} propose a feature-importance-guided autoencoder and state that, with a random forest, it outperformed earlier reduction techniques on NSL-KDD, UNSW-NB15 and CIC-IDS2017; we did not extract their numbers, and we study classical reducers rather than a learned one. \textbf{Chavan and Alone}~\cite{chavan2025} report 97.20\,\% random-forest accuracy on CIC-IDS 2017 in a comparison table (Table~4 of the full text; 80/20 split). It is not directly comparable with ours, since the evaluation protocols differ.
+
+\textit{Evaluation methodology.} \textbf{Arp et al.}~\cite{arp2022} describe pitfalls in machine learning for security that can produce unrealistic performance; in response we fit every data-dependent step on training folds only and report class-aware metrics beside accuracy. \textbf{Apruzzese et al.}~\cite{apruzzese2022} propose cross-evaluating ML-based network intrusion detection across datasets; we do not, so our conclusions stay within one dataset. Among the studies we read, none pairs a no-reduction baseline, per-class analysis and fold-wise fitting across PCA and several KPCA kernels. Our reading was not exhaustive, so we claim no gap. IEEE Xplore was not accessible during our search; we used publisher records, proceedings, repositories and preprints.
+
 
 \section{Dataset and Preprocessing}\label{sec:data}
 \textbf{Data.} We use the eight daily CIC-IDS2017 \texttt{MachineLearningCVE} files: 2{,}830{,}743 flows, 78 numeric features, 15 labels (counts computed from the files; no provider checksum was available). There is no timestamp column. Rows with missing or infinite values are 0.2\,\% or less of each file (inf $\to$ NaN) and were not imputed before sampling. Eight features are constant in every file and were kept to match the 78-feature definition of earlier work.
@@ -81,10 +81,6 @@ Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selecti
 \section{Methodology}\label{sec:method}
 \textbf{Pipeline.} Fig.~\ref{fig:pipe} shows the protocol. Within each training fold we fit a mean imputer and a standard scaler, then the dimensionality reducer; test folds are only transformed. Feature spaces are: \emph{original} (78 standardised features); \emph{PCA}; and \emph{KPCA} with linear, RBF (scikit-learn default $\gamma=1/78$) and cosine kernels \cite{scholkopf1998}, each with $n\in\{5,10,15,20,30\}$ components. The reducer is fitted once per fold and shared by all classifiers, which is equivalent to fitting it inside each pipeline because it is deterministic (unit-tested).
 
-\begin{figure}[!htbp]\centering
-\includegraphics[width=0.9\textwidth]{figures/fig1_pipeline.pdf}
-\caption{Experimental pipeline. All data-dependent preprocessing and reduction is fitted on the training fold only.}\label{fig:pipe}
-\end{figure}
 
 \textbf{Algorithm and formulas.} Algorithm~\ref{alg:cv} summarises one evaluation of a feature space and classifier. Features are standardised as $z_j=(x_j-\mu_j)/\sigma_j$ with $\mu_j,\sigma_j$ from the training fold. PCA projects onto the leading eigenvectors $\mathbf{v}_k$ of the training covariance matrix $\mathbf{C}=\frac{1}{n}\mathbf{Z}^{\top}\mathbf{Z}$. KPCA uses the kernel matrix $K_{ij}=k(\mathbf{z}_i,\mathbf{z}_j)$ with
 \begin{equation}
@@ -98,6 +94,11 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 \begin{equation}
 \mathrm{MCC}=\frac{c\,s-\sum_k p_kt_k}{\sqrt{s^{2}-\sum_k p_k^{2}}\,\sqrt{s^{2}-\sum_k t_k^{2}}}.
 \end{equation}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=0.8\textwidth]{figures/fig1_pipeline.pdf}
+\caption{Experimental pipeline. All data-dependent preprocessing and reduction is fitted on the training fold only.}\label{fig:pipe}
+\end{figure}
 
 \begin{algorithm}[t]
 \caption{Fold-wise evaluation of one feature space $S$ and classifier $f$}\label{alg:cv}
@@ -166,19 +167,19 @@ A stricter question is whether each classifier's \emph{best} reduced space match
 Fig.~\ref{fig:all} shows all 25 classifier-by-space executions at 10 components (macro-F1, mean $\pm$ std over 15 folds; the black bar is the original space). Only for the SVM does a reduced space (cosine KPCA) beat the original, and the tree-based classifiers lead overall.
 
 \begin{figure}[!htbp]\centering
-\includegraphics[width=0.6\textwidth]{figures/fig10_all_executions.pdf}
+\includegraphics[width=0.55\textwidth]{figures/fig10_all_executions.pdf}
 \caption{Macro-F1 of all classifier $\times$ feature-space executions at 10 components (mean $\pm$ std over 15 folds; standard class weights; axis starts at zero).}\label{fig:all}
 \end{figure}
 
 \subsection{Accuracy of each algorithm across feature spaces}
 Fig.~\ref{fig:peralgo} shows one panel per classifier: bars give mean accuracy for PCA and the three KPCA kernels at 5 to 30 components, and the dashed line is the accuracy on the original 78 features. For logistic regression, $k$-NN, decision tree and random forest, none of the 20 reduced configurations exceeds the original accuracy (the closest is $k$-NN with cosine KPCA at 30 components: 0.9339 against 0.9341). Only the SVM has reduced configurations above its original 0.906, and only cosine KPCA at 15, 20 and 30 components (best 0.924). Accuracy differences are small compared with class-level differences, which is why we use macro-F1 as the primary metric.
 \begin{figure}[!htbp]\centering
-\includegraphics[width=0.72\textwidth]{figures/fig12_per_algorithm_accuracy.pdf}
+\includegraphics[width=0.64\textwidth]{figures/fig12_per_algorithm_accuracy.pdf}
 \caption{Accuracy (mean $\pm$ std over 15 folds, standard class weights) of each classifier for PCA and KPCA at 5--30 components. Dashed line: original 78 features. The vertical axis starts at 0.5.}\label{fig:peralgo}
 \end{figure}
 
 \subsection{Selection optimism: nested cross-validation}\label{sec:results-nested}
-Selecting the best of 189 configurations on the scoring folds is optimistic, so selection was repeated inside a nested cross-validation (Section~\ref{sec:method}). The configuration chosen on inner folds reached macro-F1 $0.900\pm0.022$ (accuracy 0.972, MCC 0.947) on the outer folds against 0.901 for the same-CV maximum: an optimism of about 0.001. The inner folds chose an original-feature configuration in all 15 outer folds (RF 11 times, DT 4). Original features were clearly better than the inner-selected best reduced space for DT ($+0.093$) and RF ($+0.062$), practically equal for logistic regression ($+0.004$, unadjusted $p=0.010$, far below the fold standard deviation of 0.022) and $k$-NN ($+0.002$). For the SVM the reduced space was better by 0.060 (cosine KPCA-30 was chosen in all 15 folds). The $p$-values are unadjusted.
+Selecting the best of 189 configurations on the scoring folds is optimistic, so selection was repeated inside a nested cross-validation (Section~\ref{sec:method}). The configuration chosen on inner folds reached macro-F1 $0.900\pm0.022$ (accuracy 0.972, MCC 0.947) on the outer folds against 0.901 for the same-CV maximum: an optimism of about 0.001. The inner folds chose an original-feature configuration in all 15 outer folds (RF 11 times, DT 4). Original features were clearly better than the inner-selected best reduced space for DT ($+0.093$) and RF ($+0.062$), similar for $k$-NN ($+0.002$). For logistic regression the macro-F1 difference was 0.004, smaller than the fold standard deviation of 0.022; its unadjusted Wilcoxon $p$ was 0.010, and because outer folds share training data it is exploratory. For the SVM the reduced space was better by 0.060 (cosine KPCA-30 was chosen in all 15 folds). The $p$-values are unadjusted.
 
 
 
@@ -202,7 +203,7 @@ In the head/tail split 4{,}199 records train and 1{,}769 test (32 test records o
 Linear KPCA reproduced PCA, as expected on centred data: results were identical for $k$-NN and SVM and within 0.001 (LR) or 0.007 (trees; small eigen-solver differences, not investigated). For LR and SVM the number of components mattered more than the kernel (LR macro-F1 rose from 0.37 at 5 PCA components to 0.73 at 30, against 0.736 on original features). For $k$-NN, DT and RF the kernel mattered somewhat more, but the effects were small. RBF-KPCA with default $\gamma$ was weakest for LR, $k$-NN, DT and RF. For the SVM cosine KPCA was best (mean macro-F1 0.657 versus 0.536 linear and 0.515 RBF; $\gamma$ untuned). Balanced class weights raised balanced accuracy for LR and SVM but macro-F1 only for SVM and DT; they lowered it for LR (0.736 $\to$ 0.710) and RF (0.901 $\to$ 0.885), so the best model remained the unweighted random forest.
 
 \subsection{Computational cost}
-The serial benchmark (table in the repository) used 4{,}800 training and 1{,}200 test records. KPCA fitting took 5.5--5.6\,s against 0.02\,s for PCA, more than 200 times as long. It raised decision-tree training from 0.07\,s with PCA to 5.3--5.6\,s and random-forest training from 0.84--0.90\,s to 6.3--6.6\,s, and made random-forest inference about five times slower (0.092--0.123\,s against 0.020--0.021\,s per 1{,}200 records). Peak traced memory of the whole pipeline was 363\,MB for KPCA against 9.8\,MB for PCA or no reduction, about 37 times. It grew roughly quadratically with $n$ (3.1\,MB at $n=400$ to 359.1\,MB at $n=4800$; log--log slope 1.9), consistent with an $n\times n$ float64 kernel matrix (184\,MB at $n=4800$). As arithmetic, not a measurement, one dense float64 kernel matrix for all 2{,}830{,}743 source flows would need about 64\,TB, so exact KPCA on the full dataset would require approximation or sub-sampling (not tested).
+The serial benchmark (table in the repository; separate from the per-fold fit times of the main grid) used 4{,}800 training and 1{,}200 test records. KPCA fitting took 5.5--5.6\,s against 0.02\,s for PCA, more than 200 times as long. It raised decision-tree training from 0.07\,s with PCA to 5.3--5.6\,s and random-forest training from 0.84--0.90\,s to 6.3--6.6\,s, and made random-forest inference about five times slower (0.092--0.123\,s against 0.020--0.021\,s per 1{,}200 records). Peak traced memory of the whole pipeline was 363\,MB for KPCA against 9.8\,MB for PCA or no reduction, about 37 times. It grew roughly quadratically with $n$ (3.1\,MB at $n=400$ to 359.1\,MB at $n=4800$; log--log slope 1.9), consistent with an $n\times n$ float64 kernel matrix (184\,MB at $n=4800$). By arithmetic, not measurement, a dense float64 kernel matrix for all 2{,}830{,}743 source flows would need about 64\,TB, so exact KPCA on the full data needs approximation or sub-sampling (not tested).
 
 
 
@@ -215,7 +216,7 @@ Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side.
 
 
 \begin{figure}[!htbp]\centering
-\includegraphics[width=0.78\textwidth]{figures/fig11_accuracy_comparison.pdf}
+\includegraphics[width=0.7\textwidth]{figures/fig11_accuracy_comparison.pdf}
 \caption{Accuracy reported by recent studies versus this work. The horizontal axis starts at 95\,\%. Datasets, sampling designs and evaluation splits differ, so the bars are not a like-for-like ranking.}\label{fig:cmp}
 \end{figure}
 
@@ -229,7 +230,7 @@ Fig.~\ref{fig:cmp} and Table~\ref{tab:lit} put reported accuracies side by side.
 \section{Threats to Validity and Limitations}
 The conclusions should be read with the following limitations in mind.
 
-\textbf{1. Sample, not full data.} All results come from \emph{one} stratified sample of 6{,}000 records out of 2.5\,M de-duplicated flows (0.24\,\%), because exact KPCA is quadratic in memory. The sample has a floor of 100 records per class and is \emph{not} prevalence-preserving: attack classes are over-represented, so accuracy, macro-F1 and class priors do not describe deployment-time prevalence. Heartbleed (11 records), SQL injection (21) and infiltration (36) are complete but tiny, so their per-class estimates are very uncertain, and another random sample could change rankings that differ by a few points.
+\textbf{1. Sample, not full data.} All results come from \emph{one} stratified sample of 6{,}000 records out of 2.5\,M de-duplicated flows (0.24\,\%) and the pipeline was run on a single sampling seed, not repeated over several samples, because exact KPCA is quadratic in memory. The sample has a floor of 100 records per class and is \emph{not} prevalence-preserving: attack classes are over-represented, so accuracy, macro-F1 and class priors do not describe deployment-time prevalence. Heartbleed (11 records), SQL injection (21) and infiltration (36) are complete but tiny, so their per-class estimates are very uncertain, and another random sample could change rankings that differ by a few points.
 
 \textbf{2. Leakage status.} Sampling was performed on the raw, un-imputed data, and imputation, scaling and reduction are fitted inside each training fold. Remaining possible leakage channels were \emph{not} eliminated: records from the same attack session or burst can still fall into both training and test folds in the random 5-fold design, and near-duplicate (not exact-duplicate) flows are not removed. The row-order checks reduce but do not remove this concern, and they rest on the unproven assumption that row order follows capture time.
 
@@ -243,16 +244,16 @@ The conclusions should be read with the following limitations in mind.
 
 
 
-We propose no new algorithm and make no claim of state-of-the-art, real-time or production-ready performance, or of generalization beyond this sample. The finding we can support is narrower. On this sample, original features were at least as good as PCA or KPCA for four of five classifiers. The one exception largely vanished with tuning. And accuracy hid a systematic failure on web attacks.
+We propose no new algorithm and claim no state-of-the-art, real-time or production-ready performance, or generalization beyond this sample. On this sample, original features were at least as good as PCA or KPCA for four of five classifiers. The one exception largely vanished with tuning. And accuracy hid a systematic failure on web attacks.
 
 \section{Conclusion}
 We set out to learn whether PCA or KPCA improves intrusion detection over the 78 original CIC-IDS2017 features. On a class-stratified sample of 6{,}000 records, it mostly did not. A random forest on the original features scored highest (macro-F1 $0.901\pm0.020$; accuracy $0.972\pm0.004$; $0.900\pm0.022$ with nested selection). Reduction to 5--30 components was clearly worse for the decision tree and random forest, and at best practically equal for logistic regression (30 components) and $k$-NN (RQ1, RQ2). Only the RBF-SVM benefited, from cosine KPCA, and that advantage shrank from 0.076 to 0.021 after tuning. Linear KPCA coincided with PCA, and for LR and SVM the number of components mattered more than the kernel (RQ3). At 4{,}800 records KPCA needed more than 200 times the reducer fit time of PCA and about 37 times the traced memory (RQ4). The ranking held across repeated folds, nested selection, tuning and the two row-order checks, which assume row order follows capture time (RQ5). Accuracy hid weak detection of web brute force and XSS (F1 0.53 and 0.59). These findings apply only to this sample of CIC-IDS2017.
 
-\textbf{Future work.} Repeat the pipeline over several sampling seeds and larger samples with an approximate KPCA; add cross-dataset evaluation; widen the tuning grids and tune the KPCA kernel parameters; test the corrected CIC-IDS2017 release \cite{engelen2021}; and evaluate session-grouped splits.
+\textbf{Future work.} Repeat the pipeline over several sampling seeds and larger samples with an approximate KPCA; add cross-dataset evaluation; widen the tuning grids; test the corrected CIC-IDS2017 release \cite{engelen2021}; and evaluate session-grouped splits.
 
 
 \section*{Data and Code Availability}
-The raw CIC-IDS2017 MachineLearningCVE files are distributed by the dataset provider \cite{sharafaldin2018} and are not redistributed here. The sampling script and manifest, all experiment, analysis and claim-checking code, per-fold results, tables and figures are available at \ifdefined\BLIND a repository whose link is withheld for anonymous review\else[REPOSITORY URL / ARCHIVE DOI - TO BE FILLED BY THE AUTHORS]\fi.
+The raw CIC-IDS2017 MachineLearningCVE files are distributed by the dataset provider \cite{sharafaldin2018} and are not redistributed here. The sampling script and manifest, all experiment, analysis and claim-checking code, per-fold results, tables and figures are kept in the authors' working repository; a public archive link will be added at camera-ready.
 
 
 \section*{Acknowledgments and AI-assistance disclosure}

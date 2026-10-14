@@ -24,3 +24,11 @@ Done by: smaller figures 2/3/4 (0.6/0.72/0.78 text width), tighter float spacing
 Table 1: accuracy 99.9965 %; F1 99.987 %. Fig. 4 plots 99.9965. Caption no longer mentions a 'lower of two values'. Section 5.9 rewritten. Kuang DOI added. Rebuilt: authored and blind PDFs both 15 pages.
 
 14 Oct: Section 5.9 range sentence now refers to external studies only (Fig. 4); Fig. 4 caption no longer lists 'metrics' as differing (all bars are accuracy).
+
+## authored_3 audit fixes (applied)
+- Repository text removed from keywords; Data & Code Availability now states code is in the authors' working repository, public archive link to be added at camera-ready (the `research-ieee` branch is not pushed).
+- Chavan & Alone: Table 4 reports RF 97.20 % (80/20 split); stated as not directly comparable.
+- Table 1 and Fig. 1 floats moved so no sentence is split.
+- Nested LR wording separated into effect size, unadjusted p, exploratory caveat.
+- One-sampling-seed limitation restored; benchmark vs per-fold timing clarified; Patil label "PCA, 20 features (authors' label: feature selection)".
+- Both variants 15 pages, 0 undefined references.
