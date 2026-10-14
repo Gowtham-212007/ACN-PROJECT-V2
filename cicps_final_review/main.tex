@@ -97,7 +97,20 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 \mathrm{MCC}=\frac{c\,s-\sum_k p_kt_k}{\sqrt{s^{2}-\sum_k p_k^{2}}\,\sqrt{s^{2}-\sum_k t_k^{2}}}.
 \end{equation}
 
-\begin{algorithm}[!b]
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=0.8\textwidth]{figures/fig1_pipeline.pdf}
+\caption{Experimental pipeline. All data-dependent preprocessing and reduction is fitted on the training fold only.}\label{fig:pipe}
+\end{figure}
+
+
+
+\textbf{Classifiers.} Logistic regression (L2, lbfgs), $k$-NN with $k=5$ \cite{cover1967}, an SVM with RBF kernel, $C=1$ and $\gamma$=``scale'' \cite{cortes1995}, a decision tree with entropy criterion \cite{quinlan1986}, and a random forest with 100 trees \cite{breiman2001}, using scikit-learn \cite{pedregosa2011}. The main grid uses these fixed default settings; a separate nested search (below) tests whether tuning changes the conclusions. Each classifier except $k$-NN is also run with \texttt{class\_weight=balanced}. A majority-class classifier is the trivial baseline. Resampling (e.g.\ SMOTE) is not used: Heartbleed has only 8--9 training records per fold, too few for meaningful synthetic interpolation.
+
+\textbf{Validation.} Repeated stratified 5-fold cross-validation, 3 repeats (15 folds), seed 42; every method sees identical folds, giving paired observations. Test folds hold about 2 Heartbleed and 4 SQL-injection records, so per-class estimates for these classes are noisy; we report means and standard deviations over the 15 folds.
+
+\begin{algorithm}[!t]
 \caption{Fold-wise evaluation of one feature space $S$ and classifier $f$}\label{alg:cv}
 \begin{algorithmic}[1]
 \Require sample $(X,y)$ of 6,000 records; space $S\in\{$original, PCA, KPCA$(k,n)\}$; classifier $f$; 3 repeats of stratified 5-fold CV (seed 42)
@@ -115,17 +128,6 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 \State \Return mean $\pm$ std over the 15 folds (nested selection repeats this inside each outer training set with 3 inner folds)
 \end{algorithmic}
 \end{algorithm}
-
-\begin{figure}[!htbp]\centering
-\includegraphics[width=0.8\textwidth]{figures/fig1_pipeline.pdf}
-\caption{Experimental pipeline. All data-dependent preprocessing and reduction is fitted on the training fold only.}\label{fig:pipe}
-\end{figure}
-
-
-
-\textbf{Classifiers.} Logistic regression (L2, lbfgs), $k$-NN with $k=5$ \cite{cover1967}, an SVM with RBF kernel, $C=1$ and $\gamma$=``scale'' \cite{cortes1995}, a decision tree with entropy criterion \cite{quinlan1986}, and a random forest with 100 trees \cite{breiman2001}, using scikit-learn \cite{pedregosa2011}. The main grid uses these fixed default settings; a separate nested search (below) tests whether tuning changes the conclusions. Each classifier except $k$-NN is also run with \texttt{class\_weight=balanced}. A majority-class classifier is the trivial baseline. Resampling (e.g.\ SMOTE) is not used: Heartbleed has only 8--9 training records per fold, too few for meaningful synthetic interpolation.
-
-\textbf{Validation.} Repeated stratified 5-fold cross-validation, 3 repeats (15 folds), seed 42; every method sees identical folds, giving paired observations. Test folds hold about 2 Heartbleed and 4 SQL-injection records, so per-class estimates for these classes are noisy; we report means and standard deviations over the 15 folds.
 
 \textbf{Nested cross-validation for selection.} Picking the best of 189 configurations (21 feature spaces $\times$ 9 classifier and weighting variants) on the same folds that score it flatters the winner. To measure this, selection is nested: inside each of the 15 outer training sets (4{,}800 records) a stratified 3-fold inner cross-validation scores every configuration by macro-F1. The inner winner is then scored once, on the outer test fold it never saw. We run this for (A) the global choice and, for each classifier, for (C) the best \emph{reduced} space with weighting versus (D) the original space with weighting chosen the same way.
 
