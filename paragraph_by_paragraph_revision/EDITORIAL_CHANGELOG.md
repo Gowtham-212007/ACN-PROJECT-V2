@@ -38,3 +38,5 @@ Rephrased ~11 sentences (introduction opening and problem statement, per-class g
 - Known cosmetic: blank space at the bottom of pp. 9 and 12 from float placement.
 
 ## 14 Oct 2026 - author fields emptied (title page, institute, even-page running header) at the author's request; add real names/affiliations before final submission unless the conference requires anonymous review.
+
+## 14 Oct 2026 - running titles emptied (page numbers only); an empty \titlerunning triggers llncs' default 'Title Suppressed' text, so ~ is used.
