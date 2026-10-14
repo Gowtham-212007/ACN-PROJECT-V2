@@ -18,3 +18,10 @@ Not changed: equations, tables' numbers, figures, bibliography, experimental dat
 
 ## 14 Oct 2026 – voice pass
 Rephrased ~11 sentences (introduction opening and problem statement, per-class gap sentence, "why accuracy misleads", hypothesis (i), limitations lead-in, scope statement, conclusion opening/closing, two results phrasings) for natural flow. Numbers, citations, equations and limitations unchanged. Not a detector-evasion exercise; the AI-assistance disclosure is retained and no detector score is claimed. Remaining sentences were already rewritten in earlier plain-language passes.
+
+## 14 Oct 2026 (second external audit)
+- Statistics: the 30 comparisons are defined (6 per classifier x 5; checked against results/v2/tables/stat_wilcoxon.csv: orig vs pca-10, rbf-10, cosine-10; pca-10 vs linear-10, rbf-10, cosine-10). Linear KPCA is compared with PCA only because it reproduces PCA.
+- Table 3 caption: macro-F1 given as mean +- std; accuracy as mean.
+- Emirmahmutoglu & Atay row: "99.987 % (results) / 99.9965 % (conclusion); source inconsistent" (as reported by the external reviewer; not independently confirmed).
+- Removed the mention of RUN_EXPERIMENTS.md and shortened the Setup sentence to hold 16 pages.
+- humanize.ai not used: it is a paraphraser aimed at detectors, and the unpublished manuscript was not uploaded to third parties.

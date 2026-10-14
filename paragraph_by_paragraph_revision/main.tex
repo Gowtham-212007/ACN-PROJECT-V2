@@ -55,7 +55,7 @@ Waghmode et al.\ \cite{waghmode2025} (2025) & Intrusion detection system based o
 Patil et al.\ \cite{patil2025} (2025) & Optimizing network intrusion detection systems through ensemble learning and feature selection using the CIC-IDS2017 dataset & Bagging and boosting ensembles; information gain, chi-square, PCA-based feature selection (20 features) & CIC-IDS2017, stratified 70/30 split & Accuracy 99.98\,\% (Extra Trees, 24 features); 99.58--99.96\,\% with PCA-based selection \\
 Abdelaziz et al.\ \cite{abdelaziz2025} (2025) & Enhancing network threat detection with random forest-based NIDS and permutation feature importance & Random forest, permutation importance, undersampling; repeated stratified 5-fold CV & CIC-IDS2017 & Weighted-F1 99.8\,\%, macro-F1 93.31\,\% (26 features) \\
 Xu and Liu \cite{xu2025} (2025) & Robust anomaly detection in network traffic: evaluating machine learning models on CICIDS2017 & MLP, 1D-CNN, one-class SVM, LOF & CICIDS2017 & Accuracy 97.75\,\% (MLP, overall test set) \\
-Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selection-driven machine learning framework for anomaly-based intrusion detection systems & PSO/FPA/DE feature selection; LR, DT, RF, k-NN and others & KDD CUP 99, NSL-KDD, UNSW-NB15, CSE-CIC-IDS2018 & Accuracy 99.987--99.9965\,\% (source gives both; FPA, RF, CSE-CIC-IDS2018) \\
+Emirmahmuto\u{g}lu and Atay \cite{emirmahmutoglu2025} (2025) & A feature selection-driven machine learning framework for anomaly-based intrusion detection systems & PSO/FPA/DE feature selection; LR, DT, RF, k-NN and others & KDD CUP 99, NSL-KDD, UNSW-NB15, CSE-CIC-IDS2018 & 99.987\,\% (results) / 99.9965\,\% (conclusion); source inconsistent (FPA, RF) \\
 \midrule
 \textbf{This work} (2026) & (this paper) & Original features vs PCA vs linear/RBF/cosine KPCA; LR, k-NN, SVM, DT, RF & CIC-IDS2017, 6,000-record class-stratified sample & RF (original): accuracy 97.2\,\%, macro-F1 90.1\,\% \\
 \bottomrule
@@ -123,11 +123,11 @@ and balanced accuracy equals macro-recall. The multi-class MCC from the confusio
 
 \textbf{Metrics.} Accuracy; macro-precision, macro-recall and macro-F1; weighted-F1; balanced accuracy; and the multi-class Matthews correlation coefficient (MCC) as implemented in scikit-learn (Chicco and Jurman argue for MCC in the binary case \cite{chicco2020}). \textbf{Macro-F1 is the primary model-selection criterion}, chosen before the runs because it weights all 15 classes equally. Per-class results and the confusion matrix use pooled out-of-fold predictions of the first repeat.
 
-\textbf{Statistics.} Per classifier we compare feature spaces at matched $n=10$ with two-sided Wilcoxon signed-rank tests on the 15 paired macro-F1 values, Holm-corrected over 30 comparisons, with the rank-biserial correlation $r$ as effect size, and Friedman omnibus tests, following the non-parametric procedures of Dem\v{s}ar \cite{demsar2006} (written for several data sets; here the blocks are folds of one sample). Because folds share training data, the 15 differences are positively correlated and naive $p$-values are too liberal \cite{nadeau2003}; we do not apply the Nadeau--Bengio correction and use the tests for screening, not as proof. Comparisons against each classifier's \emph{best} reduced space are selected on the same folds, which favours the reduced space; the nested analysis addresses this bias by scoring the selection on unseen outer folds.
+\textbf{Statistics.} Per classifier we compare feature spaces at matched $n=10$ with two-sided Wilcoxon signed-rank tests on the 15 paired macro-F1 values, Holm-corrected over 30 comparisons (six per classifier: original vs PCA, RBF- and cosine-KPCA; PCA vs linear-, RBF- and cosine-KPCA; linear KPCA is not compared with the original because it reproduces PCA), with the rank-biserial correlation $r$ as effect size, and Friedman omnibus tests, following the non-parametric procedures of Dem\v{s}ar \cite{demsar2006} (written for several data sets; here the blocks are folds of one sample). Because folds share training data, the 15 differences are positively correlated and naive $p$-values are too liberal \cite{nadeau2003}; we do not apply the Nadeau--Bengio correction and use the tests for screening, not as proof. Comparisons against each classifier's \emph{best} reduced space are selected on the same folds, which favours the reduced space; the nested analysis addresses this bias by scoring the selection on unseen outer folds.
 
 \textbf{Cost.} A serial benchmark (no parallel workers) records training and inference time (median of 5 repetitions, one fold split) and peak memory from Python's \texttt{tracemalloc}, measured in a separate pass. Native allocations inside compiled code are not traced, so memory figures are lower bounds most reliable for comparing reducers.
 
-\textbf{Setup.} A 2-vCPU, 7\,GB VM (Python 3.13, scikit-learn 1.9) ran the main grid (2{,}850 classifier fits: 190 configurations $\times$ 15 folds, including the majority-class baseline; about 28 min), nested CV (about 64 min) and tuning (about 16 min).
+\textbf{Setup.} A 2-vCPU, 7\,GB VM (Python 3.13, scikit-learn 1.9) ran the main grid (2{,}850 fits = 190 configurations incl. the majority-class baseline $\times$ 15 folds; about 28 min), nested CV (about 64 min) and tuning (about 16 min).
 
 \section{Results}
 \subsection{Original-feature baseline and the cost of reading accuracy alone}
@@ -149,7 +149,7 @@ Table~\ref{tab:n10} and Fig.~\ref{fig:all} compare the feature spaces at $n=10$.
 A stricter question is whether each classifier's \emph{best} reduced space matches the original (table in the repository). These best spaces were picked on the same folds, which favours reduction. For DT ($+0.070$) and RF ($+0.056$) the original features were still better, in all 15 folds ($p_\mathrm{Holm}=0.0003$ for both). For logistic regression the best reduced space (PCA, 30 components) came within 0.004 ($p_\mathrm{Holm}=0.021$, significant but negligible), and for $k$-NN there was no difference. The SVM is the one case where reduction helped: cosine KPCA with 30 components raised macro-F1 from 0.675 to 0.746 ($p_\mathrm{Holm}=0.0003$, better in all 15 folds). That gain needs many components; at 10 components cosine KPCA scores 0.605, below the original 0.675.
 
 \begin{table}[htbp]
-\caption{Accuracy / macro-F1 ($\pm$ std over 15 folds) at 10 components (original = 78 features), standard class weights.}\label{tab:n10}
+\caption{Mean accuracy and macro-F1 at 10 components (original = 78 features); macro-F1 as mean $\pm$ std over 15 folds.}\label{tab:n10}
 \centering\scriptsize
 \resizebox{\textwidth}{!}{\input{tables/T7_cv_summary_n10.tex}}
 \end{table}
@@ -245,7 +245,7 @@ We set out to learn whether PCA or KPCA improves intrusion detection over the 78
 
 
 \section*{Data and Code Availability}
-The raw CIC-IDS2017 MachineLearningCVE files are distributed by the dataset provider \cite{sharafaldin2018} and are not redistributed here. The sampling script, the sampling manifest (file names, raw and de-duplicated class counts, seed), all experiment, analysis and claim-checking code, per-fold raw results and the generated tables and figures are available at [REPOSITORY URL / ARCHIVE DOI - TO BE FILLED BY THE AUTHORS]; the file \texttt{RUN\_EXPERIMENTS.md} lists the commands.
+The raw CIC-IDS2017 MachineLearningCVE files are distributed by the dataset provider \cite{sharafaldin2018} and are not redistributed here. The sampling script, the sampling manifest (file names, raw and de-duplicated class counts, seed), all experiment, analysis and claim-checking code, per-fold raw results and the generated tables and figures are available at [REPOSITORY URL / ARCHIVE DOI - TO BE FILLED BY THE AUTHORS].
 
 
 \section*{Acknowledgments and AI-assistance disclosure}
