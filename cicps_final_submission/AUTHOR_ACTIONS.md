@@ -5,5 +5,4 @@
 4. Confirm AI disclosure: it names Claude (Claude Code, "Claude Sonnet 5.5") and ChatGPT. The exact Claude model per phase could not be verified from here; confirm the label.
 5. Confirm "no specific funding / no competing interests".
 6. Open the Emirmahmutoglu & Atay paper's results and conclusion and confirm 99.987 % vs 99.9965 % and where each appears (accuracy vs F1).
-7. Pay INR 500 for the 16th page (or trim).
 8. Run the institution's plagiarism (<16 %) and AI (<20 %) checks on the final PDF; none was run here.

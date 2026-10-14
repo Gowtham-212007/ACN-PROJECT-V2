@@ -1,5 +1,5 @@
 # FINAL AUDIT (14 Oct 2026)
-Built from `main.tex` in this folder (copied from paragraph_by_paragraph_revision; edits below). Two PDFs: `submission_authored.pdf` (= final.pdf, author placeholders kept as the user asked) and `submission_blind.pdf` (anonymous). Both 16 pages, A4, 0 undefined references. Page count: 16 > 15 standard -> one extra page at INR 500 per the call.
+Built from `main.tex` in this folder (copied from paragraph_by_paragraph_revision; edits below). Two PDFs: `submission_authored.pdf` (= final.pdf, author placeholders kept as the user asked) and `submission_blind.pdf` (anonymous). Both 15 pages (after trimming, see below), A4, 0 undefined references. Page count: 15 = within the standard limit; no extra-page fee.
 ## Review policy
 The conference site (cicps27.gcect.ac.in) names Microsoft CMT but does not state single- or double-blind; it gives deadlines 15 Oct 2026 (submission) and 20 Dec 2026 (camera-ready). Policy NOT established -> both variants provided; check the CMT portal or conference@gcect.ac.in.
 ## Edits in this pass
@@ -16,3 +16,6 @@ The conference site (cicps27.gcect.ac.in) names Microsoft CMT but does not state
 Author names/affiliation/e-mail, repository URL, declarations confirmation, certified plagiarism/AI reports. See AUTHOR_ACTIONS.md. Status: NOT ready for submission until those are done; ready for submission after author confirmation only for the blind variant if the repository link can stay withheld.
 
 Update 14 Oct: author block, institute and running header removed from the default build at the author's request (no author fields; only the repository line remains a placeholder). Add names before camera-ready.
+
+## 15-page trim (14 Oct)
+Done by: smaller figures 2/3/4 (0.6/0.72/0.78 text width), tighter float spacing, bibliography in the template's small size unchanged, shorter Discussion RQ paragraph (same content), dropped the middle memory values (3.1 ... 359.1 MB kept as endpoints), removed three duplicated sentences (cross-study prose, external-validity sentence, imbalance-treatment sentence), shortened disclosure/availability wording, removed the anonymous institution line from the blind variant. No empirical number, table or caveat changed. Sentence splits (8 sentences) also applied. Whether the organisers count references within 15 pages is not stated; the PDF is 15 pages in total.
