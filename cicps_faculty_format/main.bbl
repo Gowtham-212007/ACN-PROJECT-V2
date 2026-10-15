@@ -1,0 +1,127 @@
+\begin{thebibliography}{10}
+
+\bibitem{pramana}
+Muhamad Rafdi~Rostiadhi Pramana, Aji~Gautama Putrada, and Ryan~Lingga
+  Wicaksono.
+\newblock {Data Leakage Exploration on CICIDS2017 Dataset with SHAP-FSA and
+  Ridge-XGBoost}.
+\newblock In {\em 2026 International Conference on Advancement in Data Science,
+  E-learning and Information System (ICADEIS)}, pages 1--6, 2026.
+\newblock doi:10.1109/icadeis71120.2026.11644518.
+
+\bibitem{qin}
+Haoyang Qin.
+\newblock {Intrusion Detection on CIC-IDS-2017 Using Random Forest with Top-20
+  Flow Features and Fuzzy Rule Integration}.
+\newblock In {\em 2025 5th International Conference on Network Communication
+  and Information Security (ICNCIS)}, pages 100--105, 2025.
+\newblock doi:10.1109/icncis67521.2025.11296040.
+
+\bibitem{patilj}
+Nishit Patil and Shubhlaxmi Joshi.
+\newblock {Network Intrusion Detection Using Modified Attention-Enabled
+  Optimized Deep Learning Framework}.
+\newblock In {\em 2025 International Conference on Emerging Information
+  Technology and Engineering Solutions (EITES)}, pages 27--32, 2025.
+\newblock doi:10.1109/eites66543.2025.00014.
+
+\bibitem{ahuja}
+Bharti Ahuja and Nitika~Vats Doohan.
+\newblock {Comparative Evaluation of Machine Learning Models for Intrusion
+  Detection on the CIC-IDS Dataset}.
+\newblock In {\em 2025 IEEE 5th International Conference on ICT in Business
+  Industry \\& Government (ICTBIG)}, pages 1--6, 2025.
+\newblock doi:10.1109/ictbig68706.2025.11323800.
+
+\bibitem{amin}
+Sana~Firoz Amin and Ajay~D. Jadhav.
+\newblock {Optimizing Network Intrusion Detection with SMOTE-Based Random
+  Forest: A Case Study on CICIDS2017}.
+\newblock In {\em 2025 IEEE 4th International Conference for Advancement in
+  Technology (ICONAT)}, pages 1--6, 2025.
+\newblock doi:10.1109/iconat66879.2025.11362473.
+
+\bibitem{mosally}
+Amer Mosally.
+\newblock {Improving Intrusion Detection System Accuracy Through PCA-Based
+  Feature Reduction and Machine Learning Techniques}.
+\newblock In {\em 2025 International Conference on Cybersecurity and AI-Based
+  Systems (Cyber-AI)}, pages 198--203, 2025.
+\newblock doi:10.1109/cyber-ai66431.2025.11233429.
+
+\bibitem{zhang}
+Zhiqing Zhang, Hao Chen, and Jiahao Shen.
+\newblock {Applying Machine Learning Combined with Dimensionality Reduction to
+  Enhance Intrusion Detection Systems}.
+\newblock In {\em 2025 2nd International Conference on Intelligent Computing
+  and Robotics (ICICR)}, pages 717--725, 2025.
+\newblock doi:10.1109/icicr65456.2025.00129.
+
+\bibitem{vank}
+Sahiti Vankayalapati, Vudukula Vineet, Ummadi Sri~Sai Sthuthi, and
+  Akkineni~Naga Svabhu.
+\newblock {Intrusion Detection in Networks using Random Forest Algorithm}.
+\newblock In {\em 2026 4th International Conference on Integrated Circuits and
+  Communication Systems (ICICACS)}, pages 1--8, 2026.
+\newblock doi:10.1109/icicacs68679.2026.11578848.
+
+\bibitem{gp}
+Guru Vedesh~K. P, Divya P, Karthick~Sriram M, and Mallika S.
+\newblock {Benchmarking Explainable AI Architectures for Network Intrusion
+  Detection on CICIDS2017}.
+\newblock In {\em 2026 5th International Conference on Sentiment Analysis and
+  Deep Learning (ICSADL)}, pages 1299--1303, 2026.
+\newblock doi:10.1109/icsadl67539.2026.11451878.
+
+\bibitem{sharma}
+Vikrant Sharma and Mukesh Kumar.
+\newblock {Intrusion Detection System for Cybersecurity Using Supervised and
+  Unsupervised Models on CIC-IDS2017}.
+\newblock In {\em 2025 IEEE International Conference on Innovate for
+  Humanitarian: Tech Solutions for Global Challenge (ICIH)}, pages 1--7, 2025.
+\newblock doi:10.1109/icih67754.2025.11609046.
+
+\bibitem{darmono}
+Darmono, Rujianto~Eko Saputro, and Azhari~Shouni Barkah.
+\newblock {Imbalanced Multiclass Intrusion Detection on Cicids2017 Under Low
+  False-Positive Constraints: Tstr-Selected Synthetic Augmentation with Model
+  Benchmarking}.
+\newblock In {\em 2026 International Conference on Current Research in
+  Artificial Intelligence and Data Science (ICCRAIDS)}, pages 1--6, 2026.
+\newblock doi:10.1109/iccraids67816.2026.11519701.
+
+\bibitem{xu}
+Zhaoyang Xu and Yunbo Liu.
+\newblock {Robust Anomaly Detection in Network Traffic: Evaluating Machine
+  Learning Models on CICIDS2017}.
+\newblock In {\em 2025 10th International Conference on Electronic Technology
+  and Information Science (ICETIS)}, pages 475--482, 2025.
+\newblock doi:10.1109/icetis66286.2025.11144025.
+
+\bibitem{jiwueze}
+Bright Jiwueze and Cihan Varol.
+\newblock {A Comparative Study of Intrusion Detection Performance on
+  CIC-IDS-2017 and BCCC-CIC-IDS-2017}.
+\newblock In {\em 2026 IEEE 12th International Conference on Intelligent Data
+  and Security (IDS)}, pages 96--98, 2026.
+\newblock doi:10.1109/ids69480.2026.00027.
+
+\bibitem{mohsin}
+Ali Mohsin, Muhammad~Zunurain Hussain, Kabeer Ahmad, Muhammad~Zulkifl Hasan,
+  Fatima Ahmad, and Iqra Azam.
+\newblock {Scalable Network Intrusion Detection via Advanced Feature
+  Engineering and Correlation Analysis on the CICIDS2017 Dataset}.
+\newblock In {\em 2026 International Conference on Data Science, Machine
+  Learning, and Intelligence (DataSciMI)}, pages 1--6, 2026.
+\newblock doi:10.1109/datascimi67380.2026.11523882.
+
+\bibitem{bandar}
+Gopichand Bandarupalli.
+\newblock {Efficient Deep Neural Network for Intrusion Detection Using
+  CIC-IDS-2017 Dataset}.
+\newblock In {\em 2025 First International Conference on Advances in Computer
+  Science, Electrical, Electronics, and Communication Technologies (CE2CT)},
+  pages 476--480, 2025.
+\newblock doi:10.1109/ce2ct64011.2025.10940012.
+
+\end{thebibliography}
