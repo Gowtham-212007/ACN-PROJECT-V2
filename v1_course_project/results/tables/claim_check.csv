@@ -1,0 +1,105 @@
+claim,recomputed,stated,tol,ok
+RF orig accuracy mean,0.9523,0.952,0.0006,True
+RF orig f1_macro mean,0.7224,0.722,0.0006,True
+RF orig mcc mean,0.894,0.894,0.0006,True
+RF orig f1_weighted mean,0.9469,0.947,0.0006,True
+RF orig balanced_accuracy mean,0.7171,0.717,0.0006,True
+RF orig accuracy sd,0.0096,0.01,0.0006,True
+RF orig macro-F1 sd,0.0577,0.058,0.0006,True
+RF orig MCC sd,0.0215,0.022,0.0006,True
+majority accuracy,0.718,0.718,0.0006,True
+majority macro-F1,0.076,0.076,0.0006,True
+majority MCC,0.0,0.0,1e-09,True
+best config is orig|RF|none (1=yes),1.0,1.0,0.0,True
+SVM orig macro-F1,0.3876,0.388,0.0006,True
+SVM cosine-30 macro-F1,0.5095,0.51,0.0006,True
+SVM orig+balanced macro-F1,0.5457,0.546,0.0006,True
+fold SD of macro-F1 min over 5 clfs (orig),0.0374,0.037,0.0006,True
+fold SD of macro-F1 max over 5 clfs (orig),0.0743,0.074,0.0006,True
+"max |PCA - linear KPCA| macro-F1, standard weights, all n",0.0103,0.0103,6e-05,True
+"max |PCA - linear KPCA| macro-F1, all weights, all n",0.0142,0.0142,6e-05,True
+max |PCA - linear KPCA| for LR (paper: <=0.001),0.0008,0.0005,0.0005,True
+max |PCA - linear KPCA| for KNN (paper: <=0.001),0.0,0.0005,0.0005,True
+max |PCA - linear KPCA| for SVM (paper: <=0.001),0.0,0.0005,0.0005,True
+"LR: kernel spread > component spread (1=yes; paper: KNN,DT,RF yes; LR,SVM no)",0.0,0.0,0.0,True
+"KNN: kernel spread > component spread (1=yes; paper: KNN,DT,RF yes; LR,SVM no)",1.0,1.0,0.0,True
+"SVM: kernel spread > component spread (1=yes; paper: KNN,DT,RF yes; LR,SVM no)",0.0,0.0,0.0,True
+"DT: kernel spread > component spread (1=yes; paper: KNN,DT,RF yes; LR,SVM no)",1.0,1.0,0.0,True
+"RF: kernel spread > component spread (1=yes; paper: KNN,DT,RF yes; LR,SVM no)",1.0,1.0,0.0,True
+LR PCA-5 macro-F1,0.2802,0.28,0.005,True
+LR PCA-30 macro-F1,0.5688,0.57,0.005,True
+LR orig macro-F1,0.6119,0.61,0.005,True
+LR orig balanced_accuracy none,0.6376,0.638,0.0006,True
+LR orig balanced_accuracy balanced,0.7784,0.778,0.0006,True
+SVM orig balanced_accuracy none,0.3583,0.358,0.0006,True
+SVM orig balanced_accuracy balanced,0.7204,0.72,0.0006,True
+LR orig f1_macro none,0.6119,0.612,0.0006,True
+LR orig f1_macro balanced,0.63,0.63,0.0006,True
+SVM orig f1_macro none,0.3876,0.388,0.0006,True
+SVM orig f1_macro balanced,0.5457,0.546,0.0006,True
+DT orig f1_macro none,0.7131,0.713,0.0006,True
+DT orig f1_macro balanced,0.7018,0.702,0.0006,True
+RF orig f1_macro none,0.7224,0.722,0.0006,True
+RF orig f1_macro balanced,0.6868,0.687,0.0006,True
+number of Wilcoxon comparisons,30.0,30.0,0.0,True
+significant after Holm,17.0,17.0,0.0,True
+sig. comparisons with orig where orig is better (all of them?),1.0,1.0,0.0,True
+"RBF sig. worse than PCA: LR,SVM,DT,RF all sig (count)",4.0,4.0,0.0,True
+cosine vs PCA significant classifiers (count; paper: LR only),1.0,1.0,0.0,True
+cosine vs PCA significant for LR with PCA better,1.0,1.0,0.0,True
+"best-reduced LR: orig better, p_holm<0.01",1.0,1.0,0.0,True
+"best-reduced DT: orig better, p_holm<0.01",1.0,1.0,0.0,True
+"best-reduced RF: orig better, p_holm<0.01",1.0,1.0,0.0,True
+best-reduced KNN not significant,1.0,1.0,0.0,True
+best-reduced SVM p_holm,0.0003,0.0003,5e-05,True
+best-reduced SVM effect r (-1 = reduced better in all 15 folds),-1.0,-1.0,0.0,True
+web-attack F1 min,0.2105,0.21,0.005,True
+web-attack F1 max,0.5,0.5,0.005,True
+web-attack support max,11.0,11.0,0.0,True
+slow-DoS recall min,0.5714,0.57,0.005,True
+slow-DoS recall max,0.7143,0.71,0.005,True
+"F1>=0.96 for BENIGN,Hulk,FTP,SSH,Heartbleed (min)",0.9636,0.96,0.005,True
+benign share,0.718,0.718,0.0006,True
+attack classes with 10-17 records (count; paper: nine of ten),9.0,9.0,0.0,True
+"attack classes with <=17 records, excl. Hulk (count; paper: nine of ten)",9.0,9.0,0.0,True
+PCA reducer fit s,0.0095,0.01,0.003,True
+KPCA reducer fit min,0.0908,0.09,0.005,True
+KPCA reducer fit max,0.1188,0.12,0.005,True
+KPCA/PCA fit-time ratio (paper: roughly tenfold),10.982,10.0,3.0,True
+RF train KPCA min,0.3588,0.36,0.005,True
+RF train KPCA max,0.375,0.38,0.006,True
+RF train PCA,0.2084,0.21,0.006,True
+DT train PCA,0.0156,0.016,0.0006,True
+DT train KPCA min,0.0855,0.09,0.006,True
+DT train KPCA max,0.0999,0.1,0.0006,True
+RF infer PCA,0.007,0.007,0.0006,True
+RF infer KPCA min,0.0141,0.014,0.0006,True
+RF infer KPCA max,0.0164,0.016,0.0006,True
+peak mem KPCA MB,11.7499,11.7,0.1,True
+peak mem orig MB,1.6865,1.7,0.1,True
+memory ratio (paper: sevenfold),6.9672,7.0,0.3,True
+KPCA scaling memory n=400,3.0753,3.1,0.06,True
+KPCA scaling memory n=600,6.4414,6.4,0.06,True
+KPCA scaling memory n=800,11.0282,11.0,0.06,True
+KPCA scaling memory n=1000,16.8357,16.8,0.06,True
+"log-log memory slope 400->1000 (paper: ~quadratic, 2)",1.8554,2.0,0.25,True
+"THEORETICAL dense float64 kernel matrix, 1,308,978 flows, TB (decimal)",13.7074,14.0,0.5,True
+"orig highest mean macro-F1 at every size for LR,SVM,DT,RF",1.0,1.0,0.0,True
+nested overall macro-F1,0.7147,0.715,0.0006,True
+nested overall sd,0.0436,0.044,0.0006,True
+nested overall accuracy,0.9453,0.945,0.0006,True
+nested overall MCC,0.88,0.88,0.0006,True
+selection optimism (same-CV max - nested),0.0076,0.008,0.0006,True
+nested: original-feature config chosen in all 15 outer folds,1.0,1.0,0.0,True
+accuracy - macro-F1 gap (RF orig),0.23,0.23,0.0006,True
+nested LR original (D),0.6193,0.619,0.0006,True
+nested LR reduced (C),0.6008,0.601,0.0006,True
+nested KNN original (D),0.6197,0.62,0.0006,True
+nested KNN reduced (C),0.6095,0.609,0.0006,True
+nested SVM original (D),0.5457,0.546,0.0006,True
+nested SVM reduced (C),0.5946,0.595,0.0006,True
+nested DT original (D),0.7057,0.706,0.0006,True
+nested DT reduced (C),0.6284,0.628,0.0006,True
+nested RF original (D),0.727,0.727,0.0006,True
+nested RF reduced (C),0.6562,0.656,0.0006,True
+same-CV LR best-reduced gap,0.0432,0.043,0.0006,True

@@ -14,6 +14,7 @@ See `RUN_EXPERIMENTS.md` for the full re-run.
 - `src/acn/`: pipeline (fold-wise imputation, scaling, PCA/KPCA, five classifiers), repeated and nested CV, tuning, row-order checks, statistics, cost benchmark, table and figure scripts, claim checker.
 - `data/sample_raw6000.npz` and `.manifest.json`: the 6,000-record class-stratified sample (seed 0, at least 100 records per class, 15 classes, 78 features) drawn from the eight CIC-IDS2017 MachineLearningCVE files after exact-duplicate removal (2,830,743 to 2,522,362 flows).
 - `results/v2/`: per-fold results, tables, statistics and figures.
+- `v1_course_project/`: the earlier 1,000-row, 45-experiment course project, archived; not used by the paper.
 - `tests/`: sanity checks. `requirements.txt`: Python 3.13, scikit-learn 1.9.
 
 ## Headline result
