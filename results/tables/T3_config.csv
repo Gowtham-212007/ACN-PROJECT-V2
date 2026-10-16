@@ -1,9 +1,0 @@
-Factor,Setting
-Validation,"Repeated stratified 5-fold CV, 3 repeats (15 folds), seed 42"
-Preprocessing,"Mean imputation + standardisation, fitted on training folds only"
-Feature spaces,"Original; PCA; Kernel PCA (linear, RBF, cosine)"
-Components,"5, 10, 15, 20, 30"
-Classifiers,"LR, 5-NN, SVM (RBF, C=1), DT (entropy), RF (100 trees); fixed hyper-parameters"
-Class handling,Standard vs class\_weight=balanced (not for k-NN)
-Primary metric,Macro-F1 (mean over folds)
-Baseline,Majority-class classifier
