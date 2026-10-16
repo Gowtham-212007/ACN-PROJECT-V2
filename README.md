@@ -1,6 +1,6 @@
 # ACN-PROJECT-V2: PCA and Kernel PCA versus original features for intrusion detection (CIC-IDS2017)
 
-Code, data sample and results behind the paper "Does Dimensionality Reduction Help Classical Intrusion Detection? Original Features versus PCA and Kernel PCA on a Class-Stratified CIC-IDS2017 Sample".
+Code, data sample and results behind the paper "An Experimental Evaluation of Classification Algorithms for Intrusion Detection Systems".
 
 ## Verify the paper
 ```bash
